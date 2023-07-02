@@ -222,7 +222,7 @@ html p a:hover {
 body {
 	-webkit-text-size-adjust: none;
 	-webkit-font-smoothing: subpixel-antialiased;
-	font-size: 14px;
+	font-size: 16px;
 	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 	line-height: 1.625;
 	font-weight: 400;
@@ -10670,7 +10670,7 @@ h4 + .owl-carousel {
 }
 
 .rd-navbar-fixed .rd-navbar-nav > li > a {
-	font-size: 12px;
+	font-size: 18px;
 	line-height: 1.5;
 }
 
