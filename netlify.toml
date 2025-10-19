@@ -12,10 +12,11 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/blog"
-  to = "/blog/"
-  status = 301
+# Don't redirect /blog to /blog/ - let it serve naturally
+# [[redirects]]
+#   from = "/blog"
+#   to = "/blog/"
+#   status = 301
 
 # Catch any blog-related queries
 [[redirects]]
