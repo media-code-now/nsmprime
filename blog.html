@@ -2,14 +2,34 @@
 <html class="wide wow-animation" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Digital Marketing Blog | SEO Tips & Web Development Insights - NSM Prime</title>
-    <meta name="description" content="Stay ahead with NSM Prime's digital marketing blog. Expert insights on SEO strategies, web development trends, social media marketing, PPC tips, and industry best practices.">
-    <meta name="keywords" content="digital marketing blog, SEO tips, web development insights, social media marketing, PPC strategies, marketing trends, NSM Prime blog">
+    <title>Digital Marketing Blog Hub | Expert Insights & Strategies - NSM Prime</title>
+    <meta name="description" content="Your complete digital marketing knowledge hub. Discover expert SEO tips, web development insights, PPC strategies, and social media trends from Las Vegas industry leaders.">
+    <meta name="keywords" content="digital marketing blog hub, SEO insights, web development tutorials, PPC strategies, social media tips, content marketing, Las Vegas marketing blog">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
     <link rel="canonical" href="https://nsmprime.com/blog.html">
+    
+    <!-- Structured Data for Blog Hub -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "NSM Prime Digital Marketing Blog",
+      "description": "Expert digital marketing insights, SEO strategies, and web development tips from Las Vegas industry professionals",
+      "url": "https://nsmprime.com/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "NSM Prime Media Group",
+        "url": "https://nsmprime.com"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nsmprime.com/blog.html"
+      }
+    }
+    </script>
   <link rel="icon" href="images/favicon.png" type="image/x-icon">
     <!-- Stylesheets-->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,600;0,800;1,800&amp;family=Open+Sans:ital,wght@0,300;0,400;1,400&amp;display=swap">
@@ -152,16 +172,49 @@
         </div>
       </header>
       
-      <!-- Parallax header-->
+      <!-- Blog Hub Hero Section -->
       <section class="section parallax-container context-dark" data-parallax-img="images/parallax-2.jpg">
         <div class="parallax-content parallax-header">
           <div class="parallax-header__inner context-dark">
             <div class="parallax-header__content">
               <div class="container">
                 <div class="row justify-content-sm-center">
-                  <div class="col-md-10 col-xl-8">
-                    <h2 class="heading-decorated">Digital Marketing Blog</h2>
-                    <p class="lead">Stay ahead with the latest insights, tips, and strategies in digital marketing, SEO, web development, and online business growth.</p>
+                  <div class="col-md-10 col-xl-8 text-center">
+                    <h1 class="heading-decorated">Digital Marketing Knowledge Hub</h1>
+                    <p class="lead">Your complete resource for expert SEO strategies, web development insights, PPC tactics, and industry trends that drive real results.</p>
+                    
+                    <!-- Search and Filter Bar -->
+                    <div class="blog-hub-search mt-4">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                          <form class="rd-form rd-mailform form-inline" action="bat/rd-search.php" method="post">
+                            <div class="form-wrap form-wrap-validation">
+                              <div class="input-group">
+                                <input class="form-input" id="blog-search" type="text" name="search" placeholder="Search articles, guides, and insights..." data-constraints="@Required">
+                                <div class="input-group-append">
+                                  <button class="btn btn-primary" type="submit">
+                                    <span class="icon mdi mdi-magnify"></span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </form>
+                          
+                          <!-- Quick Filter Tags -->
+                          <div class="blog-filters mt-3">
+                            <div class="filter-tags d-flex flex-wrap justify-content-center">
+                              <a href="#all" class="filter-tag active" data-filter="*">All Topics</a>
+                              <a href="#seo" class="filter-tag" data-filter="seo">SEO</a>
+                              <a href="#web-dev" class="filter-tag" data-filter="web-development">Web Development</a>
+                              <a href="#ppc" class="filter-tag" data-filter="ppc">PPC & Ads</a>
+                              <a href="#social" class="filter-tag" data-filter="social-media">Social Media</a>
+                              <a href="#content" class="filter-tag" data-filter="content-marketing">Content Marketing</a>
+                              <a href="#analytics" class="filter-tag" data-filter="analytics">Analytics</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

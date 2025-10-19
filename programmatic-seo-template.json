@@ -1,0 +1,501 @@
+{
+  "programmaticSEOTemplate": {
+    "templateName": "Local SEO Las Vegas Pages",
+    "version": "1.0.0",
+    "description": "Scalable template for generating location-specific and industry-specific local SEO pages",
+    
+    "variableTokens": {
+      "location": {
+        "primary": ["Las Vegas", "Henderson", "Summerlin", "North Las Vegas", "Spring Valley", "Paradise", "Enterprise", "Sunrise Manor", "Whitney", "Winchester"],
+        "secondary": ["Downtown Las Vegas", "The Strip", "Fremont Street", "Arts District", "Chinatown", "Westside", "Eastside", "Southwest Las Vegas", "Northwest Las Vegas"],
+        "zipCodes": ["89101", "89102", "89103", "89104", "89106", "89107", "89108", "89109", "89110", "89117", "89118", "89119", "89120", "89121", "89122", "89123", "89128", "89129", "89131", "89134", "89135", "89138", "89141", "89142", "89144", "89145", "89146", "89147", "89148", "89149", "89166", "89169", "89178", "89179", "89183"]
+      },
+      "industry": {
+        "business_types": ["restaurants", "dentists", "lawyers", "HVAC contractors", "plumbers", "electricians", "real estate agents", "auto repair shops", "hair salons", "fitness centers", "medical practices", "accounting firms", "marketing agencies", "construction companies", "landscaping services", "cleaning services", "insurance agencies", "pet services", "home improvement", "photography studios"],
+        "service_categories": ["healthcare", "automotive", "home services", "professional services", "retail", "hospitality", "beauty", "fitness", "legal", "financial", "technology", "education", "entertainment"]
+      },
+      "demographics": {
+        "audience_types": ["families", "young professionals", "retirees", "tourists", "students", "entrepreneurs", "small business owners", "corporate executives"],
+        "income_levels": ["luxury", "mid-market", "budget-friendly", "premium"]
+      },
+      "search_intent": {
+        "primary_intents": ["find", "hire", "book", "contact", "visit", "compare", "reviews"],
+        "urgency_modifiers": ["emergency", "24/7", "same day", "appointment", "consultation", "estimate"]
+      },
+      "competitive_modifiers": ["best", "top rated", "affordable", "experienced", "certified", "licensed", "trusted", "local", "near me", "reviews"]
+    },
+    
+    "dynamicOutlineTemplate": {
+      "h1_variations": [
+        "{{competitive_modifier}} Local SEO Services in {{location}} | {{business_type}} Marketing",
+        "{{location}} Local SEO: Dominate Search Results for {{business_type}}",
+        "Local SEO {{location}}: {{competitive_modifier}} Strategies for {{business_type}}",
+        "{{business_type}} Local SEO in {{location}} | {{competitive_modifier}} Results",
+        "{{location}} {{business_type}} SEO: {{competitive_modifier}} Local Marketing Solutions"
+      ],
+      
+      "section_structure": {
+        "intro_hook": {
+          "variations": [
+            "struggle_pain_point",
+            "opportunity_focused", 
+            "statistic_driven",
+            "competitive_advantage",
+            "local_market_insight"
+          ]
+        },
+        
+        "main_sections": [
+          {
+            "section_id": "local_market_analysis",
+            "h2_options": [
+              "{{location}} {{business_type}} Market Analysis",
+              "Understanding the {{location}} {{service_category}} Landscape", 
+              "{{business_type}} Competition in {{location}}: What You Need to Know",
+              "{{location}} Local Search Trends for {{business_type}}"
+            ]
+          },
+          {
+            "section_id": "gmb_optimization",
+            "h2_options": [
+              "Google My Business Optimization for {{location}} {{business_type}}",
+              "{{location}} GMB Strategies That Drive {{business_type}} Customers",
+              "Maximizing Your {{business_type}} Visibility in {{location}}",
+              "{{location}} Google My Business: {{business_type}} Best Practices"
+            ]
+          },
+          {
+            "section_id": "local_citation_strategy", 
+            "h2_options": [
+              "{{location}} Local Citations for {{business_type}}",
+              "Building {{business_type}} Authority in {{location}}",
+              "{{location}} Directory Listings: {{business_type}} Essentials",
+              "NAP Consistency for {{location}} {{business_type}}"
+            ]
+          },
+          {
+            "section_id": "content_marketing",
+            "h2_options": [
+              "{{location}}-Focused Content Marketing for {{business_type}}",
+              "Creating {{business_type}} Content That Ranks in {{location}}",
+              "{{location}} {{business_type}} Blog Strategies",
+              "Local Content Marketing: {{location}} {{business_type}} Guide"
+            ]
+          },
+          {
+            "section_id": "review_management",
+            "h2_options": [
+              "{{location}} {{business_type}} Review Management",
+              "Building Trust: {{business_type}} Reviews in {{location}}",
+              "{{location}} Reputation Management for {{business_type}}",
+              "{{business_type}} Review Strategy in {{location}}"
+            ]
+          },
+          {
+            "section_id": "results_measurement",
+            "h2_options": [
+              "Measuring {{business_type}} Local SEO Success in {{location}}",
+              "{{location}} {{business_type}} SEO Metrics That Matter",
+              "ROI Tracking for {{location}} {{business_type}} Marketing",
+              "{{business_type}} Performance Analytics in {{location}}"
+            ]
+          }
+        ],
+        
+        "cta_section": {
+          "variations": [
+            "free_consultation",
+            "audit_offer", 
+            "case_study_download",
+            "strategy_call",
+            "competitive_analysis"
+          ]
+        }
+      }
+    },
+
+    "copyBlockTemplates": {
+      "intro_hooks": {
+        "struggle_pain_point": "Are {{business_type}} in {{location}} struggling to attract local customers despite having a great {{service_category}} business? You're not alone. With {{competitor_count}}+ {{business_type}} competing for attention in {{location}}, standing out in local search results has become more challenging than ever. This comprehensive guide reveals proven local SEO strategies specifically designed for {{location}} {{business_type}} to dominate local search and attract more qualified customers.",
+        
+        "opportunity_focused": "{{location}} represents a massive opportunity for {{business_type}} who understand local SEO. With {{population_data}} residents and {{tourist_data}} annual visitors searching for {{service_category}} services, the potential for growth is enormous. However, most {{business_type}} in {{location}} are missing critical local SEO opportunities that could significantly increase their visibility and revenue.",
+        
+        "statistic_driven": "{{percentage}}% of {{location}} consumers search for {{business_type}} online before making a decision, yet only {{small_percentage}}% of local {{business_type}} have optimized their online presence for local search. This creates an unprecedented opportunity for forward-thinking {{business_type}} in {{location}} to capture market share and dominate their local competition.",
+        
+        "competitive_advantage": "While your competitors in {{location}} focus on traditional marketing, smart {{business_type}} are leveraging local SEO to capture customers at the exact moment they're searching for {{service_category}} services. This strategic advantage allows {{business_type}} to attract high-intent customers while reducing marketing costs and increasing profitability.",
+        
+        "local_market_insight": "{{location}}'s unique market characteristics create specific challenges and opportunities for {{business_type}}. Understanding local search patterns, competitor landscape, and consumer behavior in {{location}} is crucial for {{business_type}} success. This guide provides insider insights and proven strategies tailored specifically for the {{location}} {{service_category}} market."
+      },
+      
+      "benefit_sections": {
+        "gmb_benefits": [
+          "Increase your {{business_type}} visibility in {{location}} Google Maps results by up to {{percentage}}%",
+          "Attract more qualified {{target_audience}} customers in {{location}} through optimized business profiles", 
+          "Build trust with {{location}} customers through strategic review management and professional business presentation",
+          "Drive more phone calls and website visits from {{location}} local search traffic",
+          "Outrank competitors in {{location}} local pack results with advanced GMB optimization techniques"
+        ],
+        
+        "citation_benefits": [
+          "Establish your {{business_type}} as a trusted authority in {{location}} through consistent local citations",
+          "Improve your {{location}} search rankings with strategic directory submissions and NAP consistency",
+          "Increase your {{business_type}} credibility with {{location}} customers through widespread online presence",
+          "Build local relevance signals that help Google understand your {{business_type}} serves {{location}}",
+          "Create multiple touchpoints for {{location}} customers to discover your {{business_type}}"
+        ],
+        
+        "content_benefits": [
+          "Attract {{location}} customers with locally-relevant {{business_type}} content that answers their specific questions",
+          "Establish thought leadership in the {{location}} {{service_category}} industry through valuable content marketing",
+          "Improve your website's {{location}} search rankings with targeted local content optimization",
+          "Build relationships with {{location}} customers through helpful, informative {{business_type}} content",
+          "Generate more leads from {{location}} searches with strategic content marketing funnels"
+        ]
+      },
+      
+      "proof_points": {
+        "case_studies": [
+          "{{business_name}}, a {{business_type}} in {{location}}, increased local visibility by {{percentage}}% and generated {{number}} new customers in {{timeframe}} months",
+          "{{location}} {{business_type}} {{business_name}} achieved #1 Google Rankings for {{keyword_count}} local keywords within {{timeframe}} months",
+          "{{business_name}} saw a {{percentage}}% increase in {{location}} foot traffic after implementing our local SEO strategies",
+          "{{location}} {{business_type}} {{business_name}} generated ${{revenue}} in additional revenue through improved local search visibility"
+        ],
+        
+        "statistics": [
+          "{{percentage}}% of {{location}} consumers visit a {{business_type}} within 24 hours of a local search",
+          "{{business_type}} with optimized Google My Business profiles in {{location}} receive {{percentage}}% more customer actions",
+          "{{location}} {{business_type}} with consistent local citations rank {{percentage}}% higher in local search results",
+          "{{percentage}}% of {{location}} mobile searches for {{business_type}} result in same-day visits"
+        ],
+        
+        "testimonials": [
+          "\"NSM Prime's local SEO strategies helped our {{business_type}} dominate {{location}} search results. We've seen a {{percentage}}% increase in new customers!\" - {{client_name}}, {{business_type}} Owner in {{location}}",
+          "\"The local SEO campaign transformed our {{location}} {{business_type}}. We're now the top result for {{keyword}} in {{location}}.\" - {{client_name}}, {{business_type}} Manager",
+          "\"Thanks to NSM Prime, our {{business_type}} is the go-to choice for {{target_audience}} in {{location}}.\" - {{client_name}}, {{business_type}} Owner"
+        ]
+      },
+      
+      "location_specific_content": {
+        "neighborhood_insights": [
+          "{{location}} residents typically search for {{business_type}} using mobile devices {{percentage}}% of the time",
+          "The {{location}} {{service_category}} market is characterized by {{market_characteristic}} and {{competitive_factor}}",
+          "{{location}} customers prioritize {{customer_priority_1}} and {{customer_priority_2}} when choosing {{business_type}}",
+          "Peak search times for {{business_type}} in {{location}} occur during {{time_period}} and {{seasonal_factor}}"
+        ],
+        
+        "local_directories": [
+          "{{location}} Chamber of Commerce business directory",
+          "{{location}} Better Business Bureau listings", 
+          "{{location}} professional association directories",
+          "{{location}} community business guides",
+          "{{location}} industry-specific directories"
+        ]
+      }
+    },
+
+    "duplicationGuards": {
+      "content_variation_rules": {
+        "intro_rotation": {
+          "rule": "Rotate intro hook variation based on (page_id % 5)",
+          "ensures": "No two consecutive pages use same intro style"
+        },
+        
+        "benefit_order_shuffle": {
+          "rule": "Randomize benefit order based on location hash",
+          "ensures": "Different benefit prioritization per location"
+        },
+        
+        "proof_point_selection": {
+          "rule": "Select proof points based on industry + location combination",
+          "ensures": "Relevant social proof for each page variation"
+        },
+        
+        "section_order_variation": {
+          "rule": "Alternate section order based on business_type",
+          "ensures": "Different content flow for each industry"
+        },
+        
+        "synonym_replacement": {
+          "rule": "Replace keywords with synonyms based on page position",
+          "synonym_map": {
+            "local SEO": ["local search optimization", "local search marketing", "local digital marketing", "local online marketing"],
+            "business": ["company", "organization", "practice", "service provider"],
+            "customers": ["clients", "patients", "customers", "clientele"],
+            "visibility": ["exposure", "presence", "reach", "awareness"]
+          }
+        }
+      },
+      
+      "uniqueness_checks": {
+        "title_uniqueness": "Ensure H1 variations don't repeat within same location",
+        "meta_description_variation": "Generate unique meta descriptions using different value propositions",
+        "content_fingerprint": "Maintain minimum 70% content uniqueness between pages",
+        "internal_link_variation": "Vary internal link anchor text and placement"
+      }
+    },
+
+    "schemaTemplates": {
+      "localBusiness_schema": {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "{{business_name}} - {{service_category}} in {{location}}",
+        "description": "{{competitive_modifier}} {{business_type}} serving {{location}} and surrounding areas. {{value_proposition}}",
+        "url": "{{page_url}}",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "{{street_address}}",
+          "addressLocality": "{{location}}",
+          "addressRegion": "NV",
+          "postalCode": "{{zip_code}}",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates", 
+          "latitude": "{{latitude}}",
+          "longitude": "{{longitude}}"
+        },
+        "telephone": "{{phone_number}}",
+        "email": "{{email}}",
+        "openingHours": "{{opening_hours}}",
+        "priceRange": "{{price_range}}",
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "{{location}}"
+          },
+          {
+            "@type": "State",
+            "name": "Nevada"
+          }
+        ],
+        "serviceType": "{{service_category}}",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "{{business_type}} Services",
+          "itemListElement": "{{service_list}}"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "{{rating_value}}",
+          "reviewCount": "{{review_count}}"
+        },
+        "review": "{{review_schema_array}}",
+        "sameAs": "{{social_media_profiles}}"
+      },
+      
+      "service_schema": {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Local SEO Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "NSM Prime Media Group"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "{{location}}"
+        },
+        "audience": {
+          "@type": "BusinessAudience",
+          "businessFunction": "{{business_type}}"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Local SEO Services for {{business_type}} in {{location}}",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Google My Business Optimization"
+              }
+            },
+            {
+              "@type": "Offer", 
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Local Citation Building"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service", 
+                "name": "Local Content Marketing"
+              }
+            }
+          ]
+        }
+      },
+      
+      "breadcrumb_schema": {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://nsmprime.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2, 
+            "name": "Local SEO Services",
+            "item": "https://nsmprime.com/services/local-seo/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "{{location}} Local SEO",
+            "item": "{{page_url}}"
+          }
+        ]
+      }
+    },
+
+    "internalLinkingMap": {
+      "hub_connections": {
+        "primary_pillar": {
+          "url": "/local-seo-las-vegas-guide",
+          "anchor_variations": [
+            "complete local SEO guide for Las Vegas",
+            "comprehensive Las Vegas local SEO strategies", 
+            "ultimate local SEO resource for Nevada businesses",
+            "detailed Las Vegas local SEO playbook"
+          ],
+          "placement_rules": "Link from intro or conclusion sections"
+        },
+        
+        "service_pages": [
+          {
+            "url": "/services/seo/",
+            "anchor_variations": [
+              "professional SEO services in {{location}}",
+              "expert {{location}} SEO solutions",
+              "comprehensive SEO services for {{location}} {{business_type}}"
+            ]
+          },
+          {
+            "url": "/services/digital-marketing/",
+            "anchor_variations": [
+              "full-service digital marketing in {{location}}",
+              "{{location}} digital marketing solutions",
+              "comprehensive digital marketing for {{location}} {{business_type}}"
+            ]
+          }
+        ],
+        
+        "cluster_content": [
+          {
+            "url": "/google-my-business-{{location_slug}}",
+            "anchor_text": "Google My Business optimization for {{location}} {{business_type}}",
+            "relevance_score": "high_for_gmb_sections"
+          },
+          {
+            "url": "/local-citations-{{location_slug}}",
+            "anchor_text": "local citation strategies for {{location}} {{business_type}}",
+            "relevance_score": "high_for_citation_sections"
+          },
+          {
+            "url": "/{{location_slug}}-local-keyword-research",
+            "anchor_text": "{{location}} local keyword research for {{business_type}}",
+            "relevance_score": "high_for_keyword_sections"
+          }
+        ]
+      },
+      
+      "lateral_connections": {
+        "related_locations": [
+          {
+            "condition": "if location == 'Henderson'",
+            "links": [
+              "/local-seo-summerlin",
+              "/local-seo-north-las-vegas"
+            ]
+          },
+          {
+            "condition": "if location == 'Summerlin'", 
+            "links": [
+              "/local-seo-henderson",
+              "/local-seo-spring-valley"
+            ]
+          }
+        ],
+        
+        "related_industries": [
+          {
+            "condition": "if business_type in healthcare",
+            "links": [
+              "/local-seo-dentists-{{location}}",
+              "/local-seo-medical-practices-{{location}}"
+            ]
+          },
+          {
+            "condition": "if business_type in home_services",
+            "links": [
+              "/local-seo-hvac-{{location}}",
+              "/local-seo-plumbers-{{location}}"
+            ]
+          }
+        ]
+      },
+      
+      "link_distribution_rules": {
+        "internal_link_count": "5-8 contextual internal links per page",
+        "service_page_links": "Minimum 2 links to relevant service pages",
+        "pillar_content_links": "1 link to main pillar content",
+        "cluster_content_links": "2-3 links to related cluster content",
+        "anchor_text_variation": "Use different anchor text variations for same target URL"
+      }
+    },
+
+    "pageGenerationRules": {
+      "url_structure": "/local-seo-{{location_slug}}-{{business_type_slug}}",
+      "meta_title_template": "{{competitive_modifier}} Local SEO {{location}} | {{business_type}} Marketing - NSM Prime",
+      "meta_description_template": "Dominate {{location}} search results with proven local SEO strategies for {{business_type}}. Increase visibility, attract customers, and grow your {{service_category}} business today.",
+      
+      "content_generation_flow": [
+        "1. Select location and business type combination",
+        "2. Choose intro hook variation based on page_id % 5", 
+        "3. Randomize benefit order based on location hash",
+        "4. Select relevant proof points for industry/location",
+        "5. Generate schema markup with location/business data",
+        "6. Create internal link map based on relevance rules",
+        "7. Apply duplication guards and uniqueness checks",
+        "8. Validate content quality and uniqueness scores"
+      ],
+      
+      "quality_controls": {
+        "minimum_word_count": 1200,
+        "maximum_keyword_density": "2%",
+        "readability_score": "minimum 60 Flesch Reading Ease",
+        "uniqueness_threshold": "70% unique content vs similar pages",
+        "internal_link_validation": "all internal links must resolve to valid pages",
+        "schema_validation": "all schema markup must validate against schema.org"
+      }
+    },
+
+    "scalabilityFeatures": {
+      "batch_generation": {
+        "location_batches": "Generate 10 locations simultaneously",
+        "industry_batches": "Process 5 industries per location",
+        "total_page_potential": "200+ unique page combinations"
+      },
+      
+      "automated_updates": {
+        "content_refresh": "Update statistics and proof points quarterly",
+        "schema_updates": "Refresh business data and reviews monthly", 
+        "link_maintenance": "Validate internal links weekly",
+        "performance_monitoring": "Track page performance and update underperforming content"
+      },
+      
+      "expansion_opportunities": {
+        "additional_locations": "Expand to Nevada suburbs and nearby cities",
+        "industry_verticals": "Add specialized business types and niches",
+        "service_variations": "Create pages for specific SEO services",
+        "seasonal_content": "Generate seasonal local SEO pages"
+      }
+    }
+  }
+}

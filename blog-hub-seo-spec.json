@@ -1,0 +1,321 @@
+{
+  "seoSpecification": {
+    "pageTitle": {
+      "template": "Digital Marketing Blog Hub | Expert Insights & Strategies - NSM Prime",
+      "maxLength": 60,
+      "keywords": ["digital marketing blog", "expert insights", "NSM Prime"],
+      "variations": {
+        "category": "{Category} Marketing Insights | Expert Blog - NSM Prime",
+        "search": "Search Results: {query} | Digital Marketing Blog - NSM Prime",
+        "pagination": "Digital Marketing Blog Hub - Page {pageNumber} | NSM Prime"
+      }
+    },
+    
+    "metaDescription": {
+      "template": "Your complete digital marketing knowledge hub. Discover expert SEO tips, web development insights, PPC strategies, and social media trends from Las Vegas industry leaders.",
+      "maxLength": 160,
+      "keywords": ["digital marketing knowledge", "SEO tips", "web development insights", "PPC strategies", "Las Vegas"],
+      "variations": {
+        "category": "Expert {category} marketing insights and strategies. Discover proven tactics, industry trends, and actionable tips from Las Vegas digital marketing professionals.",
+        "search": "Search results for '{query}' in our digital marketing blog. Find expert insights, strategies, and tips from NSM Prime's knowledge hub.",
+        "pagination": "Explore page {pageNumber} of our digital marketing blog. Discover expert SEO tips, web development insights, and PPC strategies from industry leaders."
+      }
+    },
+    
+    "canonical": {
+      "base": "https://nsmprime.com/blog-hub.html",
+      "rules": {
+        "pagination": "https://nsmprime.com/blog-hub.html?page={pageNumber}",
+        "category": "https://nsmprime.com/blog-hub.html?category={categorySlug}",
+        "search": "https://nsmprime.com/blog-hub.html?search={encodedQuery}",
+        "filters": "https://nsmprime.com/blog-hub.html?{sortedParams}"
+      }
+    },
+    
+    "openGraph": {
+      "title": "Digital Marketing Knowledge Hub | NSM Prime Las Vegas",
+      "description": "Your complete resource for expert SEO strategies, web development insights, PPC tactics, and industry trends that drive real results.",
+      "type": "website",
+      "url": "https://nsmprime.com/blog-hub.html",
+      "image": "https://nsmprime.com/images/og/blog-hub-social.jpg",
+      "imageAlt": "NSM Prime Digital Marketing Blog Hub - Expert insights and strategies",
+      "siteName": "NSM Prime Media Group",
+      "locale": "en_US",
+      "variations": {
+        "category": {
+          "title": "{CategoryName} Marketing Insights | NSM Prime Blog Hub",
+          "description": "Expert {categoryName} strategies and insights from Las Vegas digital marketing professionals. Proven tactics that drive real results.",
+          "image": "https://nsmprime.com/images/og/blog-{categorySlug}-hub.jpg"
+        }
+      }
+    },
+    
+    "twitterCards": {
+      "card": "summary_large_image",
+      "site": "@nsmprime",
+      "creator": "@nsmprime",
+      "title": "Digital Marketing Knowledge Hub | NSM Prime",
+      "description": "Your complete resource for expert SEO strategies, web development insights, PPC tactics, and industry trends.",
+      "image": "https://nsmprime.com/images/twitter/blog-hub-card.jpg",
+      "imageAlt": "NSM Prime Digital Marketing Blog Hub interface showing latest articles and trending content"
+    },
+    
+    "internalLinkPatterns": {
+      "bestOfPattern": {
+        "description": "Strategic internal linking to service pages using 'Best of' anchor text patterns",
+        "patterns": [
+          {
+            "trigger": "content about SEO strategies",
+            "linkTo": "/services/seo/",
+            "anchorText": "best SEO services in Las Vegas",
+            "context": "professional SEO implementation"
+          },
+          {
+            "trigger": "web development content",
+            "linkTo": "/services/web-development/",
+            "anchorText": "best web development services",
+            "context": "custom website solutions"
+          },
+          {
+            "trigger": "PPC advertising content",
+            "linkTo": "/services/ppc-advertising/",
+            "anchorText": "best PPC management services",
+            "context": "paid advertising campaigns"
+          },
+          {
+            "trigger": "social media marketing content",
+            "linkTo": "/services/social-media/",
+            "anchorText": "best social media marketing services",
+            "context": "social media strategy and management"
+          },
+          {
+            "trigger": "content marketing discussion",
+            "linkTo": "/services/content-marketing/",
+            "anchorText": "best content marketing services",
+            "context": "content strategy and creation"
+          },
+          {
+            "trigger": "digital marketing analytics",
+            "linkTo": "/services/analytics/",
+            "anchorText": "best digital marketing analytics",
+            "context": "data-driven marketing insights"
+          }
+        ],
+        "placement": {
+          "frequency": "1-2 links per 1000 words",
+          "position": "within relevant content context",
+          "distribution": "evenly throughout content sections"
+        }
+      }
+    },
+    
+    "paginationRules": {
+      "itemsPerPage": 8,
+      "maxPages": 50,
+      "seoTags": {
+        "prevNext": true,
+        "viewAll": false,
+        "loadMore": "infinite scroll with URL updates"
+      },
+      "urlStructure": {
+        "pattern": "/blog-hub.html?page={pageNumber}",
+        "firstPage": "/blog-hub.html",
+        "parameterName": "page"
+      },
+      "metaHandling": {
+        "titleSuffix": " - Page {pageNumber}",
+        "descriptionSuffix": " Browse page {pageNumber} for more insights.",
+        "noindexAfterPage": 10
+      }
+    }
+  },
+  
+  "structuredData": {
+    "faqPageSchema": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How often should I publish new blog content for SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For optimal SEO results, aim to publish high-quality content consistently. Most successful businesses publish 1-2 comprehensive articles per week rather than daily low-quality posts. Focus on depth, value, and answering your audience's specific questions rather than just hitting a publishing frequency target."
+          }
+        },
+        {
+          "@type": "Question", 
+          "name": "What's the difference between organic and paid digital marketing?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Organic marketing (SEO, content marketing, social media) builds long-term visibility without direct advertising costs, but takes time to show results. Paid marketing (PPC, social ads) delivers immediate visibility and traffic but requires ongoing investment. The best strategy combines both for short-term results and long-term growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to see SEO results?",
+          "acceptedAnswer": {
+            "@type": "Answer", 
+            "text": "SEO is a long-term strategy. You can expect to see initial improvements in 3-6 months, with significant results typically appearing after 6-12 months of consistent effort. Factors affecting timeline include competition level, current website authority, content quality, and technical optimization. Local SEO often shows faster results than national campaigns."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I focus on multiple social media platforms or just one?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with 1-2 platforms where your target audience is most active, rather than spreading yourself thin across all platforms. Master these first, then expand strategically. LinkedIn works well for B2B, Instagram for visual brands, Facebook for local businesses, and TikTok for younger demographics. Quality and consistency beat quantity every time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the best way to measure digital marketing ROI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Track metrics that directly impact your business goals: leads generated, conversion rates, customer acquisition cost (CAC), and lifetime value (LTV). Use Google Analytics 4, Google Tag Manager, and CRM integration to track the complete customer journey. Focus on attribution modeling to understand which channels drive the most valuable customers, not just the most traffic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to hire an agency or can I do digital marketing myself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your budget, time, and expertise. Small businesses can start with basic SEO and social media themselves using our guides and tools. However, complex campaigns, technical SEO, and paid advertising often require specialized knowledge. Consider a hybrid approach: learn the basics yourself, then hire experts for advanced strategies that drive the most ROI."
+          }
+        }
+      ]
+    },
+    
+    "breadcrumbListSchema": {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://nsmprime.com/"
+        },
+        {
+          "@type": "ListItem", 
+          "position": 2,
+          "name": "Blog Hub",
+          "item": "https://nsmprime.com/blog-hub.html"
+        }
+      ],
+      "variations": {
+        "category": {
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home", 
+              "item": "https://nsmprime.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog Hub",
+              "item": "https://nsmprime.com/blog-hub.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "{CategoryName}",
+              "item": "https://nsmprime.com/blog-hub.html?category={categorySlug}"
+            }
+          ]
+        },
+        "pagination": {
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://nsmprime.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Blog Hub",
+              "item": "https://nsmprime.com/blog-hub.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Page {pageNumber}",
+              "item": "https://nsmprime.com/blog-hub.html?page={pageNumber}"
+            }
+          ]
+        }
+      }
+    },
+    
+    "blogSchema": {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "NSM Prime Digital Marketing Blog Hub",
+      "description": "Expert digital marketing insights, SEO strategies, and web development tips from Las Vegas industry professionals",
+      "url": "https://nsmprime.com/blog-hub.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "NSM Prime Media Group",
+        "url": "https://nsmprime.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nsmprime.com/images/logo-default-216x80.png",
+          "width": 216,
+          "height": 80
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Las Vegas",
+          "addressRegion": "NV",
+          "addressCountry": "US"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "(917) 972-7298",
+          "contactType": "customer service"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://nsmprime.com/blog-hub.html"
+      },
+      "keywords": "digital marketing blog, SEO insights, web development tips, PPC strategies, social media marketing, content marketing, Las Vegas",
+      "inLanguage": "en-US",
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "How AI is Revolutionizing SEO in 2025",
+          "url": "https://nsmprime.com/blog/ai-seo-strategies-2025/",
+          "datePublished": "2025-10-18",
+          "author": {
+            "@type": "Person",
+            "name": "Sarah Martinez"
+          }
+        }
+      ]
+    },
+    
+    "websiteSchema": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "NSM Prime Digital Marketing Blog Hub",
+      "url": "https://nsmprime.com/blog-hub.html",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://nsmprime.com/blog-hub.html?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "NSM Prime Media Group"
+      }
+    }
+  }
+}

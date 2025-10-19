@@ -1,0 +1,236 @@
+{
+  "contentModel": {
+    "blogPost": {
+      "fields": {
+        "title": {
+          "type": "string",
+          "required": true,
+          "maxLength": 60,
+          "description": "SEO-optimized title under 60 characters",
+          "validation": "Must include primary keyword"
+        },
+        "slug": {
+          "type": "string",
+          "required": true,
+          "unique": true,
+          "pattern": "^[a-z0-9-]+$",
+          "description": "URL-friendly identifier",
+          "autoGenerate": "from title if not provided"
+        },
+        "publishDate": {
+          "type": "datetime",
+          "required": true,
+          "format": "ISO 8601",
+          "description": "Original publication date"
+        },
+        "updatedAt": {
+          "type": "datetime",
+          "autoUpdate": true,
+          "description": "Last modification timestamp"
+        },
+        "author": {
+          "type": "object",
+          "required": true,
+          "properties": {
+            "name": {"type": "string", "required": true},
+            "slug": {"type": "string", "required": true},
+            "bio": {"type": "string", "maxLength": 160},
+            "avatar": {"type": "string", "format": "url"},
+            "socialLinks": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "platform": {"type": "string", "enum": ["twitter", "linkedin", "facebook"]},
+                  "url": {"type": "string", "format": "url"}
+                }
+              }
+            }
+          }
+        },
+        "excerpt": {
+          "type": "string",
+          "required": true,
+          "maxLength": 160,
+          "description": "Brief summary for previews and meta description"
+        },
+        "coverImage": {
+          "type": "object",
+          "required": true,
+          "properties": {
+            "url": {"type": "string", "format": "url", "required": true},
+            "alt": {"type": "string", "required": true, "maxLength": 125},
+            "width": {"type": "integer", "required": true},
+            "height": {"type": "integer", "required": true},
+            "caption": {"type": "string", "maxLength": 100},
+            "credit": {"type": "string", "maxLength": 50}
+          }
+        },
+        "tags": {
+          "type": "array",
+          "maxItems": 8,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "description": "Taxonomy tags for filtering and organization"
+        },
+        "category": {
+          "type": "string",
+          "required": true,
+          "enum": [
+            "seo",
+            "web-development", 
+            "ppc",
+            "social-media",
+            "content-marketing",
+            "analytics",
+            "email-marketing",
+            "local-seo"
+          ]
+        },
+        "readingTime": {
+          "type": "integer",
+          "description": "Estimated reading time in minutes",
+          "autoCalculate": "based on content word count (200 WPM average)"
+        },
+        "primaryKeyword": {
+          "type": "string",
+          "required": true,
+          "description": "Main SEO keyword for the article"
+        },
+        "internalLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {"type": "string", "required": true},
+              "anchorText": {"type": "string", "required": true},
+              "context": {"type": "string", "description": "Why this link is relevant"}
+            }
+          },
+          "description": "Links to other pages on the site"
+        },
+        "externalLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "url": {"type": "string", "format": "url", "required": true},
+              "anchorText": {"type": "string", "required": true},
+              "relation": {"type": "string", "enum": ["nofollow", "dofollow"], "default": "nofollow"},
+              "purpose": {"type": "string", "description": "Source, tool, or reference purpose"}
+            }
+          }
+        },
+        "faqItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "question": {"type": "string", "required": true, "maxLength": 100},
+              "answer": {"type": "string", "required": true, "maxLength": 500},
+              "keywords": {"type": "array", "items": {"type": "string"}}
+            }
+          },
+          "description": "FAQ schema markup for enhanced SERP features"
+        },
+        "schemaType": {
+          "type": "string",
+          "enum": ["Article", "BlogPosting", "HowTo", "FAQPage"],
+          "default": "BlogPosting",
+          "description": "Schema.org type for structured data"
+        },
+        "metaTitle": {
+          "type": "string",
+          "maxLength": 60,
+          "description": "Custom meta title, defaults to title if not provided"
+        },
+        "metaDescription": {
+          "type": "string",
+          "maxLength": 160,
+          "description": "Custom meta description, defaults to excerpt if not provided"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "published", "archived"],
+          "default": "draft"
+        },
+        "analytics": {
+          "type": "object",
+          "properties": {
+            "pageViews": {"type": "integer", "default": 0},
+            "uniqueVisitors": {"type": "integer", "default": 0},
+            "averageTimeOnPage": {"type": "integer", "description": "seconds"},
+            "bounceRate": {"type": "number", "description": "percentage"},
+            "socialShares": {"type": "integer", "default": 0},
+            "comments": {"type": "integer", "default": 0},
+            "trendingScore": {"type": "number", "description": "calculated trending algorithm score"}
+          },
+          "description": "Analytics data for trending calculations"
+        }
+      }
+    }
+  },
+  
+  "automation": {
+    "rssIngestion": {
+      "description": "Automated content discovery and import from RSS feeds",
+      "sources": [
+        {
+          "name": "Google Search Central Blog",
+          "url": "https://developers.google.com/search/blog/feeds/posts/default",
+          "category": "seo",
+          "trustScore": 10
+        },
+        {
+          "name": "Moz Blog",
+          "url": "https://moz.com/blog/feed",
+          "category": "seo", 
+          "trustScore": 9
+        },
+        {
+          "name": "Search Engine Journal",
+          "url": "https://www.searchenginejournal.com/feed/",
+          "category": "seo",
+          "trustScore": 8
+        }
+      ],
+      "schedule": "every 4 hours",
+      "processing": {
+        "contentFiltering": {
+          "minWordCount": 500,
+          "relevanceScore": 0.7,
+          "keywordMatching": ["seo", "digital marketing", "ppc", "social media"]
+        },
+        "deduplication": {
+          "method": "content similarity + title matching",
+          "threshold": 0.85
+        }
+      }
+    },
+    
+    "analyticsIntegration": {
+      "description": "Trending calculation from Google Analytics 4 data",
+      "dataSource": "Google Analytics 4 API",
+      "metrics": [
+        "ga:pageviews",
+        "ga:uniquePageviews", 
+        "ga:avgTimeOnPage",
+        "ga:bounceRate",
+        "ga:socialInteractions"
+      ],
+      "trendingAlgorithm": {
+        "timeFrame": "last 7 days",
+        "weightings": {
+          "pageViews": 0.3,
+          "uniqueVisitors": 0.2,
+          "timeOnPage": 0.2,
+          "socialShares": 0.15,
+          "recency": 0.15
+        },
+        "formula": "weighted_score * recency_multiplier * engagement_boost"
+      }
+    }
+  }
+}

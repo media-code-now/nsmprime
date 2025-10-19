@@ -1,0 +1,261 @@
+{
+  "examples": {
+    "sampleBlogPost": {
+      "title": "Local SEO in Las Vegas: Complete 2025 Guide",
+      "slug": "local-seo-las-vegas-2025-guide",
+      "publishDate": "2025-10-18T10:00:00Z",
+      "updatedAt": "2025-10-18T15:30:00Z",
+      "author": {
+        "name": "Sarah Martinez",
+        "slug": "sarah-martinez",
+        "bio": "Senior SEO Strategist with 8+ years of experience helping Las Vegas businesses dominate local search results.",
+        "avatar": "https://nsmprime.com/images/authors/sarah-martinez.jpg",
+        "socialLinks": [
+          {
+            "platform": "twitter",
+            "url": "https://twitter.com/sarahseoexpert"
+          },
+          {
+            "platform": "linkedin", 
+            "url": "https://linkedin.com/in/sarahmartinezseo"
+          }
+        ]
+      },
+      "excerpt": "Dominate local search results in Las Vegas with proven strategies that drive foot traffic and phone calls to your business.",
+      "coverImage": {
+        "url": "https://nsmprime.com/images/blog/local-seo-las-vegas-2025.jpg",
+        "alt": "Las Vegas Strip skyline with local SEO search interface overlay",
+        "width": 1200,
+        "height": 630,
+        "caption": "Local SEO strategies for Las Vegas businesses",
+        "credit": "NSM Prime Media"
+      },
+      "tags": ["local-seo", "las-vegas", "google-business-profile", "citations", "reviews"],
+      "category": "local-seo",
+      "readingTime": 7,
+      "primaryKeyword": "local SEO Las Vegas",
+      "internalLinks": [
+        {
+          "url": "/services/seo/",
+          "anchorText": "SEO services",
+          "context": "Relevant when discussing professional SEO implementation"
+        },
+        {
+          "url": "/seo-hub.html",
+          "anchorText": "SEO resources",
+          "context": "Additional SEO learning materials"
+        }
+      ],
+      "externalLinks": [
+        {
+          "url": "https://support.google.com/business/",
+          "anchorText": "Google Business Profile Help",
+          "relation": "nofollow",
+          "purpose": "Official documentation reference"
+        }
+      ],
+      "faqItems": [
+        {
+          "question": "How long does it take to see local SEO results in Las Vegas?",
+          "answer": "Most Las Vegas businesses see initial local SEO improvements within 2-3 months, with significant results appearing after 4-6 months of consistent optimization.",
+          "keywords": ["local seo timeline", "las vegas seo results"]
+        },
+        {
+          "question": "What's the most important local SEO factor for Las Vegas businesses?",
+          "answer": "Google Business Profile optimization is the most critical factor, including accurate NAP information, regular posts, customer reviews, and high-quality photos.",
+          "keywords": ["google business profile", "local seo factors"]
+        }
+      ],
+      "schemaType": "Article",
+      "metaTitle": "Local SEO Las Vegas: Complete 2025 Guide | NSM Prime",
+      "metaDescription": "Dominate local search results in Las Vegas with proven strategies that drive foot traffic and phone calls to your business. Expert tips included.",
+      "status": "published",
+      "analytics": {
+        "pageViews": 1247,
+        "uniqueVisitors": 1089,
+        "averageTimeOnPage": 342,
+        "bounceRate": 0.23,
+        "socialShares": 47,
+        "comments": 12,
+        "trendingScore": 8.7
+      }
+    },
+
+    "rssIngestedPost": {
+      "title": "Google Core Web Vitals Update October 2025",
+      "slug": "google-core-web-vitals-update-october-2025",
+      "publishDate": "2025-10-17T14:20:00Z",
+      "updatedAt": "2025-10-17T14:20:00Z",
+      "author": {
+        "name": "Google Search Central",
+        "slug": "google-search-central",
+        "bio": "Official updates and guidance from Google's Search team",
+        "avatar": "https://developers.google.com/search/images/google-logo.png"
+      },
+      "excerpt": "Google announces new Core Web Vitals thresholds and measurement changes affecting search rankings starting November 2025.",
+      "coverImage": {
+        "url": "https://nsmprime.com/images/blog/core-web-vitals-2025.jpg",
+        "alt": "Core Web Vitals performance metrics dashboard",
+        "width": 1200,
+        "height": 630
+      },
+      "tags": ["core-web-vitals", "google-algorithm", "page-speed", "seo"],
+      "category": "seo",
+      "readingTime": 5,
+      "primaryKeyword": "Core Web Vitals update 2025",
+      "status": "published",
+      "source": {
+        "rss": "https://developers.google.com/search/blog/feeds/posts/default",
+        "originalUrl": "https://developers.google.com/search/blog/2025/10/core-web-vitals-update",
+        "importedAt": "2025-10-17T14:25:00Z",
+        "curatedBy": "automated-rss-ingestion"
+      },
+      "analytics": {
+        "pageViews": 2847,
+        "uniqueVisitors": 2456,
+        "averageTimeOnPage": 287,
+        "bounceRate": 0.31,
+        "socialShares": 156,
+        "comments": 23,
+        "trendingScore": 9.4
+      }
+    }
+  },
+
+  "updateLogic": {
+    "latestPostsQuery": {
+      "description": "Fetch 8 most recent published posts",
+      "sql": "SELECT * FROM blog_posts WHERE status = 'published' ORDER BY publishDate DESC LIMIT 8",
+      "cacheTime": "5 minutes",
+      "fallback": "Use cached results if API fails"
+    },
+
+    "trendingAlgorithm": {
+      "description": "Calculate trending score based on weighted metrics",
+      "formula": {
+        "baseScore": "(pageViews * 0.3) + (uniqueVisitors * 0.2) + (timeOnPage/60 * 0.2) + (socialShares * 0.15) + (comments * 0.15)",
+        "recencyMultiplier": "Math.max(0.1, 1 - (daysSincePublish / 30))",
+        "engagementBoost": "1 + (1 - bounceRate)",
+        "finalScore": "baseScore * recencyMultiplier * engagementBoost"
+      },
+      "updateFrequency": "every 2 hours",
+      "dataSource": "Google Analytics 4 API + social media APIs"
+    },
+
+    "rssProcessingWorkflow": {
+      "steps": [
+        {
+          "step": 1,
+          "action": "Fetch RSS feeds",
+          "frequency": "every 4 hours",
+          "sources": ["Google Search Central", "Moz Blog", "Search Engine Journal"]
+        },
+        {
+          "step": 2,
+          "action": "Content filtering",
+          "criteria": {
+            "minWordCount": 500,
+            "relevanceKeywords": ["seo", "digital marketing", "ppc", "social media", "web development"],
+            "qualityScore": "> 0.7"
+          }
+        },
+        {
+          "step": 3,
+          "action": "Deduplication check",
+          "method": "Compare title similarity + content hash",
+          "threshold": "85% similarity = duplicate"
+        },
+        {
+          "step": 4,
+          "action": "Automated enrichment",
+          "tasks": [
+            "Calculate reading time from word count",
+            "Extract primary keyword from title/content",
+            "Generate slug from title",
+            "Assign category based on content analysis",
+            "Create excerpt from first paragraph"
+          ]
+        },
+        {
+          "step": 5,
+          "action": "Quality review queue",
+          "trigger": "Human review for posts with quality score < 0.8",
+          "autoPublish": "Posts with score > 0.8 auto-publish after 2 hour delay"
+        }
+      ]
+    },
+
+    "analyticsDataSync": {
+      "description": "Sync analytics data from Google Analytics 4",
+      "schedule": "every 2 hours",
+      "metrics": [
+        {
+          "metric": "ga:pageviews",
+          "field": "analytics.pageViews",
+          "timeframe": "last 30 days"
+        },
+        {
+          "metric": "ga:uniquePageviews", 
+          "field": "analytics.uniqueVisitors",
+          "timeframe": "last 30 days"
+        },
+        {
+          "metric": "ga:avgTimeOnPage",
+          "field": "analytics.averageTimeOnPage", 
+          "timeframe": "last 30 days"
+        },
+        {
+          "metric": "ga:bounceRate",
+          "field": "analytics.bounceRate",
+          "timeframe": "last 30 days"
+        }
+      ],
+      "socialMetrics": {
+        "sources": ["Facebook Graph API", "Twitter API", "LinkedIn API"],
+        "aggregation": "sum all platform shares",
+        "field": "analytics.socialShares"
+      }
+    }
+  },
+
+  "apiEndpoints": {
+    "getLatestPosts": {
+      "url": "/api/posts/latest",
+      "method": "GET",
+      "params": {
+        "limit": 8,
+        "category": "optional filter"
+      },
+      "response": {
+        "posts": "array of blog post objects",
+        "total": "total published posts count",
+        "lastUpdated": "ISO timestamp"
+      }
+    },
+
+    "getTrendingPosts": {
+      "url": "/api/posts/trending", 
+      "method": "GET",
+      "params": {
+        "timeframe": "7d|30d|90d",
+        "limit": 10
+      },
+      "response": {
+        "posts": "array sorted by trendingScore desc",
+        "algorithm": "trending algorithm details",
+        "lastCalculated": "ISO timestamp"
+      }
+    },
+
+    "triggerRssSync": {
+      "url": "/api/content/sync-rss",
+      "method": "POST",
+      "auth": "API key required",
+      "response": {
+        "jobId": "sync job identifier",
+        "status": "queued|processing|completed",
+        "newPosts": "count of new posts discovered"
+      }
+    }
+  }
+}

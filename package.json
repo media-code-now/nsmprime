@@ -1,0 +1,54 @@
+{
+  "name": "nsmprime-blog-seo-validator",
+  "version": "1.0.0",
+  "description": "CI/CD Blog Post SEO Validation System with Next.js Blog",
+  "main": "blog-seo-validator.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "test:blog-seo": "node blog-seo-validator.js",
+    "test:blog-seo:json": "node blog-seo-validator.js --reporter=json",
+    "test:blog-seo:critical": "node blog-seo-validator.js --critical-only",
+    "validate-post": "node -e \"const validator = require('./blog-seo-validator.js'); const v = new validator(process.argv[1]); v.runAllTests({primaryKeyword: process.argv[2], semanticKeywords: process.argv[3]?.split(',') || []}).then(r => console.log(v.generateReport(r)));\"",
+    "install-deps": "npm install jsdom axios"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "jsdom": "^22.1.0",
+    "axios": "^1.5.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "^14.0.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2",
+    "jest": "^29.6.0"
+  },
+  "keywords": [
+    "seo",
+    "blog",
+    "validation", 
+    "ci-cd",
+    "automation",
+    "nextjs",
+    "react"
+  ],
+  "author": "NSM Prime Media Group",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,640 @@
+{
+  "blogPostSEOChecklist": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-10-18",
+    "description": "Comprehensive on-page SEO checklist for blog posts with CI-testable acceptance criteria",
+    "categories": {
+      "contentStrategy": {
+        "searchIntentMatch": {
+          "id": "content_001",
+          "title": "Search Intent Match",
+          "description": "Content must match the primary search intent for target keyword",
+          "priority": "critical",
+          "acceptanceCriteria": [
+            "Primary keyword appears in first 100 words",
+            "Content type matches intent (informational/transactional/navigational)",
+            "User questions from 'People Also Ask' are addressed",
+            "Content depth matches SERP competition (word count within 20% of top 3)"
+          ],
+          "testCriteria": {
+            "keywordInIntro": {
+              "test": "Check if primary keyword appears in first 100 words",
+              "selector": ".blog-intro, .post-intro, article p:first-of-type",
+              "validation": "text.toLowerCase().includes(primaryKeyword.toLowerCase())",
+              "required": true
+            },
+            "contentLength": {
+              "test": "Validate content length against competitors",
+              "validation": "wordCount >= competitorAverage * 0.8 && wordCount <= competitorAverage * 1.2",
+              "required": true
+            },
+            "peopleAlsoAskCoverage": {
+              "test": "Check coverage of PAA questions",
+              "validation": "coveredPAAQuestions >= totalPAAQuestions * 0.6",
+              "required": true
+            }
+          }
+        }
+      },
+      "headingStructure": {
+        "h1Optimization": {
+          "id": "heading_001",
+          "title": "H1 Tag Optimization",
+          "description": "Single H1 tag with primary keyword and compelling hook",
+          "priority": "critical",
+          "acceptanceCriteria": [
+            "Exactly one H1 tag per page",
+            "H1 contains primary keyword naturally",
+            "H1 length between 20-70 characters",
+            "H1 is compelling and click-worthy",
+            "H1 matches or closely relates to title tag"
+          ],
+          "testCriteria": {
+            "singleH1": {
+              "test": "Ensure exactly one H1 tag exists",
+              "selector": "h1",
+              "validation": "elements.length === 1",
+              "required": true
+            },
+            "h1Length": {
+              "test": "Validate H1 character length",
+              "selector": "h1",
+              "validation": "text.length >= 20 && text.length <= 70",
+              "required": true
+            },
+            "h1KeywordPresence": {
+              "test": "Check primary keyword in H1",
+              "selector": "h1",
+              "validation": "text.toLowerCase().includes(primaryKeyword.toLowerCase())",
+              "required": true
+            }
+          }
+        },
+        "h2Structure": {
+          "id": "heading_002",
+          "title": "H2 Heading Structure",
+          "description": "Logical H2 hierarchy with semantic keywords",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "Minimum 3 H2 headings for articles >800 words",
+            "H2s contain semantic keywords and variations",
+            "H2s create logical content flow",
+            "No H2 longer than 80 characters",
+            "At least one H2 includes primary or secondary keyword"
+          ],
+          "testCriteria": {
+            "minimumH2Count": {
+              "test": "Ensure adequate H2 count for content length",
+              "selector": "h2",
+              "validation": "wordCount > 800 ? elements.length >= 3 : elements.length >= 2",
+              "required": true
+            },
+            "h2Length": {
+              "test": "Validate H2 character limits",
+              "selector": "h2",
+              "validation": "elements.every(h2 => h2.textContent.length <= 80)",
+              "required": true
+            },
+            "h2KeywordCoverage": {
+              "test": "Check keyword presence in H2s",
+              "selector": "h2",
+              "validation": "semanticKeywords.some(keyword => elements.some(h2 => h2.textContent.toLowerCase().includes(keyword.toLowerCase())))",
+              "required": true
+            }
+          }
+        }
+      },
+      "contentStructure": {
+        "introHook": {
+          "id": "content_002",
+          "title": "Introduction Hook",
+          "description": "Compelling intro under 80 words that hooks readers",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "First paragraph under 80 words",
+            "Addresses reader's pain point or question",
+            "Contains primary keyword naturally",
+            "Creates curiosity or urgency",
+            "Promises value or solution"
+          ],
+          "testCriteria": {
+            "introWordCount": {
+              "test": "Validate intro paragraph word count",
+              "selector": ".blog-intro p:first-child, article p:first-of-type, .post-content > p:first-child",
+              "validation": "text.split(' ').length <= 80",
+              "required": true
+            },
+            "introKeyword": {
+              "test": "Check primary keyword in intro",
+              "selector": ".blog-intro p:first-child, article p:first-of-type",
+              "validation": "text.toLowerCase().includes(primaryKeyword.toLowerCase())",
+              "required": true
+            }
+          }
+        },
+        "tableOfContents": {
+          "id": "content_003",
+          "title": "Table of Contents",
+          "description": "Organized TOC for articles >1000 words",
+          "priority": "medium",
+          "acceptanceCriteria": [
+            "TOC present for articles >1000 words",
+            "TOC links to H2 and H3 headings",
+            "TOC appears after intro but before main content",
+            "TOC is properly structured with jump links",
+            "TOC headings match actual headings exactly"
+          ],
+          "testCriteria": {
+            "tocPresence": {
+              "test": "Check TOC exists for long content",
+              "selector": ".table-of-contents, .toc, #table-of-contents",
+              "validation": "wordCount > 1000 ? elements.length >= 1 : true",
+              "required": false
+            },
+            "tocLinks": {
+              "test": "Validate TOC anchor links",
+              "selector": ".table-of-contents a, .toc a",
+              "validation": "elements.every(link => document.querySelector(link.getAttribute('href')))",
+              "required": false
+            }
+          }
+        }
+      },
+      "keywordOptimization": {
+        "keywordDistribution": {
+          "id": "keyword_001",
+          "title": "Keyword Distribution",
+          "description": "Natural keyword distribution throughout content",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "Primary keyword density 0.5-2% of total word count",
+            "Primary keyword in first 100 words",
+            "Primary keyword in at least one H2",
+            "Secondary keywords appear 3-5 times naturally",
+            "LSI keywords distributed throughout content",
+            "No keyword stuffing (max 3 consecutive mentions)"
+          ],
+          "testCriteria": {
+            "primaryKeywordDensity": {
+              "test": "Calculate primary keyword density",
+              "validation": "keywordDensity >= 0.5 && keywordDensity <= 2.0",
+              "calculation": "(primaryKeywordCount / totalWordCount) * 100",
+              "required": true
+            },
+            "keywordStuffingCheck": {
+              "test": "Detect keyword stuffing patterns",
+              "validation": "!hasConsecutiveKeywordMentions(text, primaryKeyword, 3)",
+              "required": true
+            },
+            "semanticKeywordPresence": {
+              "test": "Check semantic keyword coverage",
+              "validation": "semanticKeywords.filter(keyword => content.includes(keyword)).length >= semanticKeywords.length * 0.6",
+              "required": true
+            }
+          }
+        },
+        "entityInclusion": {
+          "id": "keyword_002",
+          "title": "Named Entities",
+          "description": "Include relevant named entities for topical authority",
+          "priority": "medium",
+          "acceptanceCriteria": [
+            "Industry-relevant companies mentioned (3-5)",
+            "Key industry figures or experts cited",
+            "Relevant tools or software mentioned",
+            "Geographic entities when applicable",
+            "Brand names and competitors mentioned contextually"
+          ],
+          "testCriteria": {
+            "entityCount": {
+              "test": "Count named entities in content",
+              "validation": "namedEntities.length >= 5",
+              "extraction": "NLP.extractEntities(content)",
+              "required": true
+            },
+            "industryEntityPresence": {
+              "test": "Check for industry-specific entities",
+              "validation": "industryEntities.some(entity => content.toLowerCase().includes(entity.toLowerCase()))",
+              "required": true
+            }
+          }
+        }
+      },
+      "linkStrategy": {
+        "internalLinks": {
+          "id": "links_001",
+          "title": "Internal Links to Service Pages",
+          "description": "Strategic internal links to relevant service pages",
+          "priority": "critical",
+          "acceptanceCriteria": [
+            "3-5 internal links to relevant service pages",
+            "Anchor text includes target keywords for service pages",
+            "Links placed contextually within content",
+            "At least one link to main service category",
+            "Links use descriptive anchor text (no 'click here')",
+            "Internal links open in same tab"
+          ],
+          "testCriteria": {
+            "servicePageLinkCount": {
+              "test": "Count internal links to service pages",
+              "selector": "a[href*='/services/'], a[href*='service']",
+              "validation": "elements.length >= 3 && elements.length <= 7",
+              "required": true
+            },
+            "anchorTextQuality": {
+              "test": "Validate anchor text quality",
+              "selector": "a[href*='/services/']",
+              "validation": "elements.every(link => !['click here', 'read more', 'here'].includes(link.textContent.toLowerCase().trim()))",
+              "required": true
+            },
+            "sameTabLinks": {
+              "test": "Ensure internal links open in same tab",
+              "selector": "a[href*='/services/']",
+              "validation": "elements.every(link => !link.hasAttribute('target') || link.getAttribute('target') === '_self')",
+              "required": true
+            }
+          }
+        },
+        "externalAuthorityCitations": {
+          "id": "links_002",
+          "title": "External Authority Citations",
+          "description": "Citations to high-authority external sources",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "2-4 external links to authority sites (DA >50)",
+            "External links support claims with data/research",
+            "Links to industry publications or studies",
+            "External links open in new tab",
+            "Links include rel='noopener' for security",
+            "Citations placed near claims they support"
+          ],
+          "testCriteria": {
+            "authorityLinkCount": {
+              "test": "Count external authority links",
+              "selector": "a[href^='http']:not([href*='nsmprime.com'])",
+              "validation": "elements.length >= 2 && elements.length <= 6",
+              "required": true
+            },
+            "newTabLinks": {
+              "test": "External links open in new tab",
+              "selector": "a[href^='http']:not([href*='nsmprime.com'])",
+              "validation": "elements.every(link => link.getAttribute('target') === '_blank')",
+              "required": true
+            },
+            "securityAttributes": {
+              "test": "Check rel attributes for security",
+              "selector": "a[href^='http']:not([href*='nsmprime.com'])",
+              "validation": "elements.every(link => link.getAttribute('rel')?.includes('noopener'))",
+              "required": true
+            }
+          }
+        }
+      },
+      "contentEnhancement": {
+        "faqSection": {
+          "id": "content_004",
+          "title": "FAQ Section",
+          "description": "FAQ section with schema markup",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "3-5 FAQ questions related to topic",
+            "Questions match 'People Also Ask' queries",
+            "FAQ schema markup implemented",
+            "Questions use natural language",
+            "Answers are comprehensive (50-150 words each)"
+          ],
+          "testCriteria": {
+            "faqPresence": {
+              "test": "Check for FAQ section",
+              "selector": ".faq, .frequently-asked-questions, #faq",
+              "validation": "elements.length >= 1",
+              "required": true
+            },
+            "faqCount": {
+              "test": "Validate FAQ question count",
+              "selector": ".faq-item, .faq-question",
+              "validation": "elements.length >= 3 && elements.length <= 7",
+              "required": true
+            },
+            "faqSchema": {
+              "test": "Check for FAQPage schema",
+              "selector": "script[type='application/ld+json']",
+              "validation": "Array.from(elements).some(script => script.textContent.includes('FAQPage'))",
+              "required": true
+            }
+          }
+        },
+        "conclusionCTA": {
+          "id": "content_005",
+          "title": "Conclusion with CTA",
+          "description": "Strong conclusion with clear call-to-action",
+          "priority": "critical",
+          "acceptanceCriteria": [
+            "Clear conclusion section summarizing key points",
+            "Specific CTA relevant to content topic",
+            "CTA links to appropriate service page",
+            "CTA uses action-oriented language",
+            "Conclusion restates main value proposition"
+          ],
+          "testCriteria": {
+            "conclusionPresence": {
+              "test": "Check for conclusion section",
+              "selector": ".conclusion, .summary, h2:contains('Conclusion'), h3:contains('Summary')",
+              "validation": "elements.length >= 1",
+              "required": true
+            },
+            "ctaPresence": {
+              "test": "Validate CTA in conclusion",
+              "selector": ".conclusion a, .cta-button, .call-to-action",
+              "validation": "elements.length >= 1",
+              "required": true
+            },
+            "ctaActionLanguage": {
+              "test": "Check CTA uses action verbs",
+              "selector": ".cta-button, .call-to-action",
+              "validation": "actionVerbs.some(verb => elements[0]?.textContent.toLowerCase().includes(verb))",
+              "actionVerbs": ["get", "start", "discover", "learn", "contact", "schedule", "download", "claim"],
+              "required": true
+            }
+          }
+        }
+      },
+      "technicalSEO": {
+        "metaTitle": {
+          "id": "meta_001",
+          "title": "Meta Title Optimization",
+          "description": "Optimized meta title under 60 characters",
+          "priority": "critical",
+          "acceptanceCriteria": [
+            "Title length 50-60 characters for optimal display",
+            "Primary keyword in first 30 characters",
+            "Brand name at end (if space allows)",
+            "Compelling and click-worthy",
+            "Unique from other pages on site"
+          ],
+          "testCriteria": {
+            "titleLength": {
+              "test": "Validate meta title length",
+              "selector": "title, meta[name='title']",
+              "validation": "text.length >= 30 && text.length <= 60",
+              "required": true
+            },
+            "titleKeywordPosition": {
+              "test": "Primary keyword in first 30 characters",
+              "selector": "title",
+              "validation": "text.substring(0, 30).toLowerCase().includes(primaryKeyword.toLowerCase())",
+              "required": true
+            },
+            "brandInTitle": {
+              "test": "Check brand presence in title",
+              "selector": "title",
+              "validation": "text.toLowerCase().includes('nsm prime') || text.includes('NSM')",
+              "required": false
+            }
+          }
+        },
+        "metaDescription": {
+          "id": "meta_002",
+          "title": "Meta Description Optimization",
+          "description": "Compelling meta description under 160 characters",
+          "priority": "critical",
+          "acceptanceCriteria": [
+            "Description length 140-160 characters",
+            "Primary keyword included naturally",
+            "Includes call-to-action",
+            "Accurately describes page content",
+            "Compelling and click-worthy"
+          ],
+          "testCriteria": {
+            "descriptionLength": {
+              "test": "Validate meta description length",
+              "selector": "meta[name='description']",
+              "validation": "content.length >= 120 && content.length <= 160",
+              "required": true
+            },
+            "descriptionKeyword": {
+              "test": "Primary keyword in description",
+              "selector": "meta[name='description']",
+              "validation": "content.toLowerCase().includes(primaryKeyword.toLowerCase())",
+              "required": true
+            },
+            "descriptionCTA": {
+              "test": "Call-to-action in description",
+              "selector": "meta[name='description']",
+              "validation": "ctaWords.some(word => content.toLowerCase().includes(word))",
+              "ctaWords": ["learn", "discover", "get", "find", "start", "contact", "download"],
+              "required": true
+            }
+          }
+        }
+      },
+      "imageOptimization": {
+        "altTextRules": {
+          "id": "image_001",
+          "title": "Alt Text Optimization",
+          "description": "Descriptive alt text for all images",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "All images have descriptive alt text",
+            "Alt text 5-125 characters",
+            "Primary keyword in featured image alt text",
+            "Alt text describes image content accurately",
+            "No keyword stuffing in alt text",
+            "Decorative images use empty alt=\"\""
+          ],
+          "testCriteria": {
+            "allImagesHaveAlt": {
+              "test": "All images have alt attributes",
+              "selector": "img",
+              "validation": "elements.every(img => img.hasAttribute('alt'))",
+              "required": true
+            },
+            "altTextLength": {
+              "test": "Alt text within character limits",
+              "selector": "img[alt]:not([alt=''])",
+              "validation": "elements.every(img => img.alt.length >= 5 && img.alt.length <= 125)",
+              "required": true
+            },
+            "featuredImageKeyword": {
+              "test": "Featured image includes keyword",
+              "selector": ".featured-image img, .hero-image img, article img:first-of-type",
+              "validation": "elements[0]?.alt.toLowerCase().includes(primaryKeyword.toLowerCase())",
+              "required": true
+            }
+          }
+        },
+        "imageCompression": {
+          "id": "image_002",
+          "title": "Image Compression Standards",
+          "description": "Optimized images for performance",
+          "priority": "medium",
+          "acceptanceCriteria": [
+            "Images compressed to <100KB each",
+            "Use WebP format when possible",
+            "Responsive images with srcset",
+            "Images lazy loaded below fold",
+            "Proper image dimensions (no scaling in HTML)"
+          ],
+          "testCriteria": {
+            "imageFileSize": {
+              "test": "Image file sizes under limit",
+              "validation": "imageFiles.every(file => file.size < 100000)",
+              "async": true,
+              "required": true
+            },
+            "webpFormat": {
+              "test": "Check for WebP usage",
+              "selector": "img, picture source",
+              "validation": "elements.some(el => el.src?.includes('.webp') || el.srcset?.includes('.webp'))",
+              "required": false
+            },
+            "lazyLoading": {
+              "test": "Images below fold are lazy loaded",
+              "selector": "img",
+              "validation": "belowFoldImages.every(img => img.hasAttribute('loading') && img.getAttribute('loading') === 'lazy')",
+              "required": true
+            }
+          }
+        }
+      },
+      "schemaMarkup": {
+        "articleSchema": {
+          "id": "schema_001",
+          "title": "Article Schema Generation",
+          "description": "Complete Article schema markup",
+          "priority": "high",
+          "acceptanceCriteria": [
+            "Article schema with required properties",
+            "Author information included",
+            "Publisher information with logo",
+            "Publication and modification dates",
+            "Article image with proper dimensions",
+            "Breadcrumb schema if applicable"
+          ],
+          "schemaTemplate": {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "{{title}}",
+            "description": "{{metaDescription}}",
+            "image": {
+              "@type": "ImageObject",
+              "url": "{{featuredImageUrl}}",
+              "width": "{{imageWidth}}",
+              "height": "{{imageHeight}}"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "{{authorName}}",
+              "url": "{{authorUrl}}"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "NSM Prime Media Group",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://nsmprime.com/images/logo-default-216x80.png",
+                "width": 216,
+                "height": 80
+              }
+            },
+            "datePublished": "{{publishDate}}",
+            "dateModified": "{{modifiedDate}}",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "{{canonicalUrl}}"
+            },
+            "articleSection": "{{category}}",
+            "keywords": "{{keywords}}",
+            "wordCount": "{{wordCount}}"
+          },
+          "testCriteria": {
+            "articleSchemaPresence": {
+              "test": "Check for Article schema",
+              "selector": "script[type='application/ld+json']",
+              "validation": "Array.from(elements).some(script => script.textContent.includes('\"@type\": \"Article\"'))",
+              "required": true
+            },
+            "requiredSchemaFields": {
+              "test": "Validate required schema fields",
+              "requiredFields": ["headline", "author", "publisher", "datePublished", "mainEntityOfPage"],
+              "validation": "requiredFields.every(field => schemaData.hasOwnProperty(field))",
+              "required": true
+            },
+            "publisherLogo": {
+              "test": "Publisher has logo in schema",
+              "validation": "schemaData.publisher?.logo?.url && schemaData.publisher.logo.width && schemaData.publisher.logo.height",
+              "required": true
+            }
+          }
+        }
+      }
+    },
+    "testSuites": {
+      "criticalChecks": {
+        "description": "Must-pass tests for blog post approval",
+        "tests": [
+          "content_001",
+          "heading_001",
+          "keyword_001",
+          "links_001",
+          "content_005",
+          "meta_001",
+          "meta_002",
+          "schema_001"
+        ]
+      },
+      "highPriorityChecks": {
+        "description": "Important tests that should pass",
+        "tests": [
+          "heading_002",
+          "content_002",
+          "keyword_002",
+          "links_002",
+          "content_004",
+          "image_001"
+        ]
+      },
+      "optimizationChecks": {
+        "description": "Nice-to-have optimizations",
+        "tests": [
+          "content_003",
+          "image_002"
+        ]
+      }
+    },
+    "ciIntegration": {
+      "testRunner": "jest",
+      "configFile": "blog-seo.config.js",
+      "testScripts": {
+        "validateBlogPost": "npm run test:blog-seo",
+        "generateReport": "npm run test:blog-seo -- --reporter=json",
+        "criticalOnly": "npm run test:blog-seo -- --testNamePattern='critical'"
+      },
+      "githubActions": {
+        "workflowFile": ".github/workflows/blog-seo-check.yml",
+        "triggerEvents": ["pull_request", "push"],
+        "paths": ["**.html", "blog/**", "content/**"]
+      }
+    },
+    "scoringSystem": {
+      "criticalWeight": 10,
+      "highWeight": 5,
+      "mediumWeight": 2,
+      "passingScore": 80,
+      "calculation": "Sum of (test_weight * test_result) / total_possible_points * 100"
+    },
+    "automationHooks": {
+      "prePublish": [
+        "validateBlogPost",
+        "generateSEOReport", 
+        "checkImageCompression",
+        "validateSchema"
+      ],
+      "postPublish": [
+        "submitToGoogleSearch",
+        "updateSitemap",
+        "pingSearchEngines"
+      ]
+    }
+  }
+}
