@@ -1,5 +1,5 @@
 [build]
-  command = "npm ci && npm run build && cp index.html out/index.html"
+  command = "npm ci && npm run build && cp index.html out/index.html && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/"
   publish = "out"
   
 [build.environment]
