@@ -8,15 +8,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Sarah Martinez",
-        "avatar": "/images/authors/sarah-martinez.jpg",
+        "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=150&h=150&fit=crop&crop=face",
         "bio": "SEO Specialist with 8+ years experience in local search optimization"
       },
       "publishDate": "2024-10-15T09:00:00Z",
       "modifiedDate": "2024-10-15T09:00:00Z",
       "readTime": 12,
       "featuredImage": {
-        "url": "/images/blog/local-seo-las-vegas.jpg",
-        "alt": "Las Vegas skyline with SEO analytics overlay",
+        "url": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=450&fit=crop",
+        "alt": "Las Vegas cityscape at sunset with business district lights",
         "width": 800,
         "height": 450
       },
@@ -37,15 +37,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Mike Chen",
-        "avatar": "/images/authors/mike-chen.jpg",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
         "bio": "Full-stack developer and technical lead with expertise in modern web technologies"
       },
       "publishDate": "2024-10-12T14:30:00Z",
       "modifiedDate": "2024-10-12T14:30:00Z",
       "readTime": 8,
       "featuredImage": {
-        "url": "/images/blog/web-development-trends-2024.jpg",
-        "alt": "Modern web development workspace with code on screens",
+        "url": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=450&fit=crop",
+        "alt": "Modern developer workspace with multiple monitors showing code",
         "width": 800,
         "height": 450
       },
@@ -66,15 +66,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Jennifer Lopez",
-        "avatar": "/images/authors/jennifer-lopez.jpg",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
         "bio": "Social media strategist specializing in ROI optimization and conversion tracking"
       },
       "publishDate": "2024-10-10T11:15:00Z",
       "modifiedDate": "2024-10-10T11:15:00Z",
       "readTime": 10,
       "featuredImage": {
-        "url": "/images/blog/social-media-roi-tracking.jpg",
-        "alt": "Social media analytics dashboard showing ROI metrics",
+        "url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=450&fit=crop",
+        "alt": "Social media analytics dashboard with engagement metrics on tablet",
         "width": 800,
         "height": 450
       },
@@ -95,15 +95,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "David Rodriguez",
-        "avatar": "/images/authors/david-rodriguez.jpg",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
         "bio": "PPC specialist with 10+ years managing high-budget campaigns for Las Vegas businesses"
       },
       "publishDate": "2024-10-08T16:45:00Z",
       "modifiedDate": "2024-10-08T16:45:00Z",
       "readTime": 15,
       "featuredImage": {
-        "url": "/images/blog/ppc-advertising-las-vegas.jpg",
-        "alt": "PPC campaign dashboard with Las Vegas targeting settings",
+        "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop",
+        "alt": "Google Ads dashboard showing campaign performance metrics",
         "width": 800,
         "height": 450
       },
@@ -124,15 +124,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Amanda Thompson",
-        "avatar": "/images/authors/amanda-thompson.jpg",
+        "avatar": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
         "bio": "Content strategist helping businesses build authority through strategic content marketing"
       },
       "publishDate": "2024-10-06T10:20:00Z",
       "modifiedDate": "2024-10-06T10:20:00Z",
       "readTime": 11,
       "featuredImage": {
-        "url": "/images/blog/content-marketing-strategy.jpg",
-        "alt": "Content planning workspace with strategy documents",
+        "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=450&fit=crop",
+        "alt": "Content strategy planning session with sticky notes and charts",
         "width": 800,
         "height": 450
       },
@@ -153,15 +153,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Sarah Martinez",
-        "avatar": "/images/authors/sarah-martinez.jpg",
+        "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=150&h=150&fit=crop&crop=face",
         "bio": "SEO Specialist with 8+ years experience in local search optimization"
       },
       "publishDate": "2024-10-04T13:30:00Z",
       "modifiedDate": "2024-10-04T13:30:00Z",
       "readTime": 13,
       "featuredImage": {
-        "url": "/images/blog/ecommerce-seo-optimization.jpg",
-        "alt": "E-commerce website optimization interface",
+        "url": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=450&fit=crop",
+        "alt": "E-commerce shopping cart interface on laptop screen",
         "width": 800,
         "height": 450
       },
@@ -182,15 +182,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Mike Chen",
-        "avatar": "/images/authors/mike-chen.jpg",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
         "bio": "Full-stack developer and technical lead with expertise in modern web technologies"
       },
       "publishDate": "2024-10-02T09:45:00Z",
       "modifiedDate": "2024-10-02T09:45:00Z",
       "readTime": 9,
       "featuredImage": {
-        "url": "/images/blog/website-performance-optimization.jpg",
-        "alt": "Website speed testing dashboard with performance metrics",
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop",
+        "alt": "Website speed test results showing performance metrics",
         "width": 800,
         "height": 450
       },
@@ -211,15 +211,15 @@
       "content": "Full article content here...",
       "author": {
         "name": "Jennifer Lopez",
-        "avatar": "/images/authors/jennifer-lopez.jpg",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
         "bio": "Social media strategist specializing in ROI optimization and conversion tracking"
       },
       "publishDate": "2024-09-30T15:10:00Z",
       "modifiedDate": "2024-09-30T15:10:00Z",
       "readTime": 14,
       "featuredImage": {
-        "url": "/images/blog/digital-marketing-analytics.jpg",
-        "alt": "Marketing analytics dashboard with key performance metrics",
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&q=80",
+        "alt": "Digital marketing analytics dashboard showing KPI metrics",
         "width": 800,
         "height": 450
       },
