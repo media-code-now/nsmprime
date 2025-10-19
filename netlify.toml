@@ -2,12 +2,26 @@
   command = "npm run build"
   publish = "out"
 
+# Blog redirects - redirect old HTML pages to new Next.js routes
 [[redirects]]
   from = "/blog.html"
   to = "/blog/"
   status = 301
+  force = true
 
 [[redirects]]
   from = "/blog"
   to = "/blog/"
   status = 301
+
+# Catch any blog-related queries
+[[redirects]]
+  from = "/blog.html/*"
+  to = "/blog/"
+  status = 301
+
+# Headers for better caching
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
