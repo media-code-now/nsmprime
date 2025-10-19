@@ -5,32 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useDebounce } from '../../hooks/useDebounce';
 
-export const metadata = {
-  title: 'Digital Marketing Blog - Expert Insights & Strategies',
-  description: 'Expert digital marketing insights, SEO strategies, web development trends, and business growth tips from Las Vegas industry leaders. Stay ahead with our comprehensive guides.',
-  keywords: ['digital marketing blog', 'SEO strategies', 'web development', 'Las Vegas marketing', 'social media marketing', 'PPC advertising', 'content marketing'],
-  openGraph: {
-    title: 'Digital Marketing Blog - Expert Insights & Strategies',
-    description: 'Expert digital marketing insights, SEO strategies, web development trends, and business growth tips from Las Vegas industry leaders.',
-    type: 'website',
-    url: 'https://nsmprime.com/blog',
-    images: [
-      {
-        url: '/images/blog/blog-og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Digital Marketing Blog - NSM Prime Media Group',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Digital Marketing Blog - Expert Insights & Strategies',
-    description: 'Expert digital marketing insights, SEO strategies, web development trends, and business growth tips.',
-    images: ['/images/blog/blog-twitter-card.jpg'],
-  },
-};
-
 // Types
 interface BlogPost {
   id: string;
