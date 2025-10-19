@@ -9,7 +9,6 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
-  distDir: 'build',
   trailingSlash: false,
   
   // SEO optimizations
