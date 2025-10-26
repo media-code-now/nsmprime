@@ -1,0 +1,77 @@
+name: Automated Blog Generation
+
+on:
+  # Run every Monday at 9 AM UTC (weekly)
+  schedule:
+    - cron: '0 9 * * 1'
+  
+  # Allow manual triggering
+  workflow_dispatch:
+    inputs:
+      post_count:
+        description: 'Number of posts to generate'
+        required: false
+        default: '1'
+        type: string
+
+jobs:
+  generate-blog-posts:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Generate new blog posts
+      run: |
+        # Generate posts (default 1, or manual input)
+        POST_COUNT="${{ github.event.inputs.post_count || '1' }}"
+        echo "Generating $POST_COUNT blog post(s)..."
+        node blog-generator.js generate $POST_COUNT
+    
+    - name: Build the site
+      run: |
+        npm run build
+        # Copy all assets
+        cp *.html out/ || true
+        cp -r css out/ || true
+        cp -r js out/ || true
+        cp -r images out/ || true
+        cp -r fonts out/ || true
+        cp -r audio out/ || true
+        cp -r video out/ || true
+        cp -r bat out/ || true
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Check if there are changes
+        if git diff --quiet; then
+          echo "No changes to commit"
+          exit 0
+        fi
+        
+        git add .
+        git commit -m "🤖 Auto-generated blog post(s) - $(date '+%Y-%m-%d %H:%M')"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Summary
+      run: |
+        echo "✅ Blog generation completed!"
+        echo "📊 Current blog posts:"
+        node blog-generator.js list

@@ -13,7 +13,11 @@
     "test:blog-seo:json": "node blog-seo-validator.js --reporter=json",
     "test:blog-seo:critical": "node blog-seo-validator.js --critical-only",
     "validate-post": "node -e \"const validator = require('./blog-seo-validator.js'); const v = new validator(process.argv[1]); v.runAllTests({primaryKeyword: process.argv[2], semanticKeywords: process.argv[3]?.split(',') || []}).then(r => console.log(v.generateReport(r)));\"",
-    "install-deps": "npm install jsdom axios"
+    "install-deps": "npm install jsdom axios",
+    "blog:generate": "node blog-generator.js generate",
+    "blog:generate:3": "node blog-generator.js generate 3",
+    "blog:list": "node blog-generator.js list",
+    "blog:deploy": "npm run blog:generate && npm run build && cp *.html out/ && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/ && cp -r bat out/"
   },
   "dependencies": {
     "axios": "^1.5.0",
