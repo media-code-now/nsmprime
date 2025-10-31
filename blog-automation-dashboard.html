@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSM Prime Blog Automation Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stat:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .stat-value {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .button.secondary {
+            background: #6c757d;
+        }
+        
+        .button.success {
+            background: #28a745;
+        }
+        
+        .button.warning {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .logs {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .log-content {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #e9ecef;
+        }
+        
+        .recent-posts {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        
+        .post-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .post-item:last-child {
+            border-bottom: none;
+        }
+        
+        .post-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        
+        .post-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+        
+        .post-meta {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .alert.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🤖 Blog Automation Dashboard</h1>
+            <p>NSM Prime Media Group - Automated Content Management System</p>
+        </div>
+        
+        <div class="alert info">
+            <strong>📋 Quick Guide:</strong> The blog automation system generates new posts every 3 days at 9:00 AM Las Vegas time. 
+            You can manually generate posts or check the system status using the controls below.
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h3>
+                    <span class="status-indicator"></span>
+                    System Status
+                </h3>
+                <div class="stat">
+                    <span class="stat-label">Automation Status</span>
+                    <span class="stat-value" id="automation-status">Active</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Schedule</span>
+                    <span class="stat-value">Every 3 days at 9:00 AM</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Timezone</span>
+                    <span class="stat-value">Las Vegas (PST/PDT)</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Posts per Batch</span>
+                    <span class="stat-value">1 post</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>📊 Blog Statistics</h3>
+                <div class="stat">
+                    <span class="stat-label">Total Posts</span>
+                    <span class="stat-value" id="total-posts">13</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Latest Post</span>
+                    <span class="stat-value" id="latest-post">Mobile-First Design</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Published</span>
+                    <span class="stat-value" id="publish-date">Oct 30, 2025</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Next Scheduled</span>
+                    <span class="stat-value" id="next-run">Nov 2, 2025 9:00 AM</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>⚙️ Configuration</h3>
+                <div class="stat">
+                    <span class="stat-label">Min Hours Between Posts</span>
+                    <span class="stat-value">24 hours</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Max Posts Stored</span>
+                    <span class="stat-value">20 posts</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Auto Sitemap Update</span>
+                    <span class="stat-value">✅ Enabled</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Categories</span>
+                    <span class="stat-value">8 topics</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <h3 style="color: white; margin-bottom: 20px;">🎛️ Manual Controls</h3>
+            <button class="button success" onclick="generatePost()">Generate New Post</button>
+            <button class="button" onclick="checkStatus()">Refresh Status</button>
+            <button class="button secondary" onclick="viewLogs()">View Logs</button>
+            <button class="button warning" onclick="updateSitemap()">Update Sitemap</button>
+        </div>
+        
+        <div class="recent-posts">
+            <h3>📝 Recent Blog Posts</h3>
+            <div id="recent-posts-list">
+                <div class="post-item">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=60&h=60&fit=crop" alt="Blog post" class="post-image">
+                    <div class="post-info">
+                        <h4>Mobile-First Design: Why Your Las Vegas Business Website Needs It</h4>
+                        <div class="post-meta">Web Development • 38 min read • 529 views</div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=60&h=60&fit=crop" alt="Blog post" class="post-image">
+                    <div class="post-info">
+                        <h4>Content Marketing Strategy: Building Authority for Las Vegas Businesses</h4>
+                        <div class="post-meta">Content Marketing • 40 min read • 163 views</div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=60&h=60&fit=crop" alt="Blog post" class="post-image">
+                    <div class="post-info">
+                        <h4>PPC vs SEO: Finding the Right Balance for Las Vegas Marketing</h4>
+                        <div class="post-meta">PPC • 36 min read • 245 views</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="logs" id="logs-section" style="display: none;">
+            <h3>📋 System Logs</h3>
+            <div class="log-content" id="log-content">
+                [2025-10-30 21:13:08] 🤖 Blog automation system initialized<br>
+                [2025-10-30 21:13:08] 📅 Schedule set: Every 3 days at 9:00 AM Las Vegas time<br>
+                [2025-10-30 21:13:08] ✅ Blog automation scheduled successfully<br>
+                [2025-10-30 21:13:08] 🔄 System running... Press Ctrl+C to stop<br>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>NSM Prime Media Group • Blog Automation System v1.0</p>
+            <p>Automated content generation for digital marketing excellence</p>
+        </div>
+    </div>
+    
+    <script>
+        function generatePost() {
+            alert('🚀 Generating new blog post...\n\nThis would normally run:\nnode blog-automation-scheduler.js generate');
+            // In a real implementation, this would make an API call
+        }
+        
+        function checkStatus() {
+            alert('🔄 Refreshing status...\n\nThis would normally run:\nnode blog-automation-scheduler.js status');
+            // In a real implementation, this would fetch current status
+        }
+        
+        function viewLogs() {
+            const logsSection = document.getElementById('logs-section');
+            logsSection.style.display = logsSection.style.display === 'none' ? 'block' : 'none';
+        }
+        
+        function updateSitemap() {
+            alert('🗺️ Updating sitemap...\n\nThis would normally run:\nnode sitemap-generator.js all');
+            // In a real implementation, this would update the sitemap
+        }
+        
+        // Simulate real-time updates
+        function updateStats() {
+            const now = new Date();
+            document.getElementById('publish-date').textContent = now.toLocaleDateString();
+            
+            // Calculate next scheduled run (every 3 days)
+            const nextRun = new Date(now.getTime() + (3 * 24 * 60 * 60 * 1000));
+            nextRun.setHours(9, 0, 0, 0);
+            document.getElementById('next-run').textContent = nextRun.toLocaleDateString() + ' 9:00 AM';
+        }
+        
+        // Update stats on page load
+        updateStats();
+        
+        // Update every minute
+        setInterval(updateStats, 60000);
+    </script>
+</body>
+</html>

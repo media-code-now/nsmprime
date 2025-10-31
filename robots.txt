@@ -1,0 +1,38 @@
+# NSM Prime Media Group - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://nsmprime.com/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1
+
+# Disallow admin/private areas
+Disallow: /bat/
+Disallow: /build/
+Disallow: /out/
+Disallow: /*.json$
+Disallow: /*.config.js$
+
+# Allow specific important files
+Allow: /data/posts.json
+
+# Popular crawlers - no restrictions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

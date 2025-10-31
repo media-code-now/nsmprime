@@ -17,13 +17,19 @@
     "blog:generate": "node blog-generator.js generate",
     "blog:generate:3": "node blog-generator.js generate 3",
     "blog:list": "node blog-generator.js list",
-    "blog:deploy": "npm run blog:generate && npm run build && cp *.html out/ && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/ && cp -r bat out/"
+    "blog:auto:start": "node blog-automation-scheduler.js start",
+    "blog:auto:generate": "node blog-automation-scheduler.js generate",
+    "blog:auto:status": "node blog-automation-scheduler.js status",
+    "blog:auto:config": "node blog-automation-scheduler.js config",
+    "sitemap:generate": "node sitemap-generator.js all",
+    "blog:deploy": "npm run blog:generate && npm run sitemap:generate && npm run build && cp *.html out/ && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/ && cp -r bat out/ && cp sitemap.xml out/ && cp robots.txt out/"
   },
   "dependencies": {
     "axios": "^1.5.0",
     "critters": "^0.0.23",
     "jsdom": "^22.1.0",
     "next": "^14.0.0",
+    "node-cron": "^4.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

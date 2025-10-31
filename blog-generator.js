@@ -13,7 +13,7 @@ const crypto = require('crypto');
 
 // Configuration
 const CONFIG = {
-  dataPath: path.join(__dirname, 'public/data/posts.json'),
+  dataPath: path.join(__dirname, 'data/posts.json'),
   maxPosts: 20, // Keep only the latest 20 posts
   categories: [
     'SEO',

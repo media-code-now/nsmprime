@@ -1,7 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import fs from 'fs';
 import path from 'path';
 
@@ -163,31 +162,30 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         }}
       />
 
-      <article className="min-h-screen bg-white">
+      <article style={{ minHeight: '100vh', backgroundColor: 'white' }}>
         {/* Hero Section */}
-        <div className="relative h-96 md:h-[500px] overflow-hidden">
-          <Image
+        <div className="position-relative overflow-hidden" style={{ height: '500px' }}>
+          <img
             src={post.featuredImage.url}
             alt={post.featuredImage.alt}
-            fill
-            className="object-cover"
-            priority
+            className="w-100 h-100"
+            style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
           />
-          <div className="absolute inset-0 bg-black bg-opacity-40" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+          <div className="position-absolute w-100 h-100" style={{ top: 0, left: 0, backgroundColor: 'rgba(0,0,0,0.4)' }} />
+          <div className="position-absolute w-100 h-100 d-flex align-items-end" style={{ top: 0, left: 0 }}>
+            <div className="container pb-5">
               <div className="text-white">
-                <div className="flex items-center mb-4">
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="d-flex align-items-center mb-3">
+                  <span className="badge badge-primary px-3 py-2 rounded-pill">
                     {post.category}
                   </span>
-                  <span className="mx-3 text-gray-300">•</span>
-                  <span className="text-gray-300">{post.readTime} min read</span>
+                  <span className="mx-3 text-light">•</span>
+                  <span className="text-light">{post.readTime} min read</span>
                 </div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+                <h1 className="display-3 font-weight-bold mb-3" style={{ lineHeight: '1.2' }}>
                   {post.title}
                 </h1>
-                <p className="text-xl text-gray-200 max-w-3xl">
+                <p className="lead text-light" style={{ maxWidth: '800px' }}>
                   {post.excerpt}
                 </p>
               </div>
@@ -196,20 +194,21 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </div>
 
         {/* Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="container py-5" style={{ maxWidth: '900px' }}>
           {/* Author & Date */}
-          <div className="flex items-center mb-8 pb-8 border-b border-gray-200">
-            <Image
+          <div className="d-flex align-items-center mb-4 pb-4 border-bottom">
+            <img
               src={post.author.avatar}
               alt={post.author.name}
               width={64}
               height={64}
-              className="w-16 h-16 rounded-full mr-4"
+              className="rounded-circle mr-3"
+              style={{ width: '64px', height: '64px', objectFit: 'cover' }}
             />
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">{post.author.name}</h3>
-              <p className="text-gray-600 mb-1">{post.author.bio}</p>
-              <div className="flex items-center text-sm text-gray-500">
+              <h3 className="h5 mb-1 text-dark font-weight-bold">{post.author.name}</h3>
+              <p className="text-muted mb-1 small">{post.author.bio}</p>
+              <div className="d-flex align-items-center text-muted small">
                 <span>Published {publishDate}</span>
                 <span className="mx-2">•</span>
                 <span>{post.views} views</span>
@@ -218,22 +217,36 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           </div>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none">
-            {post.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-6 text-gray-800 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+          <div className="blog-content" style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
+            <style>{`
+              .blog-content h2 { margin-top: 2rem; margin-bottom: 1rem; font-weight: bold; }
+              .blog-content h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: bold; }
+              .blog-content p { margin-bottom: 1.5rem; text-align: justify; }
+              .blog-content ul { margin-bottom: 1.5rem; padding-left: 2rem; }
+              .blog-content li { margin-bottom: 0.5rem; }
+            `}</style>
+            <div dangerouslySetInnerHTML={{ 
+              __html: post.content
+                .replace(/\n\n/g, '</p><p class="mb-4">')
+                .replace(/^/, '<p class="mb-4">')
+                .replace(/$/, '</p>')
+                .replace(/## (.*?)\n/g, '<h2 class="h3 mt-4 mb-3 font-weight-bold">$1</h2>')
+                .replace(/### (.*?)\n/g, '<h3 class="h4 mt-3 mb-2 font-weight-bold">$1</h3>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/- (.*?)\n/g, '<li class="mb-1">$1</li>')
+                .replace(/(<li[^>]*>.*<\/li>)/g, '<ul class="mb-3 pl-4">$1</ul>')
+            }} />
           </div>
 
           {/* Tags */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <h4 className="text-lg font-semibold text-gray-900 mb-4">Tags</h4>
-            <div className="flex flex-wrap gap-2">
+          <div className="mt-5 pt-4 border-top">
+            <h4 className="h5 font-weight-bold text-dark mb-3">Tags</h4>
+            <div className="d-flex flex-wrap">
               {post.tags.map(tag => (
                 <span
                   key={tag}
-                  className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-100 transition-colors"
+                  className="badge badge-secondary mr-2 mb-2 px-3 py-2"
+                  style={{ fontSize: '0.9rem' }}
                 >
                   #{tag}
                 </span>
