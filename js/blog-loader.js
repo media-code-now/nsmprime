@@ -98,21 +98,21 @@ class BlogLoader {
             <div class="col-md-6 col-lg-4">
                 <article class="post-modern">
                     <div class="post-modern__aside">
-                        <a href="blog/?slug=${post.slug}">
+                        <a href="blog/${post.slug}.html">
                             <img src="${post.featuredImage.url || 'images/bg-decor-1.png'}" alt="${post.featuredImage.alt}" width="370" height="239" loading="lazy" onerror="this.src='images/bg-decor-1.png'"/>
                         </a>
                         <div class="post-modern__badge">Featured</div>
                     </div>
                     <div class="post-modern__main">
                         <h3 class="post-modern__title">
-                            <a href="blog/?slug=${post.slug}">${post.title}</a>
+                            <a href="blog/${post.slug}.html">${post.title}</a>
                         </h3>
                         <div class="post-modern__meta">
                             <span class="post-modern__time">${this.formatDate(post.publishDate)}</span>
                             <span class="post-modern__read-time">${post.readTime} min read</span>
                         </div>
                         <p class="post-modern__text">${post.excerpt}</p>
-                        <a class="button button-primary-outline" href="blog/?slug=${post.slug}">Read More</a>
+                        <a class="button button-primary-outline" href="blog/${post.slug}.html">Read More</a>
                     </div>
                 </article>
             </div>
@@ -136,13 +136,13 @@ class BlogLoader {
             <div class="col-md-6 col-lg-3">
                 <article class="post-classic">
                     <div class="post-classic__aside">
-                        <a href="blog/?slug=${post.slug}">
+                        <a href="blog/${post.slug}.html">
                             <img src="${post.featuredImage.url}" alt="${post.featuredImage.alt}" width="370" height="239" loading="lazy"/>
                         </a>
                     </div>
                     <div class="post-classic__main">
                         <time class="post-classic__time" datetime="${post.publishDate}">${this.formatDate(post.publishDate)}</time>
-                        <h4><a class="post-classic__title" href="blog/?slug=${post.slug}">${post.title}</a></h4>
+                        <h4><a class="post-classic__title" href="blog/${post.slug}.html">${post.title}</a></h4>
                         <div class="post-classic__meta">
                             <span class="post-classic__category">${post.category}</span>
                             <span class="post-classic__read-time">${post.readTime} min read</span>
@@ -173,12 +173,12 @@ class BlogLoader {
                     <div class="post-trending__content">
                         <div class="post-trending__number">${index + 1}</div>
                         <div class="post-trending__image">
-                            <a href="blog/?slug=${post.slug}">
+                            <a href="blog/${post.slug}.html">
                                 <img src="${post.featuredImage.url}" alt="${post.featuredImage.alt}" width="100" height="100" loading="lazy"/>
                             </a>
                         </div>
                         <div class="post-trending__main">
-                            <h4><a href="blog/?slug=${post.slug}">${post.title}</a></h4>
+                            <h4><a href="blog/${post.slug}.html">${post.title}</a></h4>
                             <div class="post-trending__meta">
                                 <span class="post-trending__views">${this.formatNumber(post.views || 0)} views</span>
                                 <span class="post-trending__shares">${this.formatNumber(post.shares || 0)} shares</span>
@@ -214,20 +214,20 @@ class BlogLoader {
             <div class="col-md-6 col-lg-4">
                 <article class="post-modern">
                     <div class="post-modern__aside">
-                        <a href="blog/?slug=${post.slug}">
+                        <a href="blog/${post.slug}.html">
                             <img src="${post.featuredImage.url}" alt="${post.featuredImage.alt}" width="370" height="239" loading="lazy"/>
                         </a>
                     </div>
                     <div class="post-modern__main">
                         <h3 class="post-modern__title">
-                            <a href="blog/?slug=${post.slug}">${post.title}</a>
+                            <a href="blog/${post.slug}.html">${post.title}</a>
                         </h3>
                         <div class="post-modern__meta">
                             <span class="post-modern__time">${this.formatDate(post.publishDate)}</span>
                             <span class="post-modern__category">${post.category}</span>
                         </div>
                         <p class="post-modern__text">${post.excerpt}</p>
-                        <a class="button button-primary-outline" href="blog/?slug=${post.slug}">Read More</a>
+                        <a class="button button-primary-outline" href="blog/${post.slug}.html">Read More</a>
                     </div>
                 </article>
             </div>
@@ -263,20 +263,20 @@ class BlogLoader {
                         <div class="col-md-6 col-lg-4">
                             <article class="post-modern">
                                 <div class="post-modern__aside">
-                                    <a href="blog/?slug=${post.slug}">
+                                    <a href="blog/${post.slug}.html">
                                         <img src="${post.featuredImage.url}" alt="${post.featuredImage.alt}" width="370" height="239" loading="lazy"/>
                                     </a>
                                 </div>
                                 <div class="post-modern__main">
                                     <h3 class="post-modern__title">
-                                        <a href="blog/?slug=${post.slug}">${post.title}</a>
+                                        <a href="blog/${post.slug}.html">${post.title}</a>
                                     </h3>
                                     <div class="post-modern__meta">
                                         <span class="post-modern__time">${this.formatDate(post.publishDate)}</span>
                                         <span class="post-modern__category">${post.category}</span>
                                     </div>
                                     <p class="post-modern__text">${post.excerpt}</p>
-                                    <a class="button button-primary-outline" href="blog/?slug=${post.slug}">Read More</a>
+                                    <a class="button button-primary-outline" href="blog/${post.slug}.html">Read More</a>
                                 </div>
                             </article>
                         </div>
@@ -323,16 +323,16 @@ class BlogLoader {
                 <article class="post-minimal">
                     <img src="${post.featuredImage.url || 'images/bg-decor-1.png'}" alt="${post.featuredImage.alt}" width="418" height="315" loading="lazy" onerror="this.src='images/bg-decor-1.png'"/>
                     <div class="post-classic-title">
-                        <h6><a href="blog/?slug=${post.slug}">${post.title}</a></h6>
+                        <h6><a href="blog/${post.slug}.html">${post.title}</a></h6>
                     </div>
                     <div class="post-meta">
                         <div class="group-xs">
-                            <a href="blog/?slug=${post.slug}">
+                            <a href="blog/${post.slug}.html">
                                 <time datetime="${post.publishDate}">${this.formatDate(post.publishDate)}</time>
                             </a>
-                            <a class="meta-author" href="blog/?slug=${post.slug}">by ${post.author.name}</a>
+                            <a class="meta-author" href="blog/${post.slug}.html">by ${post.author.name}</a>
                             <ul class="list-inline-tag">
-                                <li><a href="blog/?slug=${post.slug}">${post.category}</a></li>
+                                <li><a href="blog/${post.slug}.html">${post.category}</a></li>
                             </ul>
                         </div>
                     </div>
