@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'v9SyE8Pr3XukCvGI24RZzG9qth6P_qMvdK8m8Sp_d_s',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -53,11 +56,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
   },
 }
 
