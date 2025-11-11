@@ -379,6 +379,282 @@
       "views": 542,
       "likes": 29,
       "shares": 23
+    },
+    {
+      "id": "1",
+      "title": "Complete Guide to Local SEO for Las Vegas Businesses",
+      "slug": "local-seo-las-vegas-guide",
+      "excerpt": "Discover proven strategies to dominate local search results in Las Vegas. Learn how to optimize your business for Google My Business, local citations, and location-based keywords.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Sarah Martinez",
+        "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=150&h=150&fit=crop&crop=face",
+        "bio": "SEO Specialist with 8+ years experience in local search optimization"
+      },
+      "publishDate": "2024-10-15T09:00:00Z",
+      "modifiedDate": "2024-10-15T09:00:00Z",
+      "readTime": 12,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Las Vegas Strip at night with neon casino lights",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "Local SEO",
+        "Las Vegas",
+        "Google My Business",
+        "Citations"
+      ],
+      "category": "SEO",
+      "isFeatured": true,
+      "metaTitle": "Local SEO Las Vegas: Complete 2024 Guide for Businesses",
+      "metaDescription": "Master local SEO in Las Vegas with our comprehensive guide. Boost your local rankings, attract more customers, and dominate local search results.",
+      "views": 15420,
+      "likes": 234,
+      "shares": 89
+    },
+    {
+      "id": "2",
+      "title": "Web Development Trends Shaping 2024: What Las Vegas Businesses Need to Know",
+      "slug": "web-development-trends-2024",
+      "excerpt": "Stay ahead of the curve with the latest web development trends. From AI integration to progressive web apps, discover what technologies will drive business growth.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Mike Chen",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "bio": "Full-stack developer and technical lead with expertise in modern web technologies"
+      },
+      "publishDate": "2024-10-12T14:30:00Z",
+      "modifiedDate": "2024-10-12T14:30:00Z",
+      "readTime": 8,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1537432376769-00f83c2e7e8b?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Clean minimalist workspace with laptop showing responsive website design",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "Web Development",
+        "Trends",
+        "JavaScript",
+        "AI",
+        "PWA"
+      ],
+      "category": "Web Development",
+      "isFeatured": true,
+      "metaTitle": "2024 Web Development Trends for Las Vegas Businesses",
+      "metaDescription": "Explore cutting-edge web development trends for 2024. Learn how AI, PWAs, and modern frameworks can transform your business website.",
+      "views": 8932,
+      "likes": 156,
+      "shares": 43
+    },
+    {
+      "id": "3",
+      "title": "Social Media Marketing ROI: Measuring Success in Las Vegas Market",
+      "slug": "social-media-marketing-roi-las-vegas",
+      "excerpt": "Learn how to track and optimize your social media marketing ROI with proven metrics and strategies tailored for the competitive Las Vegas market.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Jennifer Lopez",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+        "bio": "Social media strategist specializing in ROI optimization and conversion tracking"
+      },
+      "publishDate": "2024-10-10T11:15:00Z",
+      "modifiedDate": "2024-10-10T11:15:00Z",
+      "readTime": 10,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Smartphone displaying various social media apps with analytics graphs",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "Social Media",
+        "ROI",
+        "Analytics",
+        "Marketing",
+        "Las Vegas"
+      ],
+      "category": "Social Media",
+      "isFeatured": false,
+      "metaTitle": "Social Media ROI Tracking for Las Vegas Businesses",
+      "metaDescription": "Master social media ROI measurement with our comprehensive guide. Track conversions, optimize campaigns, and maximize your marketing investment.",
+      "views": 6721,
+      "likes": 98,
+      "shares": 31
+    },
+    {
+      "id": "4",
+      "title": "PPC Advertising Strategies for High-Converting Las Vegas Campaigns",
+      "slug": "ppc-advertising-strategies-las-vegas",
+      "excerpt": "Maximize your PPC campaign performance with location-specific strategies for Las Vegas. Learn bidding tactics, ad copy optimization, and conversion tracking.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "David Rodriguez",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+        "bio": "PPC specialist with 10+ years managing high-budget campaigns for Las Vegas businesses"
+      },
+      "publishDate": "2024-10-08T16:45:00Z",
+      "modifiedDate": "2024-10-08T16:45:00Z",
+      "readTime": 15,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Computer screen showing Google Ads campaign dashboard with performance charts",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "PPC",
+        "Google Ads",
+        "Advertising",
+        "Conversion",
+        "Las Vegas"
+      ],
+      "category": "PPC",
+      "isFeatured": true,
+      "metaTitle": "PPC Advertising Las Vegas: High-Converting Campaign Strategies",
+      "metaDescription": "Boost your PPC performance in Las Vegas with expert strategies. Learn advanced bidding, targeting, and optimization techniques for maximum ROI.",
+      "views": 4567,
+      "likes": 123,
+      "shares": 56
+    },
+    {
+      "id": "5",
+      "title": "Content Marketing Strategy: Building Authority in Competitive Las Vegas Markets",
+      "slug": "content-marketing-strategy-las-vegas",
+      "excerpt": "Develop a winning content marketing strategy that establishes your brand as an authority in the competitive Las Vegas business landscape.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Amanda Thompson",
+        "avatar": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
+        "bio": "Content strategist helping businesses build authority through strategic content marketing"
+      },
+      "publishDate": "2024-10-06T10:20:00Z",
+      "modifiedDate": "2024-10-06T10:20:00Z",
+      "readTime": 11,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Person writing content strategy on whiteboard with marketing concepts",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "Content Marketing",
+        "Strategy",
+        "Authority",
+        "Branding"
+      ],
+      "category": "Content Marketing",
+      "isFeatured": false,
+      "metaTitle": "Content Marketing Strategy for Las Vegas Business Authority",
+      "metaDescription": "Build market authority with strategic content marketing. Learn proven tactics for creating engaging content that drives traffic and conversions.",
+      "views": 3421,
+      "likes": 87,
+      "shares": 29
+    },
+    {
+      "id": "6",
+      "title": "E-commerce SEO: Optimizing Online Stores for Las Vegas Shoppers",
+      "slug": "ecommerce-seo-las-vegas",
+      "excerpt": "Master e-commerce SEO with strategies specific to Las Vegas consumers. Learn product optimization, local shopping features, and conversion techniques.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Sarah Martinez",
+        "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=150&h=150&fit=crop&crop=face",
+        "bio": "SEO Specialist with 8+ years experience in local search optimization"
+      },
+      "publishDate": "2024-10-04T13:30:00Z",
+      "modifiedDate": "2024-10-04T13:30:00Z",
+      "readTime": 13,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Online shopping website on laptop with shopping cart and products",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "E-commerce",
+        "SEO",
+        "Online Shopping",
+        "Conversion"
+      ],
+      "category": "SEO",
+      "isFeatured": false,
+      "metaTitle": "E-commerce SEO Las Vegas: Online Store Optimization Guide",
+      "metaDescription": "Optimize your e-commerce store for Las Vegas shoppers. Learn product SEO, local shopping optimization, and conversion rate improvement strategies.",
+      "views": 2876,
+      "likes": 65,
+      "shares": 22
+    },
+    {
+      "id": "7",
+      "title": "Website Performance Optimization: Speed Up Your Las Vegas Business Site",
+      "slug": "website-performance-optimization",
+      "excerpt": "Improve your website's loading speed and performance with proven optimization techniques. Learn Core Web Vitals optimization and mobile performance.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Mike Chen",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "bio": "Full-stack developer and technical lead with expertise in modern web technologies"
+      },
+      "publishDate": "2024-10-02T09:45:00Z",
+      "modifiedDate": "2024-10-02T09:45:00Z",
+      "readTime": 9,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Website performance testing tools showing speed optimization metrics",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "Performance",
+        "Website Speed",
+        "Core Web Vitals",
+        "Optimization"
+      ],
+      "category": "Web Development",
+      "isFeatured": false,
+      "metaTitle": "Website Performance Optimization for Las Vegas Businesses",
+      "metaDescription": "Speed up your website with expert performance optimization. Learn Core Web Vitals, image optimization, and mobile performance improvements.",
+      "views": 5432,
+      "likes": 134,
+      "shares": 47
+    },
+    {
+      "id": "8",
+      "title": "Digital Marketing Analytics: Key Metrics Every Las Vegas Business Should Track",
+      "slug": "digital-marketing-analytics-metrics",
+      "excerpt": "Discover the essential digital marketing metrics that matter for Las Vegas businesses. Learn to track ROI, conversion rates, and customer acquisition costs.",
+      "content": "Full article content here...",
+      "author": {
+        "name": "Jennifer Lopez",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+        "bio": "Social media strategist specializing in ROI optimization and conversion tracking"
+      },
+      "publishDate": "2024-09-30T15:10:00Z",
+      "modifiedDate": "2024-09-30T15:10:00Z",
+      "readTime": 14,
+      "featuredImage": {
+        "url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
+        "alt": "Digital analytics dashboard displaying various marketing KPI charts and graphs",
+        "width": 800,
+        "height": 450
+      },
+      "tags": [
+        "Analytics",
+        "Metrics",
+        "ROI",
+        "Tracking",
+        "KPIs"
+      ],
+      "category": "Analytics",
+      "isFeatured": false,
+      "metaTitle": "Digital Marketing Analytics: Essential Metrics for Success",
+      "metaDescription": "Track the right digital marketing metrics for your Las Vegas business. Learn ROI measurement, conversion tracking, and performance optimization.",
+      "views": 4123,
+      "likes": 89,
+      "shares": 35
     }
   ]
 }
