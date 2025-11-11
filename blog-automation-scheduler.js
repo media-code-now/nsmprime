@@ -13,14 +13,14 @@ const cron = require('node-cron');
 
 // Automation Configuration
 const AUTO_CONFIG = {
-  // Generate new posts every 3 days at 9:00 AM
-  schedule: '0 9 */3 * *',
+  // Check every day at 9:00 AM, but only generate if 3+ days have passed
+  schedule: '0 9 * * *',
   
   // How many posts to generate each time
   postsPerBatch: 1,
   
-  // Minimum hours between posts to avoid spam
-  minHoursBetweenPosts: 24,
+  // Minimum hours between posts (72 hours = 3 days)
+  minHoursBetweenPosts: 72,
   
   // Enable/disable automation
   enabled: true,
