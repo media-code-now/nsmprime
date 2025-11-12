@@ -17,7 +17,9 @@ class BlogPostLoader {
 
     async loadPosts() {
         try {
-            const response = await fetch('../data/posts.json');
+            // Add cache busting to ensure fresh content
+            const cacheBuster = new Date().getTime();
+            const response = await fetch(`../data/posts.json?v=${cacheBuster}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
