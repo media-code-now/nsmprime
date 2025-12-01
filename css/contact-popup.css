@@ -343,8 +343,311 @@ body.popup-open {
     }
 }
 
+/* Contact Form Modal */
+.contact-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contact-form-overlay.active {
+    opacity: 1;
+}
+
+/* Form Modal */
+.contact-form-modal {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    position: relative;
+    transform: scale(0.8) translateY(50px);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.contact-form-overlay.active .contact-form-modal {
+    transform: scale(1) translateY(0);
+}
+
+/* Form Close Button */
+.contact-form-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-close:hover {
+    background: #f44336;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Form Header */
+.contact-form-header {
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    color: white;
+    padding: 40px 30px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.contact-form-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+.contact-form-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.contact-form-header p {
+    font-size: 16px;
+    margin: 0;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+/* Form Body */
+.contact-form-body {
+    padding: 30px;
+}
+
+/* Form Styling */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+.form-group input:invalid,
+.form-group textarea:invalid {
+    border-color: #f44336;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.contact-form-submit {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    min-width: 200px;
+    justify-content: center;
+}
+
+.contact-form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.contact-form-submit:active {
+    transform: translateY(0);
+}
+
+.contact-form-submit:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Form Guarantee */
+.form-guarantee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #666;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.form-guarantee i {
+    color: #4CAF50;
+}
+
+/* Loading State */
+.contact-form-submit.loading {
+    pointer-events: none;
+}
+
+.contact-form-submit.loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Success Message */
+.form-success {
+    text-align: center;
+    padding: 40px;
+    color: #4CAF50;
+}
+
+.form-success i {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.form-success h3 {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+/* Mobile Responsive for Form */
+@media (max-width: 768px) {
+    .contact-form-modal {
+        width: 95%;
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .contact-form-header {
+        padding: 30px 20px 25px;
+    }
+    
+    .contact-form-header h3 {
+        font-size: 20px;
+    }
+    
+    .contact-form-body {
+        padding: 20px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .contact-form-submit {
+        padding: 14px 28px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form-overlay {
+        padding: 10px;
+    }
+    
+    .contact-form-modal {
+        border-radius: 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px 14px;
+    }
+    
+    .contact-form-submit {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
 /* Animation for smooth appearance */
-.contact-popup-overlay {
+.contact-popup-overlay,
+.contact-form-overlay {
     animation: fadeInScale 0.3s ease-out;
 }
 
@@ -361,12 +664,20 @@ body.popup-open {
 
 /* Accessibility */
 .contact-popup-close:focus,
-.contact-teaser-close:focus {
+.contact-teaser-close:focus,
+.contact-form-close:focus {
     outline: 2px solid #667eea;
     outline-offset: 2px;
 }
 
-.contact-popup-btn:focus {
+.contact-popup-btn:focus,
+.contact-form-submit:focus {
     outline: 2px solid #333;
     outline-offset: 2px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
 }

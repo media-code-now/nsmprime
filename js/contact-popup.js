@@ -7,8 +7,10 @@ class ContactPopup {
     constructor() {
         this.popup = null;
         this.teaser = null;
+        this.formModal = null;
         this.isPopupShown = false;
         this.isTeaserShown = false;
+        this.isFormModalShown = false;
         this.showDelay = 10000; // 10 seconds
         this.init();
     }
@@ -16,6 +18,7 @@ class ContactPopup {
     init() {
         this.createPopup();
         this.createTeaser();
+        this.createFormModal();
         this.setupEventListeners();
         
         // Show popup after delay
@@ -103,6 +106,77 @@ class ContactPopup {
         this.teaser = teaser;
     }
 
+    createFormModal() {
+        const formModal = document.createElement('div');
+        formModal.className = 'contact-form-overlay';
+        formModal.innerHTML = `
+            <div class="contact-form-modal">
+                <button class="contact-form-close" aria-label="Close form">
+                    <i class="fa fa-times"></i>
+                </button>
+                <div class="contact-form-header">
+                    <div class="contact-form-icon">
+                        <i class="fa fa-handshake"></i>
+                    </div>
+                    <h3>Get Your Free Consultation</h3>
+                    <p>Tell us about your project and we'll get back to you within 24 hours!</p>
+                </div>
+                <div class="contact-form-body">
+                    <form class="contact-form" id="contact-lead-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Full Name *</label>
+                                <input type="text" id="contact-name" name="name" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address *</label>
+                                <input type="email" id="contact-email" name="email" required placeholder="Enter your email">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-phone">Phone Number</label>
+                                <input type="tel" id="contact-phone" name="phone" placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-service">Service Interested In</label>
+                                <select id="contact-service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="seo">SEO Services</option>
+                                    <option value="digital-marketing">Digital Marketing</option>
+                                    <option value="social-media">Social Media Management</option>
+                                    <option value="graphic-design">Graphic Design</option>
+                                    <option value="photography">Photography</option>
+                                    <option value="video-production">Video Production</option>
+                                    <option value="ppc-ads">PPC Advertising</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Project Details *</label>
+                            <textarea id="contact-subject" name="subject" required rows="4" placeholder="Tell us about your project, goals, and budget..."></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="contact-form-submit">
+                                <i class="fa fa-paper-plane"></i>
+                                Send My Request
+                            </button>
+                        </div>
+                        <div class="form-guarantee">
+                            <i class="fa fa-lock"></i>
+                            <span>Your information is secure and will never be shared</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(formModal);
+        this.formModal = formModal;
+    }
+
     setupEventListeners() {
         // Close popup button
         this.popup.querySelector('.contact-popup-close').addEventListener('click', () => {
@@ -121,10 +195,11 @@ class ContactPopup {
             this.closeTeaser();
         });
 
-        // Click teaser to reopen popup
+        // Click teaser to open contact form
         this.teaser.querySelector('.contact-teaser-content').addEventListener('click', (e) => {
             if (!e.target.classList.contains('contact-teaser-close') && !e.target.parentElement.classList.contains('contact-teaser-close')) {
-                this.showPopup();
+                this.openContactForm();
+                this.trackEvent('contact_teaser_clicked');
             }
         });
 
@@ -140,9 +215,35 @@ class ContactPopup {
             this.trackEvent('contact_popup_phone_click');
         });
 
-        // Track email clicks for analytics
-        this.popup.querySelector('a[href$="contacts.html"]').addEventListener('click', () => {
-            this.trackEvent('contact_popup_email_click');
+        // Track email clicks for analytics - now opens form instead
+        this.popup.querySelector('a[href$="contacts.html"]').addEventListener('click', (e) => {
+            e.preventDefault();
+            this.openContactForm();
+            this.trackEvent('contact_popup_form_opened');
+        });
+
+        // Form modal event listeners
+        this.formModal.querySelector('.contact-form-close').addEventListener('click', () => {
+            this.closeContactForm();
+        });
+
+        // Close form when clicking overlay
+        this.formModal.addEventListener('click', (e) => {
+            if (e.target === this.formModal) {
+                this.closeContactForm();
+            }
+        });
+
+        // Handle form submission
+        this.formModal.querySelector('#contact-lead-form').addEventListener('submit', (e) => {
+            this.handleFormSubmission(e);
+        });
+
+        // Close form with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isFormModalShown) {
+                this.closeContactForm();
+            }
         });
     }
 
@@ -208,6 +309,101 @@ class ContactPopup {
         
         // Console log for debugging
         console.log('Contact Popup Event:', eventName);
+    }
+
+    openContactForm() {
+        this.formModal.style.display = 'flex';
+        setTimeout(() => {
+            this.formModal.classList.add('active');
+        }, 10);
+        this.isFormModalShown = true;
+        
+        // Close the main popup if it's open
+        if (this.isPopupShown) {
+            this.popup.classList.remove('active');
+            setTimeout(() => {
+                this.popup.style.display = 'none';
+            }, 300);
+            this.isPopupShown = false;
+        }
+        
+        // Prevent body scroll
+        document.body.classList.add('popup-open');
+        this.trackEvent('contact_form_opened');
+    }
+
+    closeContactForm() {
+        if (this.isFormModalShown) {
+            this.formModal.classList.remove('active');
+            setTimeout(() => {
+                this.formModal.style.display = 'none';
+            }, 300);
+            this.isFormModalShown = false;
+            
+            // Re-enable body scroll
+            document.body.classList.remove('popup-open');
+            
+            // Show teaser after form is closed
+            this.showTeaser();
+            
+            this.trackEvent('contact_form_closed');
+        }
+    }
+
+    handleFormSubmission(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const submitButton = form.querySelector('.contact-form-submit');
+        const formData = new FormData(form);
+        
+        // Validate required fields
+        const name = formData.get('name').trim();
+        const email = formData.get('email').trim();
+        const subject = formData.get('subject').trim();
+        
+        if (!name || !email || !subject) {
+            this.showFormError('Please fill in all required fields.');
+            return;
+        }
+        
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            this.showFormError('Please enter a valid email address.');
+            return;
+        }
+        
+        // Show loading state
+        submitButton.classList.add('loading');
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fa fa-spinner"></i> Sending...';
+        
+        // Simulate form submission (replace with actual endpoint)
+        setTimeout(() => {
+            this.showFormSuccess();
+            this.trackEvent('contact_form_submitted');
+        }, 2000);
+    }
+
+    showFormError(message) {
+        // You can enhance this with better error display
+        alert(message);
+    }
+
+    showFormSuccess() {
+        const formBody = this.formModal.querySelector('.contact-form-body');
+        formBody.innerHTML = `
+            <div class="form-success">
+                <i class="fa fa-check-circle"></i>
+                <h3>Thank You!</h3>
+                <p>Your request has been sent successfully. We'll get back to you within 24 hours!</p>
+                <button class="contact-popup-btn contact-popup-btn-primary" onclick="location.reload()">
+                    <i class="fa fa-home"></i>
+                    Continue Browsing
+                </button>
+            </div>
+        `;
     }
 }
 
