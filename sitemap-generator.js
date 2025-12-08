@@ -24,6 +24,7 @@ const CONFIG = {
     { url: '/sponsered-ads.html', changefreq: 'monthly', priority: '0.8' },
     { url: '/graphic-design.html', changefreq: 'monthly', priority: '0.7' },
     { url: '/seo-hub.html', changefreq: 'weekly', priority: '0.9' },
+    { url: '/seo-services-las-vegas.html', changefreq: 'weekly', priority: '0.9' },
     { url: '/blog-hub.html', changefreq: 'daily', priority: '0.9' },
     { url: '/grid-blog.html', changefreq: 'daily', priority: '0.8' },
     { url: '/contacts.html', changefreq: 'monthly', priority: '0.7' },
