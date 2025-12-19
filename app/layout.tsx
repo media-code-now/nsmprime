@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: '%s | NSM Prime Media Group'
   },
   description: 'Expert digital marketing insights, SEO strategies, web development trends, and business growth tips from Las Vegas industry leaders.',
-  keywords: ['digital marketing', 'SEO', 'web development', 'Las Vegas', 'marketing agency', 'social media', 'PPC', 'content marketing'],
+  keywords: ['digital marketing', 'SEO', 'web development', 'Las Vegas', 'marketing agency', 'app development', 'PPC', 'content marketing'],
   authors: [{ name: 'NSM Prime Media Group' }],
   creator: 'NSM Prime Media Group',
   publisher: 'NSM Prime Media Group',

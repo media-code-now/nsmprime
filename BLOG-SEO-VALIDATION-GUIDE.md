@@ -64,7 +64,7 @@ node blog-seo-validator.js your-blog-post.html "primary keyword"
 
 ### 3. Advanced Validation with Config
 ```bash
-npm run validate-post your-blog-post.html "digital marketing" "SEO,PPC,social media"
+npm run validate-post your-blog-post.html "digital marketing" "SEO,PPC,app development"
 ```
 
 ## 🛠️ CI/CD Integration
@@ -129,7 +129,7 @@ const BlogSEOValidator = require('./blog-seo-validator.js');
 const validator = new BlogSEOValidator('blog-post.html');
 const results = await validator.runAllTests({
   primaryKeyword: 'digital marketing strategies',
-  semanticKeywords: ['SEO', 'content marketing', 'social media'],
+  semanticKeywords: ['SEO', 'content marketing', 'app development'],
   targetWordCount: 1500
 });
 

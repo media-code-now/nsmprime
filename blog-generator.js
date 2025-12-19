@@ -17,7 +17,7 @@ const CONFIG = {
   maxPosts: 20, // Keep only the latest 20 posts
   categories: [
     'SEO',
-    'Social Media Marketing',
+    'App Development',
     'Web Development',
     'PPC Advertising',
     'Content Marketing',
@@ -39,7 +39,7 @@ const CONFIG = {
     {
       name: "Jessica Rodriguez",
       avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-      bio: "Social Media Expert helping businesses grow their online presence"
+      bio: "App Development Expert creating innovative digital solutions"
     },
     {
       name: "David Thompson",
@@ -65,14 +65,14 @@ const BLOG_TEMPLATES = {
   ],
   'Social Media Marketing': [
     {
-      titleTemplate: "Social Media ROI: Measuring Success for {location} Businesses",
+      titleTemplate: "App Development ROI: Measuring Success for {location} Businesses",
       topics: ["Analytics setup", "Conversion tracking", "ROI calculation", "Attribution modeling"],
-      excerpt: "Learn how to properly measure and optimize your social media ROI with proven strategies and tools."
+      excerpt: "Learn how to properly measure and optimize your app development ROI with proven strategies and tools."
     },
     {
-      titleTemplate: "{year} Social Media Trends: What Works for Local Businesses",
+      titleTemplate: "{year} App Development Trends: What Works for Local Businesses",
       topics: ["Video content", "Stories and Reels", "Community building", "Influencer partnerships"],
-      excerpt: "Discover the social media trends that are driving engagement and conversions for local businesses in {year}."
+      excerpt: "Discover the app development trends that are driving user engagement and business growth for local businesses in {year}."
     }
   ],
   'Web Development': [
@@ -122,10 +122,10 @@ const IMAGE_COLLECTIONS = {
     "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=450&fit=crop&q=80",
     "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=450&fit=crop&q=80"
   ],
-  'Social Media Marketing': [
-    "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=450&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=450&fit=crop&q=80",
-    "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=450&fit=crop&q=80"
+  'App Development': [
+    "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=450&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=450&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=450&fit=crop&q=80"
   ],
   'Web Development': [
     "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=450&fit=crop&q=80",
@@ -222,7 +222,7 @@ For businesses looking to accelerate their ${category.toLowerCase()} success, co
 function generateTags(category, topics) {
   const baseTags = {
     'SEO': ['SEO', 'Search Engine Optimization', 'Google Rankings', 'Organic Traffic'],
-    'Social Media Marketing': ['Social Media', 'Digital Marketing', 'Content Strategy', 'Engagement'],
+    'App Development': ['Mobile Apps', 'Web Apps', 'Software Development', 'User Experience'],
     'Web Development': ['Web Development', 'Website Design', 'UX/UI', 'Performance'],
     'PPC Advertising': ['PPC', 'Google Ads', 'Paid Advertising', 'ROI'],
     'Content Marketing': ['Content Marketing', 'Blogging', 'Content Strategy', 'Brand Authority'],

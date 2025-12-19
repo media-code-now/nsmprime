@@ -351,7 +351,7 @@
       "author": {
         "name": "Jessica Rodriguez",
         "avatar": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-        "bio": "Social Media Expert helping businesses grow their online presence"
+        "bio": "App Development Expert creating innovative digital solutions"
       },
       "publishDate": "2025-10-31T04:13:08.131Z",
       "modifiedDate": "2025-10-31T04:13:08.131Z",
@@ -451,9 +451,9 @@
     },
     {
       "id": "3",
-      "title": "Social Media Marketing ROI: Measuring Success in Las Vegas Market",
+      "title": "App Development ROI: Measuring Success in Las Vegas Market",
       "slug": "social-media-marketing-roi-las-vegas",
-      "excerpt": "Learn how to track and optimize your social media marketing ROI with proven metrics and strategies tailored for the competitive Las Vegas market.",
+      "excerpt": "Learn how to track and optimize your app development ROI with proven metrics and strategies tailored for the competitive Las Vegas market.",
       "content": "Full article content here...",
       "author": {
         "name": "Jennifer Lopez",
@@ -465,7 +465,7 @@
       "readTime": 10,
       "featuredImage": {
         "url": "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=800&h=450&fit=crop&q=80&auto=format&fm=webp",
-        "alt": "Smartphone displaying various social media apps with analytics graphs",
+        "alt": "Smartphone displaying various mobile apps with development analytics graphs",
         "width": 800,
         "height": 450
       },

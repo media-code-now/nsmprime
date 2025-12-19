@@ -201,7 +201,7 @@
         "contentFiltering": {
           "minWordCount": 500,
           "relevanceScore": 0.7,
-          "keywordMatching": ["seo", "digital marketing", "ppc", "social media"]
+          "keywordMatching": ["seo", "digital marketing", "ppc", "app development"]
         },
         "deduplication": {
           "method": "content similarity + title matching",

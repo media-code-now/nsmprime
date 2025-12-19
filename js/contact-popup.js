@@ -55,11 +55,11 @@ class ContactPopup {
                         </div>
                         <div class="feature-item">
                             <i class="fa fa-check-circle"></i>
-                            <span>Social Media Management</span>
+                            <span>App Development</span>
                         </div>
                         <div class="feature-item">
                             <i class="fa fa-check-circle"></i>
-                            <span>Professional Photography</span>
+                            <span>E-commerce Development</span>
                         </div>
                     </div>
                     <div class="contact-popup-cta">
@@ -145,9 +145,9 @@ class ContactPopup {
                                     <option value="web-development">Web Development</option>
                                     <option value="seo">SEO Services</option>
                                     <option value="digital-marketing">Digital Marketing</option>
-                                    <option value="social-media">Social Media Management</option>
+                                    <option value="app-development">App Development</option>
                                     <option value="graphic-design">Graphic Design</option>
-                                    <option value="photography">Photography</option>
+                                    <option value="ecommerce-development">E-commerce Development</option>
                                     <option value="video-production">Video Production</option>
                                     <option value="ppc-ads">PPC Advertising</option>
                                     <option value="other">Other</option>

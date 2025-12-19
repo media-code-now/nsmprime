@@ -14,7 +14,7 @@ const CONFIG = {
     'digital marketing Las Vegas',
     'SEO services Las Vegas',
     'web development Las Vegas',
-    'social media marketing Las Vegas',
+    'app development Las Vegas',
     'PPC advertising Las Vegas',
     'graphic design Las Vegas',
     'Las Vegas web design',

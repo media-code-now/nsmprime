@@ -57,7 +57,7 @@ npm run blog:auto:config
 ## 📊 Blog Categories
 
 1. **SEO** - Search engine optimization strategies
-2. **Social Media Marketing** - Platform-specific tactics
+2. **App Development** - Platform-specific tactics
 3. **Web Development** - Technical website improvements
 4. **PPC Advertising** - Paid advertising optimization
 5. **Content Marketing** - Authority building strategies

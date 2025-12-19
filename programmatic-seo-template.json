@@ -11,7 +11,7 @@
         "zipCodes": ["89101", "89102", "89103", "89104", "89106", "89107", "89108", "89109", "89110", "89117", "89118", "89119", "89120", "89121", "89122", "89123", "89128", "89129", "89131", "89134", "89135", "89138", "89141", "89142", "89144", "89145", "89146", "89147", "89148", "89149", "89166", "89169", "89178", "89179", "89183"]
       },
       "industry": {
-        "business_types": ["restaurants", "dentists", "lawyers", "HVAC contractors", "plumbers", "electricians", "real estate agents", "auto repair shops", "hair salons", "fitness centers", "medical practices", "accounting firms", "marketing agencies", "construction companies", "landscaping services", "cleaning services", "insurance agencies", "pet services", "home improvement", "photography studios"],
+        "business_types": ["restaurants", "dentists", "lawyers", "HVAC contractors", "plumbers", "electricians", "real estate agents", "auto repair shops", "hair salons", "fitness centers", "medical practices", "accounting firms", "marketing agencies", "construction companies", "landscaping services", "cleaning services", "insurance agencies", "pet services", "home improvement", "e-commerce businesses"],
         "service_categories": ["healthcare", "automotive", "home services", "professional services", "retail", "hospitality", "beauty", "fitness", "legal", "financial", "technology", "education", "entertainment"]
       },
       "demographics": {

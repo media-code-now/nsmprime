@@ -38,7 +38,7 @@ The system runs automatically **every Monday at 9 AM UTC** via GitHub Actions, g
 The generator creates posts about:
 
 - **SEO** - Local SEO, technical SEO, ranking strategies
-- **Social Media Marketing** - ROI, trends, platform strategies  
+- **App Development** - ROI, trends, platform strategies  
 - **Web Development** - Performance, mobile-first, UX optimization
 - **PPC Advertising** - Google Ads, optimization, bid strategies
 - **Content Marketing** - Strategy, authority building, distribution

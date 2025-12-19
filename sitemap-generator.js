@@ -19,7 +19,7 @@ const CONFIG = {
     { url: '/services.html', changefreq: 'monthly', priority: '0.9' },
     { url: '/web-development.html', changefreq: 'monthly', priority: '0.8' },
     { url: '/digital-marketing.html', changefreq: 'monthly', priority: '0.8' },
-    { url: '/photography.html', changefreq: 'monthly', priority: '0.7' },
+    { url: '/ecommerce-development.html', changefreq: 'monthly', priority: '0.7' },
     { url: '/video-production.html', changefreq: 'monthly', priority: '0.7' },
     { url: '/sponsered-ads.html', changefreq: 'monthly', priority: '0.8' },
     { url: '/graphic-design.html', changefreq: 'monthly', priority: '0.7' },
