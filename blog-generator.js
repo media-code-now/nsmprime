@@ -27,24 +27,24 @@ const CONFIG = {
   ],
   authors: [
     {
-      name: "Sarah Martinez",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b647?w=150&h=150&fit=crop&crop=face",
-      bio: "SEO Specialist with 8+ years experience in local search optimization"
+      name: "Sarah Johnson",
+      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
+      bio: "Full-stack developer with 10+ years of experience in creating responsive, high-performance websites. Expert in React, Node.js, and modern web technologies."
     },
     {
-      name: "Michael Chen",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      bio: "Digital Marketing Strategist specializing in data-driven campaigns"
+      name: "Marcus Chen",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&h=150&fit=crop&crop=face",
+      bio: "Digital marketing strategist specializing in SEO, content marketing, and analytics. Helped 200+ businesses achieve first-page Google rankings."
     },
     {
-      name: "Jessica Rodriguez",
-      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop&crop=face",
-      bio: "App Development Expert creating innovative digital solutions"
+      name: "Emily Rodriguez",
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      bio: "Award-winning designer with expertise in branding, UI/UX design, and visual storytelling. Passionate about creating compelling digital experiences."
     },
     {
       name: "David Thompson",
-      avatar: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&h=150&fit=crop&crop=face",
-      bio: "Web Development and UX specialist with focus on conversion optimization"
+      avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+      bio: "Experienced PPC and digital advertising specialist. Manages multi-million dollar ad budgets and consistently delivers exceptional ROI for clients."
     }
   ]
 };

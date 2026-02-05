@@ -13,8 +13,14 @@ interface BlogPost {
   content: string;
   author: {
     name: string;
+    jobTitle?: string;
     avatar: string;
     bio: string;
+    url?: string;
+    socialLinks?: {
+      linkedin?: string;
+      twitter?: string;
+    };
   };
   publishDate: string;
   modifiedDate: string;
@@ -141,7 +147,14 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             "author": {
               "@type": "Person",
               "name": post.author.name,
+              "jobTitle": post.author.jobTitle,
               "description": post.author.bio,
+              "image": post.author.avatar,
+              "url": post.author.url ? `https://nsmprime.com${post.author.url}` : undefined,
+              "sameAs": [
+                post.author.socialLinks?.linkedin,
+                post.author.socialLinks?.twitter
+              ].filter(Boolean)
             },
             "publisher": {
               "@type": "Organization",
@@ -198,15 +211,39 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           {/* Author & Date */}
           <div className="d-flex align-items-center mb-4 pb-4 border-bottom">
             <img
-              src={post.author.avatar}
-              alt={post.author.name}
-              width={64}
-              height={64}
-              className="rounded-circle mr-3"
-              style={{ width: '64px', height: '64px', objectFit: 'cover' }}
-            />
             <div>
-              <h3 className="h5 mb-1 text-dark font-weight-bold">{post.author.name}</h3>
+              <div className="d-flex align-items-center mb-1">
+                <h3 className="h5 mb-0 text-dark font-weight-bold mr-2">{post.author.name}</h3>
+                {post.author.jobTitle && (
+                  <span className="badge badge-light text-muted font-weight-normal border">
+                    {post.author.jobTitle}
+                  </span>
+                )}
+              </div>
+              <p className="text-muted mb-2 small">{post.author.bio}</p>
+              
+              {/* Author Social Links */}
+              {(post.author.socialLinks?.linkedin || post.author.socialLinks?.twitter) && (
+                <div className="d-flex align-items-center mb-2">
+                  {post.author.socialLinks.linkedin && (
+                     <a href={post.author.socialLinks.linkedin} className="text-secondary mr-2" target="_blank" rel="noopener noreferrer">
+                       <i className="fab fa-linkedin"></i> LinkedIn
+                     </a>
+                  )}
+                  {post.author.socialLinks.twitter && (
+                     <a href={post.author.socialLinks.twitter} className="text-secondary" target="_blank" rel="noopener noreferrer">
+                       <i className="fab fa-twitter"></i> Twitter
+                     </a>
+                  )}
+                </div>
+              )}
+
+              <div className="d-flex align-items-center text-muted small">
+                <span>Published {publishDate}</span>
+                <span className="mx-2">•</span>
+                <span>{post.views} views</span>
+              </div>
+            </div>className="h5 mb-1 text-dark font-weight-bold">{post.author.name}</h3>
               <p className="text-muted mb-1 small">{post.author.bio}</p>
               <div className="d-flex align-items-center text-muted small">
                 <span>Published {publishDate}</span>

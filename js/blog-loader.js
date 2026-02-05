@@ -330,7 +330,11 @@ class BlogLoader {
                             <a href="blog/${post.slug}.html">
                                 <time datetime="${post.publishDate}">${this.formatDate(post.publishDate)}</time>
                             </a>
-                            <a class="meta-author" href="blog/${post.slug}.html">by ${post.author.name}</a>
+                            <div class="meta-author-rich">
+                                ${post.author.avatar ? `<img src="${post.author.avatar}" alt="${post.author.name}" class="rounded-circle" width="24" height="24" style="margin-right: 5px; vertical-align: middle;">` : ''}
+                                <a class="meta-author" href="${post.author.url || '#'}">${post.author.name}</a>
+                                ${post.author.jobTitle ? `<span class="text-muted small ms-1">| ${post.author.jobTitle}</span>` : ''}
+                            </div>
                             <ul class="list-inline-tag">
                                 <li><a href="blog/${post.slug}.html">${post.category}</a></li>
                             </ul>
