@@ -118,7 +118,7 @@ class ProgrammaticSEOGenerator {
     const sections = [];
     
     for (const sectionId of sectionOrder) {
-      const sectionConfig = this.config.dynamicOutlineTemplate.main_sections.find(s => s.section_id === sectionId);
+      const sectionConfig = this.config.dynamicOutlineTemplate.section_structure.main_sections.find(s => s.section_id === sectionId);
       if (sectionConfig) {
         const h2Options = sectionConfig.h2_options;
         const selectedH2 = h2Options[Math.floor(Math.random() * h2Options.length)];
@@ -148,127 +148,238 @@ class ProgrammaticSEOGenerator {
     return contentMap[sectionId] || '';
   }
 
-  // Generate benefits with shuffled order
+  generateMarketAnalysisContent(pageData) {
+      return `
+      <p>${pageData.location}'s ${pageData.businessType} market presents unique opportunities for practices that understand local search optimization. With significant demand and established competitors, standing out requires strategic local SEO implementation.</p>
+      <h3>Market Characteristics</h3>
+      <ul>
+          <li><strong>Demographics:</strong> Diverse community with specific needs for ${pageData.businessType}</li>
+          <li><strong>Competition Level:</strong> Moderate to high for ${pageData.businessType}</li>
+          <li><strong>Search Patterns:</strong> High volume of "near me" searches for ${pageData.industryCategory}</li>
+          <li><strong>Mobile Usage:</strong> Over 80% of searches for ${pageData.businessType} happen on mobile devices</li>
+      </ul>
+      <p>Understanding these patterns allows ${pageData.location} ${pageData.businessType} to optimize their online presence for maximum acquisition.</p>
+      `;
+  }
+
+  generateGMBContent(pageData) {
+      return `
+      <p>Your Google Business Profile (formerly GMB) is the cornerstone of local marketing in ${pageData.location}. An optimized profile increases your visibility significantly in local search results.</p>
+      <h3>Essential GMB Elements for ${pageData.businessType}</h3>
+      <ul>
+          <li><strong>Complete Information:</strong> Accurate name, address, phone, and hours</li>
+          <li><strong>Professional Photos:</strong> High-quality images of your ${pageData.businessType} operations</li>
+          <li><strong>Service Descriptions:</strong> Detailed descriptions of ${pageData.industryCategory} services offered</li>
+          <li><strong>Reviews:</strong> Proactive review management strategy</li>
+          <li><strong>Updates:</strong> Regular posts about ${pageData.businessType} news and offers</li>
+      </ul>
+      `;
+  }
+
+  generateCitationContent(pageData) {
+      return `
+      <p>Building consistent local citations establishes your ${pageData.businessType} as a trusted ${pageData.location} provider while improving local search rankings.</p>
+      <h3>Essential Citations</h3>
+      <ul>
+          <li><strong>Industry Directories:</strong> Niche sites for ${pageData.industryCategory}</li>
+          <li><strong>Local Directories:</strong> ${pageData.location} Chamber of Commerce and local guides</li>
+          <li><strong>General Platforms:</strong> Yelp, YellowPages, Bing Places</li>
+      </ul>
+      <p>Consistency in Name, Address, and Phone Number (NAP) across all these platforms is crucial for maximizing your local authority.</p>
+      `;
+  }
+
+  generateContentMarketingContent(pageData) {
+      return `
+      <p>Content marketing is vital for ${pageData.businessType} in ${pageData.location}. By creating helpful content that addresses local questions, you can capture traffic earlier in the buying cycle.</p>
+      <h3>Content Ideas for ${pageData.location} ${pageData.businessType}</h3>
+      <ul>
+          <li>Local guides relevant to ${pageData.industryCategory}</li>
+          <li>Frequently Asked Questions about ${pageData.businessType} services</li>
+          <li>Case studies from ${pageData.location} clients</li>
+          <li>Community involvement updates</li>
+      </ul>
+      `;
+  }
+
+  generateReviewContent(pageData) {
+      return `
+      <p>Online reviews significantly impact customer acquisition for ${pageData.location} ${pageData.businessType}. The vast majority of customers read reviews before choosing a provider.</p>
+      <h3>Review Strategy</h3>
+      <ul>
+          <li><strong>Generation:</strong> Systematically request reviews from happy clients</li>
+          <li><strong>Response:</strong> Professional responses to all reviews within 24 hours</li>
+          <li><strong>Monitoring:</strong> Continuous tracking across all platforms</li>
+      </ul>
+      `;
+  }
+
+  generateResultsContent(pageData) {
+      return `
+      <p>Measuring the success of your local SEO efforts is essential to refining your strategy in ${pageData.location}.</p>
+      <h3>Key Metrics for ${pageData.businessType}</h3>
+      <ul>
+          <li><strong>Map Rankings:</strong> Visibility in the Local Pack for key terms</li>
+          <li><strong>Organic Traffic:</strong> Visitors to your website from search engines</li>
+          <li><strong>Conversions:</strong> Phone calls, form fills, and direction requests</li>
+          <li><strong>Review Growth:</strong> Velocity and sentiment of new reviews</li>
+      </ul>
+      `;
+  }
+
   generateBenefits(pageData, benefitOrder) {
-    const allBenefits = this.config.copyBlockTemplates.benefit_sections;
-    const selectedBenefits = [];
+    let html = '<div class="benefits-section">';
+    html += `<h2>Why ${pageData.businessType} in ${pageData.location} Need Local SEO</h2>`;
+    html += '<ul>';
     
     for (const benefitType of benefitOrder) {
-      if (allBenefits[benefitType]) {
-        const benefits = allBenefits[benefitType].map(benefit => 
-          this.interpolateTemplate(benefit, {
-            business_type: pageData.businessType,
-            location: pageData.location,
-            target_audience: this.getTargetAudience(pageData),
-            percentage: this.getRandomPercentage(15, 35)
-          })
-        );
-        selectedBenefits.push({
-          type: benefitType,
-          benefits: benefits
+      const templates = this.config.copyBlockTemplates.benefit_sections[benefitType];
+      if (templates && templates.length > 0) {
+        // Pick one random template from the list to avoid repetition
+        const template = templates[this.simpleHash(pageData.location + benefitType) % templates.length];
+        const content = this.interpolateTemplate(template, {
+          location: pageData.location,
+          business_type: pageData.businessType,
+          percentage: this.getRandomPercentage(20, 50),
+          target_audience: pageData.industryCategory === 'healthcare' ? 'patients' : 'customers'
         });
+        html += `<li>${content}</li>`;
       }
     }
-    
-    return selectedBenefits;
+    html += '</ul></div>';
+    return html;
   }
 
-  // Generate proof points
-  generateProofPoints(pageData, proofPointTypes) {
-    const proofPoints = [];
+  generateProofPoints(pageData, proofPoints) {
+    let html = '<div class="proof-points">';
+    html += `<h3>Success Stories: ${pageData.businessType} in ${pageData.location}</h3>`;
     
-    for (const type of proofPointTypes) {
-      const templates = this.config.copyBlockTemplates.proof_points[type];
-      if (templates) {
-        const selectedTemplate = templates[Math.floor(Math.random() * templates.length)];
-        proofPoints.push({
-          type: type,
-          content: this.interpolateTemplate(selectedTemplate, {
-            business_name: this.generateBusinessName(pageData),
-            business_type: pageData.businessType,
-            location: pageData.location,
-            percentage: this.getRandomPercentage(20, 40),
-            number: this.getRandomNumber(15, 50),
-            timeframe: this.getRandomTimeframe(),
-            keyword_count: this.getRandomNumber(5, 15),
-            revenue: this.getRandomRevenue(),
-            client_name: this.generateClientName(),
-            keyword: `${pageData.businessType} ${pageData.location}`
-          })
+    for (const proofType of proofPoints) {
+      const templates = this.config.copyBlockTemplates.proof_points[proofType];
+      if (templates && templates.length > 0) {
+        const template = templates[this.simpleHash(pageData.businessType + proofType) % templates.length];
+        const content = this.interpolateTemplate(template, {
+          business_name: this.generateBusinessName(pageData),
+          business_type: pageData.businessType,
+          location: pageData.location,
+          percentage: this.getRandomPercentage(100, 300),
+          number: this.getRandomNumber(20, 100),
+          timeframe: this.getRandomTimeframe(),
+          keyword_count: this.getRandomNumber(10, 50),
+          revenue: this.getRandomRevenue(),
+          client_name: this.generateClientName(),
+          target_audience: 'customers',
+          keyword: `${pageData.businessType} in ${pageData.location}`
         });
+        html += `<div class="proof-item"><blockquote>${content}</blockquote></div>`;
       }
     }
-    
-    return proofPoints;
+    html += '</div>';
+    return html;
   }
 
-  // Generate LocalBusiness schema
   generateSchema(pageData) {
-    const localBusinessSchema = JSON.parse(JSON.stringify(this.config.schemaTemplates.localBusiness_schema));
+    const schemaTemplate = this.config.schemaTemplates.localBusiness_schema;
     
-    return this.interpolateTemplate(JSON.stringify(localBusinessSchema), {
-      business_name: `NSM Prime - Local SEO for ${pageData.businessType}`,
+    let schemaString = JSON.stringify(schemaTemplate);
+    
+    // Handle complex objects by replacing the quoted placeholder with the raw JSON string
+    // This allows the resulting JSON to have actual Arrays/Objects instead of strings containing them
+    const serviceListJSON = this.generateServiceList(pageData);
+    const reviewSchemaJSON = this.generateReviewSchema(pageData);
+    const socialMediaJSON = '["https://facebook.com/nsmprime", "https://twitter.com/nsmprime"]';
+    
+    schemaString = schemaString.replace(/"{{service_list}}"/g, serviceListJSON);
+    schemaString = schemaString.replace(/"{{review_schema_array}}"/g, reviewSchemaJSON);
+    schemaString = schemaString.replace(/"{{social_media_profiles}}"/g, socialMediaJSON);
+
+    const populatedString = this.interpolateTemplate(schemaString, {
+      business_name: this.generateBusinessName(pageData),
       service_category: pageData.industryCategory,
       location: pageData.location,
       competitive_modifier: this.getCompetitiveModifier(pageData),
       business_type: pageData.businessType,
       value_proposition: this.generateValueProposition(pageData),
       page_url: `https://nsmprime.com${this.generateURL(pageData)}`,
-      street_address: "Las Vegas, NV",
+      street_address: `${this.getRandomNumber(100, 9999)} Local Blvd`,
       zip_code: "89101",
       latitude: this.getLatitude(pageData.location),
       longitude: this.getLongitude(pageData.location),
-      phone_number: "(917) 972-7298",
-      email: "info@nsmprime.com",
-      opening_hours: "Mon-Fri 10:00-20:00",
+      phone_number: "(702) 555-0123",
+      email: "contact@nsmprime.com",
+      opening_hours: "Mo-Fr 09:00-17:00",
       price_range: "$$",
-      service_list: this.generateServiceList(pageData),
-      rating_value: "4.9",
-      review_count: this.getRandomNumber(50, 150),
-      review_schema_array: this.generateReviewSchema(pageData),
-      social_media_profiles: JSON.stringify([
-        "https://www.facebook.com/nsmprime",
-        "https://www.linkedin.com/company/nsmprime"
-      ])
+      rating_value: "4.8",
+      review_count: "124"
     });
+    
+    try {
+        return JSON.parse(populatedString);
+    } catch (e) {
+        console.error("Schema generation error", e);
+        return {};
+    }
   }
 
-  // Generate internal links based on relevance
   generateInternalLinks(pageData) {
+    // Generate navigation structure for the page
     const links = [];
     
-    // Add pillar content link
-    const pillarLink = this.config.internalLinkingMap.hub_connections.primary_pillar;
+    // Add pillar link
     links.push({
-      url: pillarLink.url,
-      anchor: pillarLink.anchor_variations[0],
-      placement: 'intro'
+      url: "/local-seo-las-vegas-guide",
+      text: "Comprehensive Las Vegas SEO Guide",
+      rel: "parent"
     });
     
-    // Add service page links
-    for (const serviceLink of this.config.internalLinkingMap.hub_connections.service_pages) {
-      links.push({
-        url: serviceLink.url,
-        anchor: this.interpolateTemplate(serviceLink.anchor_variations[0], pageData),
-        placement: 'conclusion'
-      });
-    }
-    
-    // Add cluster content links
-    for (const clusterLink of this.config.internalLinkingMap.hub_connections.cluster_content) {
-      const clusterUrl = this.interpolateTemplate(clusterLink.url, {
-        location_slug: pageData.locationSlug
-      });
-      links.push({
-        url: clusterUrl,
-        anchor: this.interpolateTemplate(clusterLink.anchor_text, pageData),
-        placement: 'content'
-      });
-    }
+    // Add service link
+    links.push({
+      url: "/services/seo/",
+      text: "Professional SEO Services",
+      rel: "related"
+    });
     
     return links;
   }
 
+  generateConclusion(pageData) {
+    return `
+      <div class="conclusion-section">
+        <h2>Dominate the ${pageData.location} Market Today</h2>
+        <p>Your ${pageData.businessType} practice deserves to be found by local customers in ${pageData.location}. 
+        Don't let competitors capture the market share that should be yours.</p>
+        <p><strong>Ready to increase your local visibility?</strong> Contact NSM Prime today for a free local SEO audit specifically for your ${pageData.location} business.</p>
+      </div>
+    `;
+  }
+
+  // Helpers
+  generateValueProposition(pageData) {
+      return `Top-rated ${pageData.businessType} services`;
+  }
+  
+  generateServiceList(pageData) {
+      return JSON.stringify([{ "@type": "Offer", "name": `${pageData.businessType} Service` }]);
+  }
+  
+  generateReviewSchema(pageData) {
+       return JSON.stringify([]);
+  }
+
+  getLatitude(location) { return "36.1699"; }
+  getLongitude(location) { return "-115.1398"; }
+
+  getCompetitorCount() { return this.getRandomNumber(10, 50); }
+  getPopulationData() { return "600,000+"; }
+  getTouristData() { return "42 million"; }
+  
+  getIndustryCategory(businessType) {
+      if (['dentists', 'medical practices'].includes(businessType)) return 'healthcare';
+      if (['lawyers'].includes(businessType)) return 'legal';
+      if (['plumbers', 'hvac contractors', 'electricians'].includes(businessType)) return 'home services';
+      return 'professional services';
+  }
+  
   // Utility functions for data generation
   calculateVariationIndex(pageData) {
     return parseInt(pageData.pageId.split('').map(c => c.charCodeAt(0)).join('')) % 1000;
