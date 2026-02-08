@@ -28,9 +28,30 @@ const CONFIG = {
     { url: '/blog-hub.html', changefreq: 'daily', priority: '0.9' },
     { url: '/grid-blog.html', changefreq: 'daily', priority: '0.8' },
     { url: '/contacts.html', changefreq: 'monthly', priority: '0.7' },
+    { url: '/local-service-areas.html', changefreq: 'weekly', priority: '0.8' },
     { url: '/privacy-policy.html', changefreq: 'yearly', priority: '0.3' }
   ]
 };
+
+/**
+ * Scan directory for generated local SEO pages
+ */
+function findLocalSEOFiles() {
+  try {
+    const files = fs.readdirSync(__dirname);
+    return files
+      .filter(file => file.startsWith('local-seo-') && file.endsWith('.html'))
+      .map(file => ({
+        url: `/${file}`,
+        changefreq: 'weekly',
+        priority: '0.8'
+      }));
+  } catch (error) {
+    console.error('Error scanning for local SEO files:', error);
+    return [];
+  }
+}
+
 
 /**
  * Load blog posts from data file
@@ -66,6 +87,7 @@ function generateSitemap() {
   console.log('🗺️  Generating sitemap...');
   
   const posts = loadBlogPosts();
+  const localSEOPages = findLocalSEOFiles(); // Get generated pages
   const currentDate = new Date().toISOString().split('T')[0];
   
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -74,6 +96,17 @@ function generateSitemap() {
 
   // Add static pages
   CONFIG.staticPages.forEach(page => {
+    sitemap += `  <url>
+    <loc>${CONFIG.baseUrl}${page.url}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>
+`;
+  });
+
+  // Add generated local SEO pages
+  localSEOPages.forEach(page => {
     sitemap += `  <url>
     <loc>${CONFIG.baseUrl}${page.url}</loc>
     <lastmod>${currentDate}</lastmod>

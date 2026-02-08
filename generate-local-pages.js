@@ -16,6 +16,20 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     <meta name="keywords" content="local SEO ${data.location}, ${data.location} ${data.businessType}, Nevada ${data.businessType} SEO, ${data.businessType} marketing ${data.location}">
     <meta name="robots" content="index, follow"> 
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://nsmprime.com${data.url}">
+    <meta property="og:title" content="${data.title}">
+    <meta property="og:description" content="${data.metaDescription}">
+    <meta property="og:image" content="https://nsmprime.com/images/bg-image-1.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://nsmprime.com${data.url}">
+    <meta property="twitter:title" content="${data.title}">
+    <meta property="twitter:description" content="${data.metaDescription}">
+    <meta property="twitter:image" content="https://nsmprime.com/images/bg-image-1.jpg">
+
     <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
     ${JSON.stringify(data.schema, null, 2)}
@@ -108,16 +122,34 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
 const generator = new ProgrammaticSEOGenerator(templateConfig);
 
 // Configuration for batch generation
-const locations = ['Henderson', 'Summerlin', 'North Las Vegas']; 
-const businessTypes = ['dentists', 'real estate agents', 'plumbers', 'lawyers']; 
+const locations = [
+    'Henderson', 'Summerlin', 'North Las Vegas', 
+    'Paradise', 'Spring Valley', 'Enterprise', 
+    'Sunrise Manor', 'Centennial Hills', 'Green Valley'
+]; 
+
+const businessTypes = [
+    'dentists', 'real estate agents', 'plumbers', 'lawyers',
+    'HVAC contractors', 'electricians', 'restaurants', 'roofing companies',
+    'medical spas', 'fitness centers', 'auto repair shops'
+]; 
+
 const industryMap = {
     'dentists': 'healthcare',
     'real estate agents': 'real estate',
     'plumbers': 'home services',
-    'lawyers': 'legal'
+    'HVAC contractors': 'home services',
+    'electricians': 'home services',
+    'roofing companies': 'home services',
+    'lawyers': 'legal',
+    'medical spas': 'beauty',
+    'fitness centers': 'fitness',
+    'restaurants': 'hospitality',
+    'auto repair shops': 'automotive'
 };
 
 let generatedCount = 0;
+const generatedFilesList = [];
 
 console.log('Starting batch generation...');
 
@@ -140,6 +172,12 @@ locations.forEach(location => {
             fs.writeFileSync(filename, html);
             console.log(`✅ Generated: ${filename}`);
             generatedCount++;
+            
+            generatedFilesList.push({
+                filename,
+                location,
+                businessType
+            });
         } catch (e) {
             console.error(`❌ Failed to generate ${location} ${businessType}:`, e);
             // console.error(e.stack);
@@ -147,4 +185,122 @@ locations.forEach(location => {
     });
 });
 
+// Function to generate the index page for all local files
+function generateIndexPage(generatedFiles) {
+    const listItems = generatedFiles.map(file => {
+        return `<li><a href="${file.filename}">${file.location} ${file.businessType} SEO</a></li>`;
+    }).join('\n');
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Las Vegas Local SEO Service Areas - NSM Prime</title>
+    <meta name="description" content="Explore our local SEO service areas in Las Vegas, Henderson, Summerlin and surrounding Nevada communities. We help local businesses dominate search results.">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .local-link-list li { margin-bottom: 10px; font-size: 1.1rem; }
+        .local-link-list a { color: #007bff; text-decoration: none; }
+        .local-link-list a:hover { text-decoration: underline; }
+        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        .faq-question { font-weight: bold; font-size: 1.1em; color: #333; cursor: pointer; }
+        .faq-answer { margin-top: 10px; color: #666; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What areas of Las Vegas do you serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide local SEO services throughout the entire Las Vegas valley, including Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, and Centennial Hills."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do you offer industry-specific SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we specialize in SEO for various industries including dental practices, law firms, real estate agents, HVAC contractors, plumbers, and medical spas in the Nevada market."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How long does it take to rank in local Las Vegas search?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy, though initial results often appear sooner."
+        }
+      }]
+    }
+    </script>
+</head>
+<body>
+    <header class="page-header" style="background-color: #1a202c; padding: 15px 0;">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                 <a href="index.html" class="brand" style="color: white; font-weight: 800; font-size: 1.5rem; text-decoration: none;">NSM Prime</a>
+                 <nav>
+                    <a href="index.html" style="color: #cbd5e0; margin-left: 20px; text-decoration: none;">Home</a>
+                    <a href="services.html" style="color: #cbd5e0; margin-left: 20px; text-decoration: none;">Services</a>
+                 </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="container section-md">
+        <h1>Las Vegas Local Service Areas</h1>
+        <p class="big">We provide specialized local SEO services for businesses across the Las Vegas valley. Select your location and industry to learn how we can help you grow.</p>
+        
+        <div class="row mt-5">
+            <div class="col-md-8">
+                <h3>Select Your Niche Market</h3>
+                <ul class="list-unstyled local-link-list">
+                    ${listItems}
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                    <h4>Why Local SEO?</h4>
+                    <p>Dominating your local neighborhood search results is the most cost-effective way to acquire new customers in Las Vegas.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <div class="faq-question">What areas of Las Vegas do you serve?</div>
+                    <div class="faq-answer">We provide local SEO services throughout the entire Las Vegas valley, including Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, and Centennial Hills.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do you offer industry-specific SEO?</div>
+                    <div class="faq-answer">Yes, we specialize in SEO for various industries including dental practices, law firms, real estate agents, HVAC contractors, plumbers, and medical spas in the Nevada market.</div>
+                </div>
+                 <div class="faq-item">
+                    <div class="faq-question">How long does it take to rank?</div>
+                    <div class="faq-answer">Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-corporate bg-gray-darkest context-dark" style="padding: 40px 0; margin-top: 50px;">
+        <div class="container">
+            <p>&copy; 2026 NSM Prime. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>`;
+
+    fs.writeFileSync('local-service-areas.html', html);
+    console.log('✅ Generated index: local-service-areas.html');
+}
+
+generateIndexPage(generatedFilesList);
+
 console.log(`\n🎉 Total pages generated: ${generatedCount}`);
+
