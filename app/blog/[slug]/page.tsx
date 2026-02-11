@@ -210,9 +210,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <div className="container py-5" style={{ maxWidth: '900px' }}>
           {/* Author & Date */}
           <div className="d-flex align-items-center mb-4 pb-4 border-bottom">
-            <img
-            <div>
-              <div className="d-flex align-items-center mb-1">
+            <div className="media-body">
                 <h3 className="h5 mb-0 text-dark font-weight-bold mr-2">{post.author.name}</h3>
                 {post.author.jobTitle && (
                   <span className="badge badge-light text-muted font-weight-normal border">
