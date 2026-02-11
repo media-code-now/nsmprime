@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/contact-popup.css">
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
@@ -97,19 +98,11 @@
                   <!-- <button class="rd-navbar-search__toggle rd-navbar-fixed--hidden" data-rd-navbar-toggle=".rd-navbar-search-wrap"></button> -->
                 </div>
                 <!-- RD Search-->
-                <div class="rd-navbar-search rd-navbar-search_toggled rd-navbar-search_not-collapsable">
-                  <form class="rd-search" action="search-results.html" method="GET" data-search-live="rd-search-results-live">
-                    <div class="form-wrap">
-                      <input class="form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off">
-                      <label class="form-label" for="rd-navbar-search-form-input">Enter keyword</label>
-                      <div class="rd-search-results-live" id="rd-search-results-live"></div>
-                    </div>
-                    <button class="rd-search__submit" type="submit"></button>
-                  </form>
+                <!-- <div class="rd-navbar-search rd-navbar-search_toggled rd-navbar-search_not-collapsable">
                   <div class="rd-navbar-fixed--hidden">
                     <!-- <button class="rd-navbar-search__toggle" data-custom-toggle=".rd-navbar-search-wrap" data-custom-toggle-disable-on-blur="true"></button> -->
-                  </div>
-                </div>
+                  <!-- </div>
+                </div> -->
                 <div class="rd-navbar-search_collapsable">
                   <ul class="rd-navbar-nav">
                     <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Home</a>
@@ -388,7 +381,14 @@
                   <p>We share your personal data with your consent or as necessary to complete any transaction or provide any service you have requested or authorized. For example, we share your content with third parties when you tell us to do so. When you provide payment data to make a purchase, we will share payment data with banks and other entities that process payment transactions or provide other financial services, and for fraud prevention and credit risk reduction. In addition, we share personal data among our controlled affiliates and subsidiaries. We also share personal data with vendors or agents working on our behalf for the purposes described in this statement. For example, companies we've hired to provide customer service support or assist in protecting and securing our systems and services may need access to personal data in order to provide those functions. In such cases, these companies must abide by our data privacy and security requirements and are not allowed to use personal data they receive from us for any other purpose. We may also disclose personal data as part of a corporate transaction such as a merger or sale of assets.</p>
                 </div>
               </div>
-            </div><a href="mailto:#">privacy@demolink.org</a>
+            </div>
+          </div>
+          <div class="mt-4 text-center">
+            <p><strong>Questions About This Privacy Policy?</strong></p>
+            <p>NSM Prime Media Group<br>
+            Las Vegas, Nevada 89101<br>
+            Phone: <a href="tel:(917) 972-7298">(917) 972-7298</a><br>
+            Email: <a href="mailto:info@nsmprime.com">info@nsmprime.com</a></p>
           </div>
         </div>
       </section>
@@ -398,7 +398,7 @@
           <div class="row justify-content-sm-center justify-content-lg-start row-30 row-md-60">
                         <div class="col-sm-10 col-md-6 col-lg-10 col-xl-3">
               <a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-footer.png" alt="" width="108" height="40" loading="lazy"/><img class="brand-logo-light" src="images/logo-footer.png" alt="" width="108" height="40" loading="lazy"/></a>
-              <p>NSM Prime Media Group specializes in marketing, search engine optimization (SEO), custom web design, social media management, digital marketing, graphic design, e-commerce and sponsored ads.</p>
+              <p>NSM Prime Media Group specializes in marketing, search engine optimization (SEO), custom web design, app development, digital marketing, graphic design, e-commerce and sponsored ads.</p>
             </div>
             <div class="col-sm-10 col-md-6 col-lg-3 col-xl-3">
               <h6>Navigation</h6>
@@ -476,7 +476,12 @@
       <footer class="footer-corporate bg-gray-darkest">
         <div class="container">
           <div class="footer-corporate__inner">
-            <p class="rights"><span>NSM Prime<span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span>. All Rights Reserved.<span>&nbsp;</span><a href="privacy-policy.html">Terms of Use and Privacy Policy</a></span></p>
+            <p class="rights"><span>NSM Prime<span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span>. All Rights Reserved.</span></p>
+            <div class="group-xs group-middle">
+              <a class="link-gray" href="privacy-policy.html">Privacy Policy</a>
+              <span class="text-gray">|</span>
+              <a class="link-gray" href="terms-of-service.html">Terms of Service</a>
+            </div>
             <ul class="list-inline-xxs">
                             <li><a class="icon icon-xxs icon-gray-darker fa fa-facebook" href="https://www.facebook.com/NSMPrimemediagroup/"></a></li>
                             <li><a class="icon icon-xxs icon-gray-darker fa fa-instagram" href="https://www.instagram.com/nsmprimemediagroup/"></a></li>
@@ -497,6 +502,7 @@
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/contact-popup.js"></script>
     <!-- coded by jeremyLuis-->
   </body>
 </html>

@@ -3,12 +3,13 @@
   <head>
     <!-- Site Title-->
     <title>Digital Marketing Blog Hub | Expert Insights & Strategies - NSM Prime</title>
-    <meta name="description" content="Your complete digital marketing knowledge hub. Discover expert SEO tips, web development insights, PPC strategies, and social media trends from Las Vegas industry leaders.">
-    <meta name="keywords" content="digital marketing blog hub, SEO insights, web development tutorials, PPC strategies, social media tips, content marketing, Las Vegas marketing blog">
+    <meta name="description" content="Your complete digital marketing knowledge hub. Discover expert SEO tips, web development insights, PPC strategies, and app development trends from Las Vegas industry leaders.">
+    <meta name="keywords" content="digital marketing blog hub, SEO insights, web development tutorials, PPC strategies, app development tips, content marketing, Las Vegas marketing blog">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
+    <meta name="google-site-verification" content="v9SyE8Pr3XukCvGI24RZzG9qth6P_qMvdK8m8Sp_d_s" />
     <link rel="canonical" href="https://nsmprime.com/blog-hub.html">
     
     <!-- Structured Data for Blog Hub -->
@@ -37,6 +38,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/contact-popup.css">
     
     <!-- Custom Blog Hub Styles -->
     <style>
@@ -147,6 +149,22 @@
         color: #999;
         font-size: 12px;
       }
+      .loading-spinner {
+        padding: 40px;
+        text-align: center;
+        color: #666;
+      }
+      .loading-spinner p {
+        margin: 0;
+        font-style: italic;
+      }
+      .search-results-container {
+        margin-top: 30px;
+      }
+      .search-results h3 {
+        margin-bottom: 20px;
+        color: #333;
+      }
     </style>
   </head>
   <body>
@@ -249,9 +267,9 @@
                       <ul class="rd-menu rd-navbar-dropdown">
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="web-development.html">Web Development</a>
                         </li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="digital-marketing.html">Digital Marketing</a>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="app-development.html">App Development</a>
                         </li>
-                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="photography.html">Photography</a>
+                        <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="ecommerce-development.html">E-commerce Development</a>
                         </li>
                         <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="video-production.html">Video Production</a>
                         </li>
@@ -310,7 +328,7 @@
                               <a href="#seo" class="filter-tag" data-filter="seo">SEO</a>
                               <a href="#web-dev" class="filter-tag" data-filter="web-development">Web Development</a>
                               <a href="#ppc" class="filter-tag" data-filter="ppc">PPC & Ads</a>
-                              <a href="#social" class="filter-tag" data-filter="social-media">Social Media</a>
+                              <a href="#app-dev" class="filter-tag" data-filter="app-development">App Development</a>
                               <a href="#content" class="filter-tag" data-filter="content-marketing">Content Marketing</a>
                               <a href="#analytics" class="filter-tag" data-filter="analytics">Analytics</a>
                             </div>
@@ -336,70 +354,22 @@
             </div>
           </div>
           
-          <div class="row row-40 mt-5">
-            <!-- Pillar Post 1 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="post-modern">
-                <div class="post-modern__aside">
-                  <a href="/pillar-seo-guide-2025.html">
-                    <img src="images/blog-seo-pillar-370x239.jpg" alt="Complete SEO Guide 2025" width="370" height="239" loading="lazy"/>
-                  </a>
-                  <div class="post-modern__badge">Pillar Content</div>
-                </div>
-                <div class="post-modern__main">
-                  <h3 class="post-modern__title"><a href="/pillar-seo-guide-2025.html">The Complete SEO Guide for 2025: From Basics to Advanced</a></h3>
-                  <div class="post-modern__meta">
-                    <span class="post-modern__time">Updated Oct 2025</span>
-                    <span class="post-modern__read-time">15 min read</span>
-                  </div>
-                  <p class="post-modern__text">Master every aspect of SEO with our comprehensive 10,000+ word guide covering technical SEO, content optimization, link building, and local search.</p>
-                  <a class="button button-primary-outline" href="/pillar-seo-guide-2025.html">Read Complete Guide</a>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Pillar Post 2 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="post-modern">
-                <div class="post-modern__aside">
-                  <a href="/pillar-web-development-2025.html">
-                    <img src="images/blog-webdev-pillar-370x239.jpg" alt="Web Development Masterclass" width="370" height="239" loading="lazy"/>
-                  </a>
-                  <div class="post-modern__badge">Pillar Content</div>
-                </div>
-                <div class="post-modern__main">
-                  <h3 class="post-modern__title"><a href="/pillar-web-development-2025.html">Modern Web Development: Complete Business Guide</a></h3>
-                  <div class="post-modern__meta">
-                    <span class="post-modern__time">Updated Oct 2025</span>
-                    <span class="post-modern__read-time">12 min read</span>
-                  </div>
-                  <p class="post-modern__text">Everything you need to know about building high-performance websites that convert visitors into customers and rank well in search engines.</p>
-                  <a class="button button-primary-outline" href="/pillar-web-development-2025.html">Read Complete Guide</a>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Pillar Post 3 -->
-            <div class="col-md-6 col-lg-4">
-              <article class="post-modern">
-                <div class="post-modern__aside">
-                  <a href="/pillar-ppc-advertising-guide.html">
-                    <img src="images/blog-ppc-pillar-370x239.jpg" alt="PPC Advertising Mastery Guide" width="370" height="239" loading="lazy"/>
-                  </a>
-                  <div class="post-modern__badge">Pillar Content</div>
-                </div>
-                <div class="post-modern__main">
-                  <h3 class="post-modern__title"><a href="/pillar-ppc-advertising-guide.html">PPC Advertising Mastery: From Setup to Optimization</a></h3>
-                  <div class="post-modern__meta">
-                    <span class="post-modern__time">Updated Oct 2025</span>
-                    <span class="post-modern__read-time">18 min read</span>
-                  </div>
-                  <p class="post-modern__text">Master Google Ads, Facebook Ads, and other PPC platforms with our step-by-step guide to profitable paid advertising campaigns.</p>
-                  <a class="button button-primary-outline" href="/pillar-ppc-advertising-guide.html">Read Complete Guide</a>
-                </div>
-              </article>
+          <!-- Featured Posts Container - Dynamic Content -->
+          <div class="row row-40 mt-5 featured-posts-container">
+            <!-- Featured posts will be loaded dynamically here -->
+            <div class="col-12 text-center">
+              <div class="loading-spinner">
+                <p>Loading featured posts...</p>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Search Results Section (Initially Hidden) -->
+      <section class="section-lg bg-default search-results-container" style="display: none;">
+        <div class="container">
+          <!-- Search results will be populated here -->
         </div>
       </section>
 
@@ -413,168 +383,13 @@
             </div>
           </div>
           
-          <div class="row row-40 mt-5">
-            <!-- Latest Post 1 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/ai-seo-strategies-2025.html">
-                    <img src="images/blog-ai-seo-370x239.jpg" alt="AI-Powered SEO Strategies" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-18">Oct 18, 2025</time>
-                  <h4><a class="post-classic__title" href="/ai-seo-strategies-2025.html">How AI is Revolutionizing SEO in 2025</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">SEO</span>
-                    <span class="post-classic__read-time">5 min read</span>
-                  </div>
-                  <p class="post-classic__text">Discover how artificial intelligence is changing search engine optimization and what strategies you need to implement now.</p>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Latest Post 2 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/local-seo-las-vegas-2025.html">
-                    <img src="images/blog-local-seo-370x239.jpg" alt="Local SEO Las Vegas Guide" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-16">Oct 16, 2025</time>
-                  <h4><a class="post-classic__title" href="/local-seo-las-vegas-2025.html">Local SEO in Las Vegas: Complete 2025 Guide</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">Local SEO</span>
-                    <span class="post-classic__read-time">7 min read</span>
-                  </div>
-                  <p class="post-classic__text">Dominate local search results in Las Vegas with proven strategies that drive foot traffic and phone calls.</p>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Latest Post 3 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/web-performance-optimization.html">
-                    <img src="images/blog-performance-370x239.jpg" alt="Website Performance Optimization" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-14">Oct 14, 2025</time>
-                  <h4><a class="post-classic__title" href="/web-performance-optimization.html">Website Speed Optimization: Technical Guide</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">Web Development</span>
-                    <span class="post-classic__read-time">6 min read</span>
-                  </div>
-                  <p class="post-classic__text">Learn technical strategies to improve your website's loading speed and Core Web Vitals scores.</p>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Latest Post 4 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/social-media-roi-tracking.html">
-                    <img src="images/blog-social-roi-370x239.jpg" alt="Social Media ROI Tracking" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-12">Oct 12, 2025</time>
-                  <h4><a class="post-classic__title" href="/social-media-roi-tracking.html">Measuring Social Media ROI: Advanced Analytics</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">Social Media</span>
-                    <span class="post-classic__read-time">8 min read</span>
-                  </div>
-                  <p class="post-classic__text">Track and prove the ROI of your social media campaigns with advanced analytics and attribution models.</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          
-          <!-- Additional Latest Posts Row -->
-          <div class="row row-40 mt-4">
-            <!-- Latest Post 5 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/email-marketing-automation.html">
-                    <img src="images/blog-email-automation-370x239.jpg" alt="Email Marketing Automation" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-10">Oct 10, 2025</time>
-                  <h4><a class="post-classic__title" href="/email-marketing-automation.html">Email Marketing Automation: Complete Setup</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">Email Marketing</span>
-                    <span class="post-classic__read-time">9 min read</span>
-                  </div>
-                  <p class="post-classic__text">Build effective email sequences that nurture leads and drive sales on autopilot.</p>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Latest Post 6 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/google-ads-optimization.html">
-                    <img src="images/blog-google-ads-370x239.jpg" alt="Google Ads Optimization" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-08">Oct 08, 2025</time>
-                  <h4><a class="post-classic__title" href="/google-ads-optimization.html">Google Ads Optimization: Advanced Techniques</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">PPC</span>
-                    <span class="post-classic__read-time">11 min read</span>
-                  </div>
-                  <p class="post-classic__text">Advanced Google Ads strategies to reduce costs and increase conversion rates.</p>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Latest Post 7 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/content-marketing-strategy.html">
-                    <img src="images/blog-content-strategy-370x239.jpg" alt="Content Marketing Strategy" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-06">Oct 06, 2025</time>
-                  <h4><a class="post-classic__title" href="/content-marketing-strategy.html">Building a Content Marketing Strategy That Works</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">Content Marketing</span>
-                    <span class="post-classic__read-time">13 min read</span>
-                  </div>
-                  <p class="post-classic__text">Create content that attracts, engages, and converts your target audience.</p>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Latest Post 8 -->
-            <div class="col-md-6 col-lg-3">
-              <article class="post-classic">
-                <div class="post-classic__aside">
-                  <a href="/mobile-first-design.html">
-                    <img src="images/blog-mobile-design-370x239.jpg" alt="Mobile-First Web Design" width="370" height="239" loading="lazy"/>
-                  </a>
-                </div>
-                <div class="post-classic__main">
-                  <time class="post-classic__time" datetime="2025-10-04">Oct 04, 2025</time>
-                  <h4><a class="post-classic__title" href="/mobile-first-design.html">Mobile-First Design: Best Practices 2025</a></h4>
-                  <div class="post-classic__meta">
-                    <span class="post-classic__category">Web Development</span>
-                    <span class="post-classic__read-time">7 min read</span>
-                  </div>
-                  <p class="post-classic__text">Design websites that perform perfectly on mobile devices and improve user experience.</p>
-                </div>
-              </article>
+          <!-- Latest Posts Container - Dynamic Content -->
+          <div class="row row-40 mt-5 latest-posts-container">
+            <!-- Latest posts will be loaded dynamically here -->
+            <div class="col-12 text-center">
+              <div class="loading-spinner">
+                <p>Loading latest posts...</p>
+              </div>
             </div>
           </div>
           
@@ -597,71 +412,13 @@
             </div>
           </div>
           
-          <div class="row row-40 mt-5">
-            <!-- Trending Post 1 -->
-            <div class="col-lg-4">
-              <article class="post-trending">
-                <div class="post-trending__content">
-                  <div class="post-trending__number">1</div>
-                  <div class="post-trending__image">
-                    <a href="/google-algorithm-update-october-2025.html">
-                      <img src="images/blog-algorithm-370x239.jpg" alt="Google Algorithm Update October 2025" width="100" height="100" loading="lazy"/>
-                    </a>
-                  </div>
-                  <div class="post-trending__main">
-                    <h4><a href="/google-algorithm-update-october-2025.html">Google Algorithm Update October 2025: What Changed</a></h4>
-                    <div class="post-trending__meta">
-                      <span class="post-trending__views">12.5K views</span>
-                      <span class="post-trending__shares">847 shares</span>
-                    </div>
-                    <p>Complete analysis of Google's latest algorithm update and how it affects your search rankings.</p>
-                  </div>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Trending Post 2 -->
-            <div class="col-lg-4">
-              <article class="post-trending">
-                <div class="post-trending__content">
-                  <div class="post-trending__number">2</div>
-                  <div class="post-trending__image">
-                    <a href="/conversion-rate-optimization-checklist.html">
-                      <img src="images/blog-cro-370x239.jpg" alt="Conversion Rate Optimization Checklist" width="100" height="100" loading="lazy"/>
-                    </a>
-                  </div>
-                  <div class="post-trending__main">
-                    <h4><a href="/conversion-rate-optimization-checklist.html">CRO Checklist: 47 Ways to Increase Conversions</a></h4>
-                    <div class="post-trending__meta">
-                      <span class="post-trending__views">9.8K views</span>
-                      <span class="post-trending__shares">623 shares</span>
-                    </div>
-                    <p>Proven strategies to optimize your website for higher conversion rates and better user experience.</p>
-                  </div>
-                </div>
-              </article>
-            </div>
-            
-            <!-- Trending Post 3 -->
-            <div class="col-lg-4">
-              <article class="post-trending">
-                <div class="post-trending__content">
-                  <div class="post-trending__number">3</div>
-                  <div class="post-trending__image">
-                    <a href="/content-marketing-strategy-2025.html">
-                      <img src="images/blog-content-strategy-370x239.jpg" alt="Content Marketing Strategy 2025" width="100" height="100" loading="lazy"/>
-                    </a>
-                  </div>
-                  <div class="post-trending__main">
-                    <h4><a href="/content-marketing-strategy-2025.html">Building a Content Marketing Strategy That Works</a></h4>
-                    <div class="post-trending__meta">
-                      <span class="post-trending__views">8.2K views</span>
-                      <span class="post-trending__shares">534 shares</span>
-                    </div>
-                    <p>Step-by-step guide to creating content that attracts, engages, and converts your target audience.</p>
-                  </div>
-                </div>
-              </article>
+          <!-- Trending Posts Container - Dynamic Content -->
+          <div class="row row-40 mt-5 trending-posts-container">
+            <!-- Trending posts will be loaded dynamically here -->
+            <div class="col-12 text-center">
+              <div class="loading-spinner">
+                <p>Loading trending posts...</p>
+              </div>
             </div>
           </div>
         </div>
@@ -730,10 +487,10 @@
                   <span class="icon icon-xl icon-primary linearicons-users"></span>
                 </div>
                 <div class="topic-card__content">
-                  <h3 class="topic-card__title">Social Media Marketing</h3>
+                  <h3 class="topic-card__title">App Development</h3>
                   <p class="topic-card__count">35 Articles</p>
-                  <p class="topic-card__description">Build communities, increase engagement, and drive conversions across all major social media platforms.</p>
-                  <a class="topic-card__link" href="/topics/social-media/">Explore Social Media Articles</a>
+                  <p class="topic-card__description">Create innovative mobile and web applications that engage users and drive business growth through cutting-edge technology.</p>
+                  <a class="topic-card__link" href="/topics/app-development/">Explore App Development Articles</a>
                 </div>
               </div>
             </div>
@@ -872,7 +629,7 @@
                   </h3>
                   <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                      Organic marketing (SEO, content marketing, social media) builds long-term visibility without direct advertising costs, but takes time to show results. Paid marketing (PPC, social ads) delivers immediate visibility and traffic but requires ongoing investment. The best strategy combines both for short-term results and long-term growth.
+                      Organic marketing (SEO, content marketing, app store optimization) builds long-term visibility without direct advertising costs, but takes time to show results. Paid marketing (PPC, app ads) delivers immediate visibility and traffic but requires ongoing investment. The best strategy combines both for short-term results and long-term growth.
                     </div>
                   </div>
                 </div>
@@ -895,7 +652,7 @@
                 <div class="accordion-item">
                   <h3 class="accordion-header" id="faq4">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
-                      Should I focus on multiple social media platforms or just one?
+                      Should I focus on multiple app platforms or just one?
                     </button>
                   </h3>
                   <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
@@ -928,7 +685,7 @@
                   </h3>
                   <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
-                      It depends on your budget, time, and expertise. Small businesses can start with basic SEO and social media themselves using our guides and tools. However, complex campaigns, technical SEO, and paid advertising often require specialized knowledge. Consider a hybrid approach: learn the basics yourself, then hire experts for advanced strategies that drive the most ROI.
+                      It depends on your budget, time, and expertise. Small businesses can start with basic SEO and simple app development themselves using our guides and tools. However, complex campaigns, technical SEO, and custom app development often require specialized knowledge. Consider a hybrid approach: learn the basics yourself, then hire experts for advanced strategies that drive the most ROI.
                     </div>
                   </div>
                 </div>
@@ -992,7 +749,7 @@
                   <li><a href="digital-marketing.html">Digital Marketing</a></li>
                   <li><a href="seo-hub.html">SEO Optimization</a></li>
                   <li><a href="sponsered-ads.html">PPC Advertising</a></li>
-                  <li><a href="photography.html">Photography</a></li>
+                  <li><a href="ecommerce-development.html">E-commerce Development</a></li>
                   <li><a href="graphic-design.html">Graphic Design</a></li>
                 </ul>
               </div>
@@ -1033,5 +790,7 @@
     <!-- Javascript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/contact-popup.js"></script>
+    <script src="js/blog-loader.js"></script>
   </body>
 </html>

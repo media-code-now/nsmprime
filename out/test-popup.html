@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Contact Popup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/contact-popup.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .test-instructions {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        .test-button {
+            background: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .test-button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-content">
+        <h1>Contact Popup Test Page</h1>
+        
+        <div class="test-instructions">
+            <h3>🧪 Testing Instructions:</h3>
+            <ol>
+                <li><strong>Wait 10 seconds</strong> - The popup should automatically appear</li>
+                <li><strong>Close the popup</strong> by clicking the X button or clicking outside</li>
+                <li><strong>Look for the teaser</strong> - It should appear in the bottom-right corner after closing</li>
+                <li><strong>Click the teaser</strong> - It should reopen the popup</li>
+                <li><strong>Close the teaser</strong> - Click the small X on the teaser to hide it</li>
+            </ol>
+        </div>
+
+        <h3>Manual Test Controls</h3>
+        <button class="test-button" onclick="testPopup.showPopup()">Show Popup Now</button>
+        <button class="test-button" onclick="testPopup.showTeaser()">Show Teaser Now</button>
+        <button class="test-button" onclick="testPopup.closePopup()">Close Popup</button>
+        <button class="test-button" onclick="testPopup.closeTeaser()">Close Teaser</button>
+
+        <h3>Debug Console</h3>
+        <div id="debug-log" style="background: #000; color: #0f0; padding: 15px; border-radius: 5px; font-family: monospace; height: 200px; overflow-y: auto; margin-top: 20px;">
+            <div>Debug console - events will appear here...</div>
+        </div>
+
+        <script>
+            // Override console.log to show in debug area
+            const originalLog = console.log;
+            const debugDiv = document.getElementById('debug-log');
+            
+            console.log = function(...args) {
+                originalLog.apply(console, args);
+                const logEntry = document.createElement('div');
+                logEntry.textContent = args.join(' ');
+                logEntry.style.marginBottom = '5px';
+                debugDiv.appendChild(logEntry);
+                debugDiv.scrollTop = debugDiv.scrollHeight;
+            };
+
+            console.log('🚀 Test page loaded');
+            console.log('⏰ Popup will show in 10 seconds...');
+        </script>
+    </div>
+
+    <!-- Load the contact popup script -->
+    <script src="js/contact-popup.js"></script>
+    
+    <script>
+        // Make the popup instance available for manual testing
+        let testPopup;
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded, creating test popup instance...');
+            testPopup = new ContactPopup();
+            window.testPopup = testPopup; // Make it globally available
+        });
+    </script>
+</body>
+</html>
