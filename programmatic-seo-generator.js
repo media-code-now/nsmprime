@@ -369,9 +369,23 @@ class ProgrammaticSEOGenerator {
   getLatitude(location) { return "36.1699"; }
   getLongitude(location) { return "-115.1398"; }
 
-  getCompetitorCount() { return this.getRandomNumber(10, 50); }
-  getPopulationData() { return "600,000+"; }
-  getTouristData() { return "42 million"; }
+  getCompetitorCount(location, businessType) { return this.getRandomNumber(10, 50); }
+  getPopulationData(location) { 
+    const map = {
+        'Henderson': '320,000+',
+        'Summerlin': '120,000+',
+        'North Las Vegas': '275,000+',
+        'Paradise': '231,000+',
+        'Spring Valley': '215,000+',
+        'Sunrise Manor': '190,000+',
+        'Enterprise': '220,000+',
+        'Centennial Hills': '50,000+',
+        'Green Valley': '45,000+'
+    };
+    return map[location] || '100,000+'; 
+  }
+  
+  getTouristData(location) { return "42 million"; }
   
   getIndustryCategory(businessType) {
       if (['dentists', 'medical practices'].includes(businessType)) return 'healthcare';
