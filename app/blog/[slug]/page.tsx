@@ -211,6 +211,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           {/* Author & Date */}
           <div className="d-flex align-items-center mb-4 pb-4 border-bottom">
             <div className="media-body">
+              <div className="d-flex align-items-center mb-1">
                 <h3 className="h5 mb-0 text-dark font-weight-bold mr-2">{post.author.name}</h3>
                 {post.author.jobTitle && (
                   <span className="badge badge-light text-muted font-weight-normal border">
@@ -236,16 +237,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 </div>
               )}
 
-              <div className="d-flex align-items-center text-muted small">
-                <span>Published {publishDate}</span>
-                <span className="mx-2">•</span>
-                <span>{post.views} views</span>
-              </div>
-            </div>
-            
-            <div className="media-body">
-              <h3 className="h5 mb-1 text-dark font-weight-bold">{post.author.name}</h3>
-              <p className="text-muted mb-1 small">{post.author.bio}</p>
               <div className="d-flex align-items-center text-muted small">
                 <span>Published {publishDate}</span>
                 <span className="mx-2">•</span>

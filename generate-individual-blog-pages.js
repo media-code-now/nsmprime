@@ -56,7 +56,7 @@ function generatePostHTML(post, template) {
     html = html.replace('id="page-description" content="Digital marketing insights and strategies from NSM Prime experts."', 
         `id="page-description" content="${post.metaDescription || post.excerpt}"`);
     
-    html = html.replace('id="page-keywords" content="digital marketing, SEO, PPC, app development, Las Vegas", 
+    html = html.replace('id="page-keywords" content="digital marketing, SEO, PPC, app development, Las Vegas"', 
         `id="page-keywords" content="${post.tags ? post.tags.join(', ') : 'digital marketing, Las Vegas'}"`);
     
     // Set canonical URL

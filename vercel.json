@@ -3,5 +3,267 @@
   "buildCommand": "npm run blog:deploy",
   "outputDirectory": "out",
   "installCommand": "npm install",
-  "devCommand": "npm run dev"
+  "devCommand": "npm run dev",
+  "redirects": [
+    {
+      "source": "/blog/:slug.html",
+      "destination": "/blog/?slug=:slug",
+      "permanent": true
+    },
+    {
+      "source": "/topics/seo/",
+      "destination": "/seo-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/app-development/",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/ppc/",
+      "destination": "/sponsered-ads.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/social-media/",
+      "destination": "/digital-marketing.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/content-marketing/",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/analytics/",
+      "destination": "/seo-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/web-development/",
+      "destination": "/web-development.html",
+      "permanent": true
+    },
+    {
+      "source": "/topics/:path*",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog/web-development-trends-2024/",
+      "destination": "/blog/?slug=mobile-first-design-why-your-las-vegas-business-website-needs-it",
+      "permanent": true
+    },
+    {
+      "source": "/social-media-roi-tracking.html",
+      "destination": "/digital-marketing.html",
+      "permanent": true
+    },
+    {
+      "source": "/mobile-first-design.html",
+      "destination": "/blog/?slug=mobile-first-design-why-your-las-vegas-business-website-needs-it",
+      "permanent": true
+    },
+    {
+      "source": "/web-performance-optimization.html",
+      "destination": "/blog/?slug=website-performance-optimization-speed-up-your-las-vegas-business-site",
+      "permanent": true
+    },
+    {
+      "source": "/content-marketing-strategy.html",
+      "destination": "/blog/?slug=content-marketing-strategy-building-authority-for-las-vegas-businesses",
+      "permanent": true
+    },
+    {
+      "source": "/content-marketing-strategy-2025.html",
+      "destination": "/blog/?slug=content-marketing-strategy-building-authority-for-las-vegas-businesses",
+      "permanent": true
+    },
+    {
+      "source": "/google-ads-optimization.html",
+      "destination": "/blog/?slug=google-ads-optimization-maximizing-roi-for-las-vegas-businesses",
+      "permanent": true
+    },
+    {
+      "source": "/ai-seo-strategies-2025.html",
+      "destination": "/blog/?slug=advanced-seo-strategies-for-2025-what-las-vegas-businesses-need-to-know",
+      "permanent": true
+    },
+    {
+      "source": "/local-seo-las-vegas-2025.html",
+      "destination": "/local-seo-las-vegas-guide.html",
+      "permanent": true
+    },
+    {
+      "source": "/email-marketing-automation.html",
+      "destination": "/digital-marketing.html",
+      "permanent": true
+    },
+    {
+      "source": "/google-algorithm-update-october-2025.html",
+      "destination": "/seo-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/conversion-rate-optimization-checklist.html",
+      "destination": "/digital-marketing.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog.html",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/home-variant-1.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-variant-3.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-variant-6.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-variant-7.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/home-variant-8.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/header-corporate.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/header-creative.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/header-default.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/header-default-dark.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/header-sidebar.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/single-service",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/single-service.html",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/single-portfolio.html",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/tabs.html",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/tabs",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-masonry.html",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/number-counter.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/countdown.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/animated-counter.html",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/buttons.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/footer-minimal.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/right-sidebar.html",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/left-sidebar.html",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/nonstandard-post.html",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/nonstandard-post-with-sidebar.html",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/our-team",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce-development",
+      "destination": "/ecommerce-development.html",
+      "permanent": true
+    },
+    {
+      "source": "/app-development",
+      "destination": "/app-development.html",
+      "permanent": true
+    },
+    {
+      "source": "/web-development",
+      "destination": "/web-development.html",
+      "permanent": true
+    }
+  ]
 }

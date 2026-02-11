@@ -8,20 +8,269 @@
 # Blog redirects - redirect old HTML pages to new Next.js routes
 [[redirects]]
   from = "/blog.html"
-  to = "/blog/"
+  to = "/blog-hub.html"
   status = 301
   force = true
-
-# Don't redirect /blog to /blog/ - let it serve naturally
-# [[redirects]]
-#   from = "/blog"
-#   to = "/blog/"
-#   status = 301
 
 # Catch any blog-related queries
 [[redirects]]
   from = "/blog.html/*"
-  to = "/blog/"
+  to = "/blog-hub.html"
+  status = 301
+
+# Topic category redirects
+[[redirects]]
+  from = "/topics/seo/"
+  to = "/seo-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/app-development/"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/ppc/"
+  to = "/sponsered-ads.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/social-media/"
+  to = "/digital-marketing.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/content-marketing/"
+  to = "/blog-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/analytics/"
+  to = "/seo-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/web-development/"
+  to = "/web-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/topics/*"
+  to = "/blog-hub.html"
+  status = 301
+
+# Old blog post redirects
+[[redirects]]
+  from = "/blog/web-development-trends-2024/"
+  to = "/blog/?slug=mobile-first-design-why-your-las-vegas-business-website-needs-it"
+  status = 301
+
+[[redirects]]
+  from = "/mobile-first-design.html"
+  to = "/blog/?slug=mobile-first-design-why-your-las-vegas-business-website-needs-it"
+  status = 301
+
+[[redirects]]
+  from = "/web-performance-optimization.html"
+  to = "/blog/?slug=website-performance-optimization-speed-up-your-las-vegas-business-site"
+  status = 301
+
+[[redirects]]
+  from = "/content-marketing-strategy.html"
+  to = "/blog/?slug=content-marketing-strategy-building-authority-for-las-vegas-businesses"
+  status = 301
+
+[[redirects]]
+  from = "/content-marketing-strategy-2025.html"
+  to = "/blog/?slug=content-marketing-strategy-building-authority-for-las-vegas-businesses"
+  status = 301
+
+[[redirects]]
+  from = "/google-ads-optimization.html"
+  to = "/blog/?slug=google-ads-optimization-maximizing-roi-for-las-vegas-businesses"
+  status = 301
+
+[[redirects]]
+  from = "/ai-seo-strategies-2025.html"
+  to = "/blog/?slug=advanced-seo-strategies-for-2025-what-las-vegas-businesses-need-to-know"
+  status = 301
+
+[[redirects]]
+  from = "/local-seo-las-vegas-2025.html"
+  to = "/local-seo-las-vegas-guide.html"
+  status = 301
+
+[[redirects]]
+  from = "/social-media-roi-tracking.html"
+  to = "/digital-marketing.html"
+  status = 301
+
+[[redirects]]
+  from = "/email-marketing-automation.html"
+  to = "/digital-marketing.html"
+  status = 301
+
+[[redirects]]
+  from = "/google-algorithm-update-october-2025.html"
+  to = "/seo-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/conversion-rate-optimization-checklist.html"
+  to = "/digital-marketing.html"
+  status = 301
+
+# Old template/variant page redirects
+[[redirects]]
+  from = "/home-variant-1.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home-variant-3.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home-variant-6.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home-variant-7.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/home-variant-8.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/header-corporate.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/header-creative.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/header-default.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/header-default-dark.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/header-sidebar.html"
+  to = "/"
+  status = 301
+
+# Service page redirects (without .html)
+[[redirects]]
+  from = "/single-service"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/single-service.html"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/single-portfolio.html"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/tabs.html"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/tabs"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio-masonry.html"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 301
+
+[[redirects]]
+  from = "/ecommerce-development"
+  to = "/ecommerce-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/app-development"
+  to = "/app-development.html"
+  status = 301
+
+[[redirects]]
+  from = "/web-development"
+  to = "/web-development.html"
+  status = 301
+
+# Misc page redirects
+[[redirects]]
+  from = "/our-team"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/number-counter.html"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/animated-counter.html"
+  to = "/about.html"
+  status = 301
+
+[[redirects]]
+  from = "/countdown.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/buttons.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/footer-minimal.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/right-sidebar.html"
+  to = "/blog-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/left-sidebar.html"
+  to = "/blog-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/nonstandard-post.html"
+  to = "/blog-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/nonstandard-post-with-sidebar.html"
+  to = "/blog-hub.html"
   status = 301
 
 # Headers for better caching
