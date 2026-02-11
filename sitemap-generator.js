@@ -87,6 +87,24 @@ function generateSitemap() {
   console.log('🗺️  Generating sitemap...');
   
   const posts = loadBlogPosts();
+  
+  // Filter duplicates by slug, keeping the most recent one
+  const uniquePostsMap = new Map();
+  posts.forEach(post => {
+    const postDate = new Date(post.modifiedDate || post.publishDate);
+    if (!uniquePostsMap.has(post.slug)) {
+      uniquePostsMap.set(post.slug, post);
+    } else {
+      const existing = uniquePostsMap.get(post.slug);
+      const existingDate = new Date(existing.modifiedDate || existing.publishDate);
+      if (postDate > existingDate) {
+        uniquePostsMap.set(post.slug, post);
+      }
+    }
+  });
+  
+  const uniquePosts = Array.from(uniquePostsMap.values());
+  
   const localSEOPages = findLocalSEOFiles(); // Get generated pages
   const currentDate = new Date().toISOString().split('T')[0];
   
@@ -117,7 +135,7 @@ function generateSitemap() {
   });
 
   // Add blog posts
-  posts.forEach(post => {
+  uniquePosts.forEach(post => {
     const postDate = formatDate(post.modifiedDate || post.publishDate);
     sitemap += `  <url>
     <loc>${CONFIG.baseUrl}/blog/?slug=${post.slug}</loc>
@@ -135,8 +153,8 @@ function generateSitemap() {
     fs.writeFileSync(CONFIG.sitemapPath, sitemap);
     console.log(`✅ Sitemap generated successfully!`);
     console.log(`📊 Static pages: ${CONFIG.staticPages.length}`);
-    console.log(`📝 Blog posts: ${posts.length}`);
-    console.log(`📍 Total URLs: ${CONFIG.staticPages.length + posts.length}`);
+    console.log(`📝 Blog posts: ${uniquePosts.length} (deduplicated from ${posts.length})`);
+    console.log(`📍 Total URLs: ${CONFIG.staticPages.length + localSEOPages.length + uniquePosts.length}`);
     console.log(`💾 Saved to: ${CONFIG.sitemapPath}`);
   } catch (error) {
     console.error('❌ Error writing sitemap:', error);

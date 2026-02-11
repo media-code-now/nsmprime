@@ -1,5 +1,5 @@
 [build]
-  command = "npm ci && npm run build && cp *.html out/ && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/ && cp -r bat out/"
+  command = "npm run blog:deploy"
   publish = "out"
   
 [build.environment]
