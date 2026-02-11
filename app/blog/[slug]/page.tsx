@@ -243,7 +243,10 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <span className="mx-2">•</span>
                 <span>{post.views} views</span>
               </div>
-            </div>className="h5 mb-1 text-dark font-weight-bold">{post.author.name}</h3>
+            </div>
+            
+            <div className="media-body">
+              <h3 className="h5 mb-1 text-dark font-weight-bold">{post.author.name}</h3>
               <p className="text-muted mb-1 small">{post.author.bio}</p>
               <div className="d-flex align-items-center text-muted small">
                 <span>Published {publishDate}</span>
