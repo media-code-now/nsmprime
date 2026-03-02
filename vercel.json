@@ -305,6 +305,46 @@
       "source": "/web-development",
       "destination": "/web-development.html",
       "permanent": true
+    },
+    {
+      "source": "/video-post.html",
+      "destination": "/blog-hub.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-4-columns.html",
+      "destination": "/gallery-post.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-justify.html",
+      "destination": "/gallery-post.html",
+      "permanent": true
+    },
+    {
+      "source": "/home-variant-5.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/team-member-profile.html",
+      "destination": "/our-team.html",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-fullwidth.html",
+      "destination": "/gallery-post.html",
+      "permanent": true
+    },
+    {
+      "source": "/header-sidebar-inverse.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/typography.html",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }

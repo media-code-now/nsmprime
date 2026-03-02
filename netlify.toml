@@ -273,6 +273,47 @@
   to = "/blog-hub.html"
   status = 301
 
+# New 404 fixes - template pages
+[[redirects]]
+  from = "/video-post.html"
+  to = "/blog-hub.html"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio-4-columns.html"
+  to = "/gallery-post.html"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio-justify.html"
+  to = "/gallery-post.html"
+  status = 301
+
+[[redirects]]
+  from = "/home-variant-5.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/team-member-profile.html"
+  to = "/our-team.html"
+  status = 301
+
+[[redirects]]
+  from = "/portfolio-fullwidth.html"
+  to = "/gallery-post.html"
+  status = 301
+
+[[redirects]]
+  from = "/header-sidebar-inverse.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/typography.html"
+  to = "/"
+  status = 301
+
 # Headers for better caching
 [[headers]]
   for = "/blog/*"
