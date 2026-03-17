@@ -23,7 +23,9 @@ const AUTO_CONFIG = {
   minHoursBetweenPosts: 72,
   
   // Enable/disable automation
-  enabled: true,
+  // Temporarily paused to focus on high-quality, human-edited long-form articles
+  // per Google's "Helpful Content Update" guidelines against pure AI generation.
+  enabled: false,
   
   // Update sitemap after generating posts
   updateSitemap: true,
