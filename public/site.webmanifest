@@ -1,0 +1,21 @@
+{
+  "name": "NSM Prime Media Group",
+  "short_name": "NSM Prime",
+  "description": "Leading digital marketing agency in Las Vegas specializing in SEO, web development, and digital marketing services",
+  "icons": [
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-default-216x80.png",
+      "sizes": "216x80",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#80deea",
+  "background_color": "#1F2845",
+  "display": "standalone",
+  "start_url": "/"
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'The Ultimate Guide to Local SEO for Las Vegas Businesses in 2026 | NSM Prime',
@@ -8,6 +9,16 @@ export const metadata = {
 export default function BlogPost() {
   return (
     <article className="max-w-4xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+      {/* Featured Image */}
+      <div className="mb-8 -mx-4 sm:mx-0 rounded-lg overflow-hidden">
+        <img 
+          src="/images/bg-image-5.jpg" 
+          alt="Local SEO Las Vegas Strategy" 
+          className="w-full h-64 md:h-96 object-cover"
+          loading="eager"
+        />
+      </div>
+      
       <header className="mb-12">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">
           The Ultimate Guide to Local SEO for Las Vegas Businesses in 2026
@@ -48,6 +59,17 @@ export default function BlogPost() {
         </ul>
 
         <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900">Step 2: On-Page SEO Tactics for Local Service Areas</h2>
+        
+        {/* Inline Image */}
+        <div className="my-8 rounded-lg overflow-hidden shadow-lg">
+          <img 
+            src="/images/service-1-652x491.jpg" 
+            alt="Local SEO Strategy" 
+            className="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+        
         <p className="mb-4">
           Your website needs to clearly communicate <em>where</em> you operate. Simply saying &quot;Serving Las Vegas&quot; isn&apos;t enough anymore. Create dedicated &quot;Location Pages&quot; for the specific areas you serve, such as Henderson, Summerlin, Spring Valley, North Las Vegas, and Enterprise.
         </p>
@@ -69,6 +91,17 @@ export default function BlogPost() {
         </ul>
 
         <h2 className="text-3xl font-bold mt-12 mb-6 text-gray-900">Case Study: How a Henderson Dentist Doubled Their Patient Leads</h2>
+        
+        {/* Case Study Image */}
+        <div className="my-6 rounded-lg overflow-hidden shadow-lg">
+          <img 
+            src="/images/portfolio-2col-3-652x491.jpg" 
+            alt="Henderson Dentist SEO Case Study" 
+            className="w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+        
         <p className="mb-4">
           We recently worked with a dental practice based in Henderson that was struggling to get visibility outside of their immediate zip code. They had a decent website, but it lacked localized signals.
         </p>
