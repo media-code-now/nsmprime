@@ -268,18 +268,23 @@
             </div>
             <div class="col-md-7 col-lg-8">
               <h4 class="heading-decorated">Get in Touch</h4>
-              <!-- RD Mailform-->
-              <form class="rd-mailform rd-mailform_style-1 form-shadow" data-form-output="form-output-global" data-form-type="contact" method="post" action="https://formsubmit.co/noam@nsmprime.com">
+              <!-- Contact form (FormSubmit -> noam@nsmprime.com) -->
+              <form class="rd-mailform_style-1 form-shadow" method="post" action="https://formsubmit.co/noam@nsmprime.com">
+                <input type="hidden" name="_subject" value="New Contact Form Message - nsmprime.com">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://nsmprime.com/thank-you">
+                <input type="text" name="_honey" style="display:none">
                 <div class="form-wrap form-wrap_icon linear-icon-man">
-                  <input class="form-input" id="contact-name" type="text" name="name" data-constraints="@Required">
+                  <input class="form-input" id="contact-name" type="text" name="name" required>
                   <label class="form-label" for="contact-name">Your name</label>
                 </div>
                 <div class="form-wrap form-wrap_icon linear-icon-envelope">
-                  <input class="form-input" id="contact-email" type="email" name="email" data-constraints="@Email @Required">
+                  <input class="form-input" id="contact-email" type="email" name="email" required>
                   <label class="form-label" for="contact-email">Your e-mail</label>
                 </div>
                 <div class="form-wrap form-wrap_icon linear-icon-feather">
-                  <textarea class="form-input" id="contact-message" name="message" data-constraints="@Required"></textarea>
+                  <textarea class="form-input" id="contact-message" name="message" required></textarea>
                   <label class="form-label" for="contact-message">Your message</label>
                 </div>
                 <button class="button button-primary button-shadow" type="submit">send</button>

@@ -245,6 +245,24 @@ class ContactPopup {
                 this.closeContactForm();
             }
         });
+
+        // Wire any on-page "trigger" buttons (e.g. "Start Your Store") to open the modal form
+        document.querySelectorAll('.contact-popup-trigger').forEach((trigger) => {
+            trigger.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.openContactForm();
+                // Pre-select the related service if provided via data-service
+                const service = trigger.getAttribute('data-service');
+                if (service) {
+                    const select = this.formModal.querySelector('#contact-service');
+                    if (select) {
+                        const match = Array.from(select.options).find((o) => o.value === service);
+                        if (match) select.value = service;
+                    }
+                }
+                this.trackEvent('contact_trigger_clicked');
+            });
+        });
     }
 
     showPopup() {
@@ -378,12 +396,34 @@ class ContactPopup {
         submitButton.classList.add('loading');
         submitButton.disabled = true;
         submitButton.innerHTML = '<i class="fa fa-spinner"></i> Sending...';
-        
-        // Simulate form submission (replace with actual endpoint)
-        setTimeout(() => {
-            this.showFormSuccess();
-            this.trackEvent('contact_form_submitted');
-        }, 2000);
+
+        // Add FormSubmit meta fields so the email is formatted and captcha-free
+        formData.append('_subject', 'New Lead from Website Popup Form');
+        formData.append('_template', 'table');
+        formData.append('_captcha', 'false');
+
+        // Send the lead to noam@nsmprime.com via FormSubmit's AJAX endpoint
+        fetch('https://formsubmit.co/ajax/noam@nsmprime.com', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: formData
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(() => {
+                this.showFormSuccess();
+                this.trackEvent('contact_form_submitted');
+            })
+            .catch(() => {
+                submitButton.classList.remove('loading');
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fa fa-paper-plane"></i> Send My Request';
+                this.showFormError('Sorry, something went wrong. Please try again or email us at noam@nsmprime.com.');
+            });
     }
 
     showFormError(message) {

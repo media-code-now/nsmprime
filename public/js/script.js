@@ -2512,6 +2512,12 @@
 				var $form = $(plugins.rdMailForm[i]),
 						formHasCaptcha = false;
 
+				// Skip forms that post to an external handler (e.g. FormSubmit).
+				// Let the browser submit them natively instead of AJAX-hijacking.
+				if (($form.attr("action") || "").indexOf("formsubmit.co") !== -1) {
+					continue;
+				}
+
 				$form.attr('novalidate', 'novalidate').ajaxForm({
 					data:         {
 						"form-type": $form.attr("data-form-type") || "contact",
