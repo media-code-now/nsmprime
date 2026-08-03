@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import LeadForm from '../../components/LeadForm';
 
 export const metadata = {
   title: 'The Ultimate Guide to Local SEO for Las Vegas Businesses in 2026 | NSM Prime',
@@ -126,12 +127,11 @@ export default function BlogPost() {
         <div className="mt-10 p-6 bg-blue-50 rounded-lg border border-blue-100">
           <h3 className="text-2xl font-bold text-blue-900 mb-4">Ready to Dominate Las Vegas Search?</h3>
           <p className="mb-6 text-blue-800">Get a free, no-obligation Local SEO audit from our experts and uncover the hidden opportunities your competitors are missing.</p>
-          <Link
-            href="/contacts.html"
-            className="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300"
-          >
-            Contact NSM Prime Today
-          </Link>
+          <LeadForm
+            subject="New Local SEO Audit Request - Blog Guide"
+            buttonText="Get My Free Local SEO Audit"
+            showWebsite
+          />
         </div>
       </div>
     </article>

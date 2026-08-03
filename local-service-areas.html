@@ -1,19 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Las Vegas Local SEO Service Areas - NSM Prime</title>
-    <meta name="description" content="Explore our local SEO service areas in Las Vegas, Henderson, Summerlin and surrounding Nevada communities. We help local businesses dominate search results.">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Las Vegas Local SEO Service Areas | NSM Prime</title>
+    <meta name="description" content="Explore NSM Prime's local SEO service areas across Las Vegas, Henderson, Summerlin, North Las Vegas and surrounding Nevada communities. Industry-specific SEO to help local businesses dominate search.">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://nsmprime.com/local-service-areas">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Fira+Sans:wght@300;600;800&family=Open+Sans:wght@300;400;600&display=swap">
     <style>
-        .local-link-list li { margin-bottom: 10px; font-size: 1.1rem; }
-        .local-link-list a { color: #007bff; text-decoration: none; }
-        .local-link-list a:hover { text-decoration: underline; }
-        .faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        .faq-question { font-weight: bold; font-size: 1.1em; color: #333; cursor: pointer; }
-        .faq-answer { margin-top: 10px; color: #666; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: "Open Sans", sans-serif; color: #41516A; background: #fff; line-height: 1.6; }
+        a { text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        .site-header { background: #1F2845; padding: 18px 0; position: sticky; top: 0; z-index: 50; }
+        .site-header .inner { display: flex; justify-content: space-between; align-items: center; }
+        .brand { color: #fff; font-family: "Fira Sans", sans-serif; font-weight: 800; font-size: 1.5rem; letter-spacing: .5px; }
+        .site-nav a { color: #cbd5e0; margin-left: 24px; font-weight: 600; transition: color .2s; }
+        .site-nav a:hover { color: #80deea; }
+
+        /* Hero */
+        .hero { background: linear-gradient(135deg, #1F2845 0%, #2d3a5c 100%); color: #fff; padding: 80px 0; text-align: center; position: relative; overflow: hidden; }
+        .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 20% 30%, rgba(128,222,234,.15), transparent 40%); }
+        .hero .container { position: relative; z-index: 1; }
+        .hero .eyebrow { display: inline-block; background: #80deea; color: #1F2845; font-weight: 700; font-size: .8rem; letter-spacing: 1px; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; }
+        .hero h1 { font-family: "Fira Sans", sans-serif; font-weight: 800; font-size: 3rem; text-transform: uppercase; letter-spacing: .5px; margin: 0 0 16px; }
+        .hero p { font-size: 1.25rem; color: #e0e0e0; max-width: 720px; margin: 0 auto 32px; }
+        .hero .btn-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-block; font-family: "Fira Sans", sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; padding: 16px 32px; border-radius: 8px; transition: all .25s; cursor: pointer; border: none; font-size: 1rem; }
+        .btn-primary { background: #80deea; color: #1F2845; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(128,222,234,.4); }
+        .btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); }
+        .btn-ghost:hover { border-color: #80deea; color: #80deea; }
+
+        /* Stats bar */
+        .stats { background: #80deea; padding: 30px 0; }
+        .stats .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .stats .num { font-family: "Fira Sans", sans-serif; font-weight: 800; font-size: 2.2rem; color: #1F2845; }
+        .stats .lbl { color: #1F2845; font-weight: 600; font-size: .95rem; }
+
+        /* Section */
+        .section { padding: 70px 0; }
+        .section-head { text-align: center; max-width: 720px; margin: 0 auto 50px; }
+        .section-head h2 { font-family: "Fira Sans", sans-serif; font-weight: 800; font-size: 2.2rem; text-transform: uppercase; letter-spacing: .5px; color: #1F2845; margin: 0 0 12px; }
+        .section-head p { font-size: 1.1rem; }
+
+        /* Area grid */
+        .area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .area-card { background: #fff; border: 1px solid #eef0f4; border-radius: 12px; padding: 26px; box-shadow: 0 4px 14px rgba(31,40,69,.05); transition: all .25s; }
+        .area-card:hover { box-shadow: 0 12px 30px rgba(31,40,69,.12); transform: translateY(-4px); }
+        .area-title { font-family: "Fira Sans", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: #1F2845; font-size: 1.25rem; margin: 0 0 16px; padding-bottom: 14px; border-bottom: 3px solid #80deea; display: flex; align-items: center; gap: 8px; }
+        .niche-list { list-style: none; margin: 0; padding: 0; }
+        .niche-list li { margin: 0; }
+        .niche-list a { display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 7px; color: #41516A; font-size: .98rem; transition: all .18s; }
+        .niche-list a:hover { background: #f2fbfc; color: #1F2845; padding-left: 16px; }
+        .niche-list .ico { font-size: 1.1rem; width: 22px; text-align: center; }
+
+        /* Lead form */
+        .lead-section { background: #f7fafc; padding: 70px 0; }
+        .lead-wrap { max-width: 620px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 40px; box-shadow: 0 10px 40px rgba(31,40,69,.1); }
+        .lead-wrap h2 { font-family: "Fira Sans", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: .5px; color: #1F2845; text-align: center; margin: 0 0 8px; font-size: 1.8rem; }
+        .lead-wrap p.sub { text-align: center; margin: 0 0 28px; }
+        .lead-wrap .fields { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+        .lead-wrap input { width: 100%; padding: 14px; border: 1px solid #cbd5e0; border-radius: 8px; font-family: inherit; font-size: 1rem; }
+        .lead-wrap .fields input { flex: 1; min-width: 200px; }
+        .lead-wrap input:focus { outline: none; border-color: #80deea; box-shadow: 0 0 0 3px rgba(128,222,234,.25); }
+        .lead-wrap button { width: 100%; margin-top: 6px; }
+        .lead-wrap .fine { text-align: center; font-size: .8rem; margin-top: 14px; color: #94a3b8; }
+
+        /* Why + FAQ */
+        .why { background: #1F2845; color: #fff; }
+        .why .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .why .item h4 { font-family: "Fira Sans", sans-serif; text-transform: uppercase; letter-spacing: .5px; color: #80deea; margin: 0 0 10px; font-size: 1.15rem; }
+        .why .item p { color: #cbd5e0; margin: 0; }
+        .faq-item { background: #fff; border: 1px solid #eef0f4; border-radius: 10px; padding: 22px 24px; margin-bottom: 16px; }
+        .faq-q { font-family: "Fira Sans", sans-serif; font-weight: 600; font-size: 1.1rem; color: #1F2845; }
+        .faq-a { margin-top: 10px; }
+
+        /* Footer */
+        .site-footer { background: #12182b; color: #8896b3; padding: 40px 0; text-align: center; }
+        .site-footer a { color: #80deea; }
+
+        @media (max-width: 900px) {
+            .area-grid { grid-template-columns: repeat(2, 1fr); }
+            .why .grid { grid-template-columns: 1fr; }
+            .stats .grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2.1rem; }
+        }
+        @media (max-width: 600px) {
+            .area-grid { grid-template-columns: 1fr; }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -22,180 +99,272 @@
       "mainEntity": [{
         "@type": "Question",
         "name": "What areas of Las Vegas do you serve?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We provide local SEO services throughout the entire Las Vegas valley, including Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, and Centennial Hills."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "We provide local SEO services throughout the entire Las Vegas valley, including Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, Sunrise Manor, Centennial Hills and Green Valley." }
       }, {
         "@type": "Question",
         "name": "Do you offer industry-specific SEO?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we specialize in SEO for various industries including dental practices, law firms, real estate agents, HVAC contractors, plumbers, and medical spas in the Nevada market."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we specialize in SEO for various industries including dental practices, law firms, real estate agents, HVAC contractors, plumbers, and medical spas in the Nevada market." }
       }, {
         "@type": "Question",
         "name": "How long does it take to rank in local Las Vegas search?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy, though initial results often appear sooner."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy, though initial results often appear sooner." }
       }]
     }
     </script>
 </head>
 <body>
-    <header class="page-header" style="background-color: #1a202c; padding: 15px 0;">
-        <div class="container">
-            <div class="d-flex justify-content-between align-items-center">
-                 <a href="index.html" class="brand" style="color: white; font-weight: 800; font-size: 1.5rem; text-decoration: none;">NSM Prime</a>
-                 <nav>
-                    <a href="index.html" style="color: #cbd5e0; margin-left: 20px; text-decoration: none;">Home</a>
-                    <a href="services.html" style="color: #cbd5e0; margin-left: 20px; text-decoration: none;">Services</a>
-                 </nav>
-            </div>
+    <header class="site-header">
+        <div class="container inner">
+            <a href="index.html" class="brand">NSM Prime</a>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="seo-hub.html">SEO</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
         </div>
     </header>
 
-    <div class="container section-md">
-        <h1>Las Vegas Local Service Areas</h1>
-        <p class="big">We provide specialized local SEO services for businesses across the Las Vegas valley. Select your location and industry to learn how we can help you grow.</p>
-        
-        <div class="row mt-5">
-            <div class="col-md-8">
-                <h3>Select Your Niche Market</h3>
-                <ul class="list-unstyled local-link-list">
-                    <li><a href="local-seo-henderson-dentists.html">Henderson dentists SEO</a></li>
-<li><a href="local-seo-henderson-real-estate-agents.html">Henderson real estate agents SEO</a></li>
-<li><a href="local-seo-henderson-plumbers.html">Henderson plumbers SEO</a></li>
-<li><a href="local-seo-henderson-lawyers.html">Henderson lawyers SEO</a></li>
-<li><a href="local-seo-henderson-hvac-contractors.html">Henderson HVAC contractors SEO</a></li>
-<li><a href="local-seo-henderson-electricians.html">Henderson electricians SEO</a></li>
-<li><a href="local-seo-henderson-restaurants.html">Henderson restaurants SEO</a></li>
-<li><a href="local-seo-henderson-roofing-companies.html">Henderson roofing companies SEO</a></li>
-<li><a href="local-seo-henderson-medical-spas.html">Henderson medical spas SEO</a></li>
-<li><a href="local-seo-henderson-fitness-centers.html">Henderson fitness centers SEO</a></li>
-<li><a href="local-seo-henderson-auto-repair-shops.html">Henderson auto repair shops SEO</a></li>
-<li><a href="local-seo-summerlin-dentists.html">Summerlin dentists SEO</a></li>
-<li><a href="local-seo-summerlin-real-estate-agents.html">Summerlin real estate agents SEO</a></li>
-<li><a href="local-seo-summerlin-plumbers.html">Summerlin plumbers SEO</a></li>
-<li><a href="local-seo-summerlin-lawyers.html">Summerlin lawyers SEO</a></li>
-<li><a href="local-seo-summerlin-hvac-contractors.html">Summerlin HVAC contractors SEO</a></li>
-<li><a href="local-seo-summerlin-electricians.html">Summerlin electricians SEO</a></li>
-<li><a href="local-seo-summerlin-restaurants.html">Summerlin restaurants SEO</a></li>
-<li><a href="local-seo-summerlin-roofing-companies.html">Summerlin roofing companies SEO</a></li>
-<li><a href="local-seo-summerlin-medical-spas.html">Summerlin medical spas SEO</a></li>
-<li><a href="local-seo-summerlin-fitness-centers.html">Summerlin fitness centers SEO</a></li>
-<li><a href="local-seo-summerlin-auto-repair-shops.html">Summerlin auto repair shops SEO</a></li>
-<li><a href="local-seo-north-las-vegas-dentists.html">North Las Vegas dentists SEO</a></li>
-<li><a href="local-seo-north-las-vegas-real-estate-agents.html">North Las Vegas real estate agents SEO</a></li>
-<li><a href="local-seo-north-las-vegas-plumbers.html">North Las Vegas plumbers SEO</a></li>
-<li><a href="local-seo-north-las-vegas-lawyers.html">North Las Vegas lawyers SEO</a></li>
-<li><a href="local-seo-north-las-vegas-hvac-contractors.html">North Las Vegas HVAC contractors SEO</a></li>
-<li><a href="local-seo-north-las-vegas-electricians.html">North Las Vegas electricians SEO</a></li>
-<li><a href="local-seo-north-las-vegas-restaurants.html">North Las Vegas restaurants SEO</a></li>
-<li><a href="local-seo-north-las-vegas-roofing-companies.html">North Las Vegas roofing companies SEO</a></li>
-<li><a href="local-seo-north-las-vegas-medical-spas.html">North Las Vegas medical spas SEO</a></li>
-<li><a href="local-seo-north-las-vegas-fitness-centers.html">North Las Vegas fitness centers SEO</a></li>
-<li><a href="local-seo-north-las-vegas-auto-repair-shops.html">North Las Vegas auto repair shops SEO</a></li>
-<li><a href="local-seo-paradise-dentists.html">Paradise dentists SEO</a></li>
-<li><a href="local-seo-paradise-real-estate-agents.html">Paradise real estate agents SEO</a></li>
-<li><a href="local-seo-paradise-plumbers.html">Paradise plumbers SEO</a></li>
-<li><a href="local-seo-paradise-lawyers.html">Paradise lawyers SEO</a></li>
-<li><a href="local-seo-paradise-hvac-contractors.html">Paradise HVAC contractors SEO</a></li>
-<li><a href="local-seo-paradise-electricians.html">Paradise electricians SEO</a></li>
-<li><a href="local-seo-paradise-restaurants.html">Paradise restaurants SEO</a></li>
-<li><a href="local-seo-paradise-roofing-companies.html">Paradise roofing companies SEO</a></li>
-<li><a href="local-seo-paradise-medical-spas.html">Paradise medical spas SEO</a></li>
-<li><a href="local-seo-paradise-fitness-centers.html">Paradise fitness centers SEO</a></li>
-<li><a href="local-seo-paradise-auto-repair-shops.html">Paradise auto repair shops SEO</a></li>
-<li><a href="local-seo-spring-valley-dentists.html">Spring Valley dentists SEO</a></li>
-<li><a href="local-seo-spring-valley-real-estate-agents.html">Spring Valley real estate agents SEO</a></li>
-<li><a href="local-seo-spring-valley-plumbers.html">Spring Valley plumbers SEO</a></li>
-<li><a href="local-seo-spring-valley-lawyers.html">Spring Valley lawyers SEO</a></li>
-<li><a href="local-seo-spring-valley-hvac-contractors.html">Spring Valley HVAC contractors SEO</a></li>
-<li><a href="local-seo-spring-valley-electricians.html">Spring Valley electricians SEO</a></li>
-<li><a href="local-seo-spring-valley-restaurants.html">Spring Valley restaurants SEO</a></li>
-<li><a href="local-seo-spring-valley-roofing-companies.html">Spring Valley roofing companies SEO</a></li>
-<li><a href="local-seo-spring-valley-medical-spas.html">Spring Valley medical spas SEO</a></li>
-<li><a href="local-seo-spring-valley-fitness-centers.html">Spring Valley fitness centers SEO</a></li>
-<li><a href="local-seo-spring-valley-auto-repair-shops.html">Spring Valley auto repair shops SEO</a></li>
-<li><a href="local-seo-enterprise-dentists.html">Enterprise dentists SEO</a></li>
-<li><a href="local-seo-enterprise-real-estate-agents.html">Enterprise real estate agents SEO</a></li>
-<li><a href="local-seo-enterprise-plumbers.html">Enterprise plumbers SEO</a></li>
-<li><a href="local-seo-enterprise-lawyers.html">Enterprise lawyers SEO</a></li>
-<li><a href="local-seo-enterprise-hvac-contractors.html">Enterprise HVAC contractors SEO</a></li>
-<li><a href="local-seo-enterprise-electricians.html">Enterprise electricians SEO</a></li>
-<li><a href="local-seo-enterprise-restaurants.html">Enterprise restaurants SEO</a></li>
-<li><a href="local-seo-enterprise-roofing-companies.html">Enterprise roofing companies SEO</a></li>
-<li><a href="local-seo-enterprise-medical-spas.html">Enterprise medical spas SEO</a></li>
-<li><a href="local-seo-enterprise-fitness-centers.html">Enterprise fitness centers SEO</a></li>
-<li><a href="local-seo-enterprise-auto-repair-shops.html">Enterprise auto repair shops SEO</a></li>
-<li><a href="local-seo-sunrise-manor-dentists.html">Sunrise Manor dentists SEO</a></li>
-<li><a href="local-seo-sunrise-manor-real-estate-agents.html">Sunrise Manor real estate agents SEO</a></li>
-<li><a href="local-seo-sunrise-manor-plumbers.html">Sunrise Manor plumbers SEO</a></li>
-<li><a href="local-seo-sunrise-manor-lawyers.html">Sunrise Manor lawyers SEO</a></li>
-<li><a href="local-seo-sunrise-manor-hvac-contractors.html">Sunrise Manor HVAC contractors SEO</a></li>
-<li><a href="local-seo-sunrise-manor-electricians.html">Sunrise Manor electricians SEO</a></li>
-<li><a href="local-seo-sunrise-manor-restaurants.html">Sunrise Manor restaurants SEO</a></li>
-<li><a href="local-seo-sunrise-manor-roofing-companies.html">Sunrise Manor roofing companies SEO</a></li>
-<li><a href="local-seo-sunrise-manor-medical-spas.html">Sunrise Manor medical spas SEO</a></li>
-<li><a href="local-seo-sunrise-manor-fitness-centers.html">Sunrise Manor fitness centers SEO</a></li>
-<li><a href="local-seo-sunrise-manor-auto-repair-shops.html">Sunrise Manor auto repair shops SEO</a></li>
-<li><a href="local-seo-centennial-hills-dentists.html">Centennial Hills dentists SEO</a></li>
-<li><a href="local-seo-centennial-hills-real-estate-agents.html">Centennial Hills real estate agents SEO</a></li>
-<li><a href="local-seo-centennial-hills-plumbers.html">Centennial Hills plumbers SEO</a></li>
-<li><a href="local-seo-centennial-hills-lawyers.html">Centennial Hills lawyers SEO</a></li>
-<li><a href="local-seo-centennial-hills-hvac-contractors.html">Centennial Hills HVAC contractors SEO</a></li>
-<li><a href="local-seo-centennial-hills-electricians.html">Centennial Hills electricians SEO</a></li>
-<li><a href="local-seo-centennial-hills-restaurants.html">Centennial Hills restaurants SEO</a></li>
-<li><a href="local-seo-centennial-hills-roofing-companies.html">Centennial Hills roofing companies SEO</a></li>
-<li><a href="local-seo-centennial-hills-medical-spas.html">Centennial Hills medical spas SEO</a></li>
-<li><a href="local-seo-centennial-hills-fitness-centers.html">Centennial Hills fitness centers SEO</a></li>
-<li><a href="local-seo-centennial-hills-auto-repair-shops.html">Centennial Hills auto repair shops SEO</a></li>
-<li><a href="local-seo-green-valley-dentists.html">Green Valley dentists SEO</a></li>
-<li><a href="local-seo-green-valley-real-estate-agents.html">Green Valley real estate agents SEO</a></li>
-<li><a href="local-seo-green-valley-plumbers.html">Green Valley plumbers SEO</a></li>
-<li><a href="local-seo-green-valley-lawyers.html">Green Valley lawyers SEO</a></li>
-<li><a href="local-seo-green-valley-hvac-contractors.html">Green Valley HVAC contractors SEO</a></li>
-<li><a href="local-seo-green-valley-electricians.html">Green Valley electricians SEO</a></li>
-<li><a href="local-seo-green-valley-restaurants.html">Green Valley restaurants SEO</a></li>
-<li><a href="local-seo-green-valley-roofing-companies.html">Green Valley roofing companies SEO</a></li>
-<li><a href="local-seo-green-valley-medical-spas.html">Green Valley medical spas SEO</a></li>
-<li><a href="local-seo-green-valley-fitness-centers.html">Green Valley fitness centers SEO</a></li>
-<li><a href="local-seo-green-valley-auto-repair-shops.html">Green Valley auto repair shops SEO</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                    <h4>Why Local SEO?</h4>
-                    <p>Dominating your local neighborhood search results is the most cost-effective way to acquire new customers in Las Vegas.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row mt-5">
-            <div class="col-12">
-                <h3>Frequently Asked Questions</h3>
-                <div class="faq-item">
-                    <div class="faq-question">What areas of Las Vegas do you serve?</div>
-                    <div class="faq-answer">We provide local SEO services throughout the entire Las Vegas valley, including Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, and Centennial Hills.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Do you offer industry-specific SEO?</div>
-                    <div class="faq-answer">Yes, we specialize in SEO for various industries including dental practices, law firms, real estate agents, HVAC contractors, plumbers, and medical spas in the Nevada market.</div>
-                </div>
-                 <div class="faq-item">
-                    <div class="faq-question">How long does it take to rank?</div>
-                    <div class="faq-answer">Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer-corporate bg-gray-darkest context-dark" style="padding: 40px 0; margin-top: 50px;">
+    <section class="hero">
         <div class="container">
-            <p>&copy; 2026 NSM Prime. All rights reserved.</p>
+            <span class="eyebrow">Serving the Entire Las Vegas Valley</span>
+            <h1>Las Vegas Local SEO Service Areas</h1>
+            <p>Specialized, industry-specific local SEO for businesses across every Las Vegas neighborhood. Find your area and industry to see how we help you dominate local search.</p>
+            <div class="btn-row">
+                <a href="#lead" class="btn btn-primary">Get My Free SEO Audit</a>
+                <a href="#areas" class="btn btn-ghost">Browse Service Areas</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="grid">
+                <div><div class="num">9</div><div class="lbl">Neighborhoods Served</div></div>
+                <div><div class="num">100+</div><div class="lbl">Niche Markets</div></div>
+                <div><div class="num">3-6 mo</div><div class="lbl">Avg. Time to Rank</div></div>
+                <div><div class="num">500+</div><div class="lbl">Businesses Ranked</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="areas">
+        <div class="container">
+            <div class="section-head">
+                <h2>Select Your Neighborhood &amp; Industry</h2>
+                <p>We build tailored local SEO strategies for each community and industry across the valley.</p>
+            </div>
+            <div class="area-grid">
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>North Las Vegas</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-north-las-vegas-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-north-las-vegas-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-north-las-vegas-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-north-las-vegas-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-north-las-vegas-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-north-las-vegas-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-north-las-vegas-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-north-las-vegas-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-north-las-vegas-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-north-las-vegas-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-north-las-vegas-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Centennial Hills</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-centennial-hills-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-centennial-hills-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-centennial-hills-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-centennial-hills-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-centennial-hills-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-centennial-hills-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-centennial-hills-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-centennial-hills-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-centennial-hills-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-centennial-hills-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-centennial-hills-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Sunrise Manor</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-sunrise-manor-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-sunrise-manor-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-sunrise-manor-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-sunrise-manor-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-sunrise-manor-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-sunrise-manor-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-sunrise-manor-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-sunrise-manor-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-sunrise-manor-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-sunrise-manor-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-sunrise-manor-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Spring Valley</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-spring-valley-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-spring-valley-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-spring-valley-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-spring-valley-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-spring-valley-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-spring-valley-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-spring-valley-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-spring-valley-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-spring-valley-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-spring-valley-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-spring-valley-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Green Valley</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-green-valley-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-green-valley-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-green-valley-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-green-valley-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-green-valley-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-green-valley-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-green-valley-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-green-valley-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-green-valley-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-green-valley-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-green-valley-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Henderson</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-henderson-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-henderson-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-henderson-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-henderson-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-henderson-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-henderson-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-henderson-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-henderson-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-henderson-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-henderson-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-henderson-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Summerlin</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-summerlin-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-summerlin-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-summerlin-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-summerlin-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-summerlin-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-summerlin-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-summerlin-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-summerlin-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-summerlin-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-summerlin-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-summerlin-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Paradise</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-paradise-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-paradise-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-paradise-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-paradise-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-paradise-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-paradise-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-paradise-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-paradise-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-paradise-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-paradise-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-paradise-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+      <div class="area-card">
+        <h3 class="area-title"><span class="pin">📍</span>Enterprise</h3>
+        <ul class="niche-list">
+          <li><a href="local-seo-enterprise-dentists.html"><span class="ico">🦷</span>dentists</a></li>
+          <li><a href="local-seo-enterprise-real-estate-agents.html"><span class="ico">🏡</span>real estate agents</a></li>
+          <li><a href="local-seo-enterprise-plumbers.html"><span class="ico">🔧</span>plumbers</a></li>
+          <li><a href="local-seo-enterprise-lawyers.html"><span class="ico">⚖️</span>lawyers</a></li>
+          <li><a href="local-seo-enterprise-hvac-contractors.html"><span class="ico">❄️</span>HVAC contractors</a></li>
+          <li><a href="local-seo-enterprise-electricians.html"><span class="ico">⚡</span>electricians</a></li>
+          <li><a href="local-seo-enterprise-restaurants.html"><span class="ico">🍽️</span>restaurants</a></li>
+          <li><a href="local-seo-enterprise-roofing-companies.html"><span class="ico">🏘️</span>roofing companies</a></li>
+          <li><a href="local-seo-enterprise-medical-spas.html"><span class="ico">💆</span>medical spas</a></li>
+          <li><a href="local-seo-enterprise-fitness-centers.html"><span class="ico">🏋️</span>fitness centers</a></li>
+          <li><a href="local-seo-enterprise-auto-repair-shops.html"><span class="ico">🚗</span>auto repair shops</a></li>
+        </ul>
+      </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lead-section" id="lead">
+        <div class="container">
+            <div class="lead-wrap">
+                <h2>Get Your Free Local SEO Audit</h2>
+                <p class="sub">Tell us about your business and we'll show you exactly how to outrank your local competitors.</p>
+                <form action="https://formsubmit.co/noam@nsmprime.com" method="POST">
+                    <input type="hidden" name="_subject" value="New Local SEO Lead - Service Areas Page">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://nsmprime.com/thank-you">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="fields">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Email Address" required style="margin-bottom:14px;">
+                    <input type="url" name="website" placeholder="Your Website (optional)" style="margin-bottom:14px;">
+                    <button type="submit" class="btn btn-primary">Get My Free Audit</button>
+                    <p class="fine">We respect your privacy. Your info is only used to contact you about your request.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section why">
+        <div class="container">
+            <div class="section-head">
+                <h2 style="color:#fff;">Why Local SEO?</h2>
+                <p style="color:#cbd5e0;">Dominating your local neighborhood search results is the most cost-effective way to acquire new customers in Las Vegas.</p>
+            </div>
+            <div class="grid">
+                <div class="item"><h4>Hyper-Local Reach</h4><p>Show up when nearby customers search "near me" for your exact services in your neighborhood.</p></div>
+                <div class="item"><h4>Higher Intent Leads</h4><p>Local searchers are ready to buy. Ranking locally captures customers at the moment of decision.</p></div>
+                <div class="item"><h4>Lasting ROI</h4><p>Unlike ads that stop the moment you stop paying, local SEO keeps generating leads month after month.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container" style="max-width:820px;">
+            <div class="section-head">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What areas of Las Vegas do you serve?</div>
+                <div class="faq-a">We provide local SEO services throughout the entire Las Vegas valley, including Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, Sunrise Manor, Centennial Hills and Green Valley.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Do you offer industry-specific SEO?</div>
+                <div class="faq-a">Yes, we specialize in SEO for various industries including dental practices, law firms, real estate agents, HVAC contractors, plumbers, and medical spas in the Nevada market.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How long does it take to rank?</div>
+                <div class="faq-a">Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 NSM Prime Media Group. All rights reserved.</p>
+            <p><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="services.html">Services</a> &nbsp;&middot;&nbsp; <a href="contacts.html">Contact</a> &nbsp;&middot;&nbsp; <a href="mailto:noam@nsmprime.com">noam@nsmprime.com</a></p>
         </div>
     </footer>
 </body>

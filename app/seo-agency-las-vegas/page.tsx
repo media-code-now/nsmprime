@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import LeadForm from '../components/LeadForm';
 
 export const metadata = {
   title: 'SEO Agency Las Vegas | Get More Customers From Google in 90 Days',
@@ -294,21 +295,11 @@ export default function SEOAgencyLandingPage() {
               ))}
             </ul>
 
-            <form className="space-y-4" action="/contacts.html" method="GET">
-              <div className="grid md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Your Name" className="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
-                <input type="tel" placeholder="Phone Number" className="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
-              </div>
-              <input type="email" placeholder="Email Address" className="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
-              <input type="url" placeholder="Your Website URL" className="w-full px-4 py-3 border border-gray-300 rounded-lg" required />
-              <button
-                type="submit"
-                className="w-full text-white font-bold text-lg px-8 py-4 rounded-lg hover:opacity-90 transition duration-300 shadow-xl uppercase"
-                style={{background: DARK_BG, fontFamily: '"Fira Sans", sans-serif', letterSpacing: '0.5px'}}
-              >
-                Get My Free SEO Audit Now
-              </button>
-            </form>
+            <LeadForm
+              subject="New Free SEO Audit Request - SEO Agency Page"
+              buttonText="Get My Free SEO Audit Now"
+              showWebsite
+            />
           </div>
         </div>
       </section>
@@ -368,7 +359,7 @@ export default function SEOAgencyLandingPage() {
           </div>
 
           <p className="text-sm" style={{color: '#e0e0e0'}}>
-            Or email us at: <a href="mailto:contact@nsmprime.com" className="underline hover:text-white">contact@nsmprime.com</a>
+            Or email us at: <a href="mailto:noam@nsmprime.com" className="underline hover:text-white">noam@nsmprime.com</a>
           </p>
         </div>
       </section>

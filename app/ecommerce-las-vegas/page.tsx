@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import LeadForm from '../components/LeadForm';
 
 export const metadata: Metadata = {
   title: 'E-Commerce Website Development Las Vegas | Online Store Solutions',
@@ -35,7 +36,7 @@ export default function EcommercePage() {
             "description": "Professional e-commerce development in Las Vegas",
             "url": "https://nsmprime.com/ecommerce-las-vegas",
             "telephone": "(917) 972-7298",
-            "email": "contact@nsmprime.com",
+            "email": "noam@nsmprime.com",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Las Vegas",
@@ -357,20 +358,20 @@ export default function EcommercePage() {
 
       {/* CTA */}
       <section className="py-20" style={{background: PRIMARY}}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white uppercase" style={{fontFamily: '"Fira Sans", sans-serif', letterSpacing: '0.5px'}}>
             Ready to Sell Online?
           </h2>
           <p className="text-xl text-white mb-8">
             Let's build your e-commerce store and turn browsers into buyers
           </p>
-          <a
-            href="mailto:contact@nsmprime.com?subject=E-Commerce Development Inquiry"
-            className="inline-block bg-white font-bold text-lg px-8 py-4 rounded-lg hover:bg-gray-100 transition duration-300 text-center shadow-xl uppercase"
-            style={{color: PRIMARY, letterSpacing: '0.5px'}}
-          >
-            Schedule Free Consultation
-          </a>
+          <div className="bg-white p-8 rounded-lg shadow-xl text-left">
+            <LeadForm
+              subject="New E-Commerce Development Inquiry"
+              buttonText="Request My Free Consultation"
+              showWebsite
+            />
+          </div>
         </div>
       </section>
     </div>

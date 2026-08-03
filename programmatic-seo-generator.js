@@ -306,7 +306,7 @@ class ProgrammaticSEOGenerator {
       latitude: this.getLatitude(pageData.location),
       longitude: this.getLongitude(pageData.location),
       phone_number: "(702) 555-0123",
-      email: "contact@nsmprime.com",
+      email: "noam@nsmprime.com",
       opening_hours: "Mo-Fr 09:00-17:00",
       price_range: "$$",
       rating_value: "4.8",
