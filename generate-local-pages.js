@@ -13,11 +13,10 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     <link rel="canonical" href="https://nsmprime.com${data.url}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="local SEO ${data.location}, ${data.location} ${data.businessType}, Nevada ${data.businessType} SEO, ${data.businessType} marketing ${data.location}">
     <meta name="robots" content="index, follow"> 
     
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="business.business">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://nsmprime.com${data.url}">
     <meta property="og:title" content="${data.title}">
     <meta property="og:description" content="${data.metaDescription}">
@@ -30,7 +29,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     <meta property="twitter:description" content="${data.metaDescription}">
     <meta property="twitter:image" content="https://nsmprime.com/images/bg-image-1.jpg">
 
-    <!-- LocalBusiness Schema -->
+    <!-- Service Schema -->
     <script type="application/ld+json">
     ${JSON.stringify(data.schema, null, 2)}
     </script>
@@ -101,7 +100,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     <section id="conclusion">
        <h2>Conclusion</h2>
        <div class="bg-light p-4 rounded">
-            <p>${data.content.conclusion || `Dominating the ${data.location} market starts with a solid local SEO strategy. Contact us today.`}</p>
+            ${data.content.conclusion || `<p>Build a practical local SEO strategy for ${data.location}. Contact us to get started.</p>`}
             <div class="text-center mt-4">
                 <a href="contacts.html" class="cta-button">Get Your Free Local SEO Audit</a>
             </div>
@@ -173,11 +172,13 @@ locations.forEach(location => {
             const industry = industryMap[businessType] || 'professional services';
             const pageData = generator.generatePage(location, businessType, industry);
             
-            // Fix safeguards
-            if (!pageData.content.mainSections) pageData.content.mainSections = []; 
-            if (!pageData.content.benefits) pageData.content.benefits = [];
-    
+            if (!pageData.content.mainSections?.length || !pageData.content.benefits) {
+                throw new Error('Generated page is missing required content');
+            }
             const html = htmlTemplate(pageData);
+            if (/{{[^}]+}}|\bundefined\b|\(702\) 555-0123|aggregateRating/.test(html)) {
+                throw new Error('Generated page failed safety validation');
+            }
             
             // Filename: local-seo-location-businesstype.html
             // Clean slug
@@ -190,7 +191,7 @@ locations.forEach(location => {
             generatedFilesList.push({
                 filename,
                 location,
-                businessType
+                businessType: pageData.businessType
             });
         } catch (e) {
             console.error(`❌ Failed to generate ${location} ${businessType}:`, e);
@@ -245,7 +246,7 @@ function generateIndexPage(generatedFiles) {
         "name": "How long does it take to rank in local Las Vegas search?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy, though initial results often appear sooner."
+          "text": "Timing depends on the website, competition, business history, and work required. We establish a baseline and track qualified traffic and leads without guaranteeing rankings."
         }
       }]
     }
@@ -267,7 +268,7 @@ function generateIndexPage(generatedFiles) {
     <div class="container section-md">
         <h1>Las Vegas Local Service Areas</h1>
         <p class="big">We provide specialized local SEO services for businesses across the Las Vegas valley. Select your location and industry to learn how we can help you grow.</p>
-        
+
         <div class="row mt-5">
             <div class="col-md-8">
                 <h3>Select Your Niche Market</h3>
@@ -278,11 +279,11 @@ function generateIndexPage(generatedFiles) {
             <div class="col-md-4">
                 <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
                     <h4>Why Local SEO?</h4>
-                    <p>Dominating your local neighborhood search results is the most cost-effective way to acquire new customers in Las Vegas.</p>
+                    <p>A focused local SEO plan helps nearby customers find accurate service information and decide whether a business fits their needs.</p>
                 </div>
             </div>
         </div>
-        
+
         <div class="row mt-5">
             <div class="col-12">
                 <h3>Frequently Asked Questions</h3>
@@ -296,7 +297,7 @@ function generateIndexPage(generatedFiles) {
                 </div>
                  <div class="faq-item">
                     <div class="faq-question">How long does it take to rank?</div>
-                    <div class="faq-answer">Most local businesses in Las Vegas see significant ranking improvements within 3-6 months of implementing our comprehensive local SEO strategy.</div>
+                    <div class="faq-answer">Timing depends on the website, competition, business history, and work required. We establish a baseline, track qualified traffic and leads, and report progress without guaranteeing rankings.</div>
                 </div>
             </div>
         </div>
@@ -316,5 +317,7 @@ function generateIndexPage(generatedFiles) {
 
 generateIndexPage(generatedFilesList);
 
-console.log(`\n🎉 Total pages generated: ${generatedCount}`);
+// Keep discovery in sync whenever the landing pages are regenerated.
+require('./sitemap-generator').generateSitemap();
 
+console.log(`\n🎉 Total pages generated: ${generatedCount}`);

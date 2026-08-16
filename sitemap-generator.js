@@ -41,6 +41,7 @@ function findLocalSEOFiles() {
     const files = fs.readdirSync(__dirname);
     return files
       .filter(file => file.startsWith('local-seo-') && file.endsWith('.html'))
+      .sort()
       .map(file => ({
         url: `/${file}`,
         changefreq: 'weekly',

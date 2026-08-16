@@ -1,561 +1,246 @@
-// programmatic-seo-generator.js
-// Implementation code for generating scaled local SEO pages
+// Generates deterministic, location- and industry-specific local SEO service pages.
+
+const LOCATION_PROFILES = {
+  Henderson: {
+    context: 'a large, established city with distinct residential and commercial districts',
+    areas: 'Green Valley, Water Street, Anthem, Inspirada, and nearby Henderson neighborhoods',
+    angle: 'Clear service-area pages help searchers distinguish a Henderson provider from businesses based elsewhere in the valley.'
+  },
+  Summerlin: {
+    context: 'a master-planned community where neighborhood relevance and a polished online presence matter',
+    areas: 'Summerlin North, Summerlin South, Downtown Summerlin, The Trails, and The Vistas',
+    angle: 'Customers often compare several well-presented businesses, so accurate profiles and convincing local proof are especially important.'
+  },
+  'North Las Vegas': {
+    context: 'a fast-changing city with established neighborhoods, new housing, and active commercial corridors',
+    areas: 'Aliante, Craig Ranch, North Ranch, and neighborhoods near the Civic Center',
+    angle: 'A precise North Las Vegas service footprint prevents the business from being lost among broader Las Vegas results.'
+  },
+  Paradise: {
+    context: 'an unincorporated community that includes dense residential areas and major visitor corridors',
+    areas: 'the University District, neighborhoods east and south of the Strip, and the airport corridor',
+    angle: 'Using Paradise-specific language alongside familiar nearby landmarks clarifies relevance for residents and visitors.'
+  },
+  'Spring Valley': {
+    context: 'a diverse residential and commercial area west of central Las Vegas',
+    areas: 'Chinatown, Rainbow Boulevard, Flamingo Road, and surrounding Spring Valley neighborhoods',
+    angle: 'Strong neighborhood signals help businesses compete with both central Las Vegas and Summerlin results.'
+  },
+  Enterprise: {
+    context: 'a growing southwest valley community with new development and busy mixed-use corridors',
+    areas: 'Southern Highlands, Mountains Edge, Silverado Ranch, and the southwest valley',
+    angle: 'Search pages should reflect the southwest valley rather than relying on generic Las Vegas wording.'
+  },
+  'Sunrise Manor': {
+    context: 'an east-valley community with long-established neighborhoods and a broad local service area',
+    areas: 'Sunrise Mountain, East Las Vegas, Nellis-area neighborhoods, and the eastern valley',
+    angle: 'Consistent east-valley location details make it easier for nearby customers to recognize a genuinely relevant provider.'
+  },
+  'Centennial Hills': {
+    context: 'a northwest Las Vegas community with growing residential and retail districts',
+    areas: 'Centennial Center, Providence, Skye Canyon, Tule Springs, and the northwest valley',
+    angle: 'Northwest-specific service information separates a local result from businesses focused on the Strip or southeast valley.'
+  },
+  'Green Valley': {
+    context: 'an established Henderson-area community with mature neighborhoods and active retail centers',
+    areas: 'Green Valley North, Green Valley South, Green Valley Ranch, and nearby Henderson neighborhoods',
+    angle: 'Pages should make the relationship between Green Valley and Henderson clear without treating the entire valley as one market.'
+  }
+};
+
+const INDUSTRY_PROFILES = {
+  dentists: {
+    singular: 'dental practice', customers: 'patients', category: 'healthcare',
+    priorities: ['preventive and family dentistry', 'emergency appointments', 'insurance and payment information'],
+    content: ['what to expect at a first visit', 'guidance for dental emergencies', 'answers about insurance and financing'],
+    conversions: 'appointment requests and calls', trust: 'credentials, treatment details, accessibility information, and patient feedback'
+  },
+  'real estate agents': {
+    singular: 'real estate business', customers: 'buyers and sellers', category: 'real estate',
+    priorities: ['neighborhood expertise', 'home buying guidance', 'listing and valuation services'],
+    content: ['neighborhood comparisons', 'local buying and selling checklists', 'plain-language market updates'],
+    conversions: 'consultation requests, listing inquiries, and calls', trust: 'licensing, recent local experience, clear processes, and client feedback'
+  },
+  plumbers: {
+    singular: 'plumbing company', customers: 'homeowners and property managers', category: 'home services',
+    priorities: ['emergency plumbing', 'water-heater service', 'leak and drain repair'],
+    content: ['steps to take during a leak', 'water-heater maintenance advice', 'local plumbing problem guides'],
+    conversions: 'service calls and estimate requests', trust: 'licensing, service availability, warranties, and customer feedback'
+  },
+  lawyers: {
+    singular: 'law firm', customers: 'prospective clients', category: 'legal services',
+    priorities: ['specific practice areas', 'consultation availability', 'Nevada legal experience'],
+    content: ['plain-language answers to common legal questions', 'consultation preparation checklists', 'Nevada-specific process guides'],
+    conversions: 'qualified consultation requests and calls', trust: 'attorney credentials, practice focus, transparent intake information, and appropriate client feedback'
+  },
+  'HVAC contractors': {
+    singular: 'HVAC company', customers: 'homeowners and property managers', category: 'home services',
+    priorities: ['air-conditioning repair', 'seasonal maintenance', 'system replacement'],
+    content: ['AC troubleshooting basics', 'desert-climate maintenance checklists', 'repair-versus-replacement guidance'],
+    conversions: 'service calls and estimate requests', trust: 'licensing, response times, equipment expertise, warranties, and customer feedback'
+  },
+  electricians: {
+    singular: 'electrical contractor', customers: 'homeowners and businesses', category: 'home services',
+    priorities: ['electrical repairs', 'panel and wiring work', 'inspection and installation services'],
+    content: ['electrical safety warning signs', 'panel upgrade guidance', 'project planning checklists'],
+    conversions: 'service calls and quote requests', trust: 'licensing, safety practices, project scope, warranties, and customer feedback'
+  },
+  restaurants: {
+    singular: 'restaurant', customers: 'diners', category: 'hospitality',
+    priorities: ['cuisine and menu details', 'hours and reservations', 'takeout and delivery options'],
+    content: ['signature dish features', 'menu and dietary guides', 'event and seasonal updates'],
+    conversions: 'reservations, calls, direction requests, and online orders', trust: 'current menus, accurate hours, food photography, accessibility details, and diner feedback'
+  },
+  'roofing companies': {
+    singular: 'roofing company', customers: 'homeowners and property managers', category: 'home services',
+    priorities: ['roof inspections', 'leak repair', 'replacement and coating options'],
+    content: ['storm and leak checklists', 'roof material comparisons', 'desert-weather maintenance guidance'],
+    conversions: 'inspection bookings and estimate requests', trust: 'licensing, material expertise, warranties, project photos, and customer feedback'
+  },
+  'medical spas': {
+    singular: 'medical spa', customers: 'prospective patients', category: 'aesthetic services',
+    priorities: ['treatment options', 'provider qualifications', 'consultation and aftercare information'],
+    content: ['treatment comparison guides', 'consultation preparation', 'realistic recovery and aftercare information'],
+    conversions: 'consultation and appointment requests', trust: 'provider credentials, candidacy guidance, safety information, and authentic patient feedback'
+  },
+  'fitness centers': {
+    singular: 'fitness center', customers: 'prospective members', category: 'fitness',
+    priorities: ['memberships and day passes', 'classes and coaching', 'hours and amenities'],
+    content: ['beginner training guides', 'class and program explanations', 'facility and coach introductions'],
+    conversions: 'tour bookings, trial requests, calls, and memberships', trust: 'coach qualifications, current schedules, facility photos, pricing clarity, and member feedback'
+  },
+  'auto repair shops': {
+    singular: 'auto repair shop', customers: 'drivers', category: 'automotive services',
+    priorities: ['diagnostics and repairs', 'routine maintenance', 'vehicle and warranty expertise'],
+    content: ['dashboard warning-light guides', 'maintenance schedules', 'repair process and estimate explanations'],
+    conversions: 'appointment requests and calls', trust: 'technician credentials, supported vehicles, warranty information, transparent estimates, and customer feedback'
+  }
+};
 
 class ProgrammaticSEOGenerator {
-  constructor(templateConfig) {
-    this.config = templateConfig.programmaticSEOTemplate;
-    this.generatedPages = new Set();
-    this.contentFingerprints = new Map();
+  constructor(templateConfig = {}) {
+    this.config = templateConfig.programmaticSEOTemplate || {};
   }
 
-  // Generate a single page based on parameters
   generatePage(location, businessType, industryCategory) {
+    const locationProfile = LOCATION_PROFILES[location];
+    const industryProfile = INDUSTRY_PROFILES[businessType];
+    if (!locationProfile) throw new Error(`Missing location profile: ${location}`);
+    if (!industryProfile) throw new Error(`Missing industry profile: ${businessType}`);
+
+    const display = this.titleCase(businessType);
+    const slug = `local-seo-${this.createSlug(location)}-${this.createSlug(businessType)}.html`;
     const pageData = {
       location,
-      businessType,
-      industryCategory,
-      locationSlug: this.createSlug(location),
-      businessTypeSlug: this.createSlug(businessType),
-      pageId: this.createPageId(location, businessType)
+      businessType: display,
+      businessTypeLower: businessType,
+      industryCategory: industryCategory || industryProfile.category,
+      locationProfile,
+      industryProfile,
+      url: `/${slug}`
     };
 
-    // Apply duplication guards
-    const variationIndex = this.calculateVariationIndex(pageData);
-    
-    return {
-      url: this.generateURL(pageData),
-      title: this.generateTitle(pageData, variationIndex),
-      metaDescription: this.generateMetaDescription(pageData, variationIndex),
-      content: this.generateContent(pageData, variationIndex),
+    const result = {
+      ...pageData,
+      title: `Local SEO for ${display} in ${location}`,
+      metaDescription: `Local SEO strategy for ${businessType} in ${location}, Nevada. Improve local visibility with accurate listings, useful content, reviews, and conversion tracking.`,
+      content: this.generateContent(pageData),
       schema: this.generateSchema(pageData),
-      internalLinks: this.generateInternalLinks(pageData)
+      internalLinks: this.generateInternalLinks()
     };
-  }
-
-  // Create unique page identifier
-  createPageId(location, businessType) {
-    return `${this.createSlug(location)}-${this.createSlug(businessType)}`;
-  }
-
-  // Generate URL structure
-  generateURL(pageData) {
-    return `/local-seo-${pageData.locationSlug}-${pageData.businessTypeSlug}`;
-  }
-
-  // Generate page title with variation
-  generateTitle(pageData, variationIndex) {
-    const titleTemplates = this.config.dynamicOutlineTemplate.h1_variations;
-    const template = titleTemplates[variationIndex % titleTemplates.length];
-    
-    return this.interpolateTemplate(template, {
-      location: pageData.location,
-      business_type: pageData.businessType,
-      competitive_modifier: this.getCompetitiveModifier(pageData),
-      service_category: pageData.industryCategory
-    });
-  }
-
-  // Generate meta description with variation
-  generateMetaDescription(pageData, variationIndex) {
-    const templates = [
-      "Dominate {{location}} search results with proven local SEO strategies for {{business_type}}. Increase visibility, attract customers, and grow your {{service_category}} business today.",
-      "{{competitive_modifier}} local SEO services for {{business_type}} in {{location}}. Boost your search rankings and attract more qualified customers in Nevada.",
-      "Transform your {{business_type}} visibility in {{location}} with expert local SEO strategies. Get more customers and outrank competitors with proven tactics.",
-      "{{location}} {{business_type}} local SEO specialists. Increase your online presence, drive more traffic, and grow your {{service_category}} business effectively.",
-      "Professional local SEO for {{location}} {{business_type}}. Improve Google rankings, increase local visibility, and attract more customers in Nevada."
-    ];
-    
-    const template = templates[variationIndex % templates.length];
-    
-    return this.interpolateTemplate(template, {
-      location: pageData.location,
-      business_type: pageData.businessType,
-      competitive_modifier: this.getCompetitiveModifier(pageData),
-      service_category: pageData.industryCategory
-    });
-  }
-
-  // Generate main content with duplication guards
-  generateContent(pageData, variationIndex) {
-    const introHookType = this.selectIntroHook(variationIndex);
-    const benefitOrder = this.shuffleBenefits(pageData);
-    const proofPoints = this.selectProofPoints(pageData);
-    const sectionOrder = this.determineSectionOrder(pageData.businessType);
-
-    return {
-      introHook: this.generateIntroHook(pageData, introHookType),
-      mainSections: this.generateMainSections(pageData, sectionOrder),
-      benefits: this.generateBenefits(pageData, benefitOrder),
-      proofPoints: this.generateProofPoints(pageData, proofPoints),
-      conclusion: this.generateConclusion(pageData)
-    };
-  }
-
-  // Select intro hook variation based on page position
-  selectIntroHook(variationIndex) {
-    const hookTypes = ['struggle_pain_point', 'opportunity_focused', 'statistic_driven', 'competitive_advantage', 'local_market_insight'];
-    return hookTypes[variationIndex % hookTypes.length];
-  }
-
-  // Generate intro hook with interpolation
-  generateIntroHook(pageData, hookType) {
-    const template = this.config.copyBlockTemplates.intro_hooks[hookType];
-    
-    return this.interpolateTemplate(template, {
-      business_type: pageData.businessType,
-      location: pageData.location,
-      service_category: pageData.industryCategory,
-      competitor_count: this.getCompetitorCount(pageData.location, pageData.businessType),
-      population_data: this.getPopulationData(pageData.location),
-      tourist_data: this.getTouristData(pageData.location),
-      percentage: this.getRandomPercentage(75, 85),
-      small_percentage: this.getRandomPercentage(15, 25)
-    });
-  }
-
-  // Generate main content sections
-  generateMainSections(pageData, sectionOrder) {
-    const sections = [];
-    
-    for (const sectionId of sectionOrder) {
-      const sectionConfig = this.config.dynamicOutlineTemplate.section_structure.main_sections.find(s => s.section_id === sectionId);
-      if (sectionConfig) {
-        const h2Options = sectionConfig.h2_options;
-        const selectedH2 = h2Options[Math.floor(Math.random() * h2Options.length)];
-        
-        sections.push({
-          id: sectionId,
-          h2: this.interpolateTemplate(selectedH2, pageData),
-          content: this.generateSectionContent(pageData, sectionId)
-        });
-      }
-    }
-    
-    return sections;
-  }
-
-  // Generate section-specific content
-  generateSectionContent(pageData, sectionId) {
-    const contentMap = {
-      'local_market_analysis': this.generateMarketAnalysisContent(pageData),
-      'gmb_optimization': this.generateGMBContent(pageData),
-      'local_citation_strategy': this.generateCitationContent(pageData),
-      'content_marketing': this.generateContentMarketingContent(pageData),
-      'review_management': this.generateReviewContent(pageData),
-      'results_measurement': this.generateResultsContent(pageData)
-    };
-    
-    return contentMap[sectionId] || '';
-  }
-
-  generateMarketAnalysisContent(pageData) {
-      return `
-      <p>${pageData.location}'s ${pageData.businessType} market presents unique opportunities for practices that understand local search optimization. With significant demand and established competitors, standing out requires strategic local SEO implementation.</p>
-      <h3>Market Characteristics</h3>
-      <ul>
-          <li><strong>Demographics:</strong> Diverse community with specific needs for ${pageData.businessType}</li>
-          <li><strong>Competition Level:</strong> Moderate to high for ${pageData.businessType}</li>
-          <li><strong>Search Patterns:</strong> High volume of "near me" searches for ${pageData.industryCategory}</li>
-          <li><strong>Mobile Usage:</strong> Over 80% of searches for ${pageData.businessType} happen on mobile devices</li>
-      </ul>
-      <p>Understanding these patterns allows ${pageData.location} ${pageData.businessType} to optimize their online presence for maximum acquisition.</p>
-      `;
-  }
-
-  generateGMBContent(pageData) {
-      return `
-      <p>Your Google Business Profile (formerly GMB) is the cornerstone of local marketing in ${pageData.location}. An optimized profile increases your visibility significantly in local search results.</p>
-      <h3>Essential GMB Elements for ${pageData.businessType}</h3>
-      <ul>
-          <li><strong>Complete Information:</strong> Accurate name, address, phone, and hours</li>
-          <li><strong>Professional Photos:</strong> High-quality images of your ${pageData.businessType} operations</li>
-          <li><strong>Service Descriptions:</strong> Detailed descriptions of ${pageData.industryCategory} services offered</li>
-          <li><strong>Reviews:</strong> Proactive review management strategy</li>
-          <li><strong>Updates:</strong> Regular posts about ${pageData.businessType} news and offers</li>
-      </ul>
-      `;
-  }
-
-  generateCitationContent(pageData) {
-      return `
-      <p>Building consistent local citations establishes your ${pageData.businessType} as a trusted ${pageData.location} provider while improving local search rankings.</p>
-      <h3>Essential Citations</h3>
-      <ul>
-          <li><strong>Industry Directories:</strong> Niche sites for ${pageData.industryCategory}</li>
-          <li><strong>Local Directories:</strong> ${pageData.location} Chamber of Commerce and local guides</li>
-          <li><strong>General Platforms:</strong> Yelp, YellowPages, Bing Places</li>
-      </ul>
-      <p>Consistency in Name, Address, and Phone Number (NAP) across all these platforms is crucial for maximizing your local authority.</p>
-      `;
-  }
-
-  generateContentMarketingContent(pageData) {
-      return `
-      <p>Content marketing is vital for ${pageData.businessType} in ${pageData.location}. By creating helpful content that addresses local questions, you can capture traffic earlier in the buying cycle.</p>
-      <h3>Content Ideas for ${pageData.location} ${pageData.businessType}</h3>
-      <ul>
-          <li>Local guides relevant to ${pageData.industryCategory}</li>
-          <li>Frequently Asked Questions about ${pageData.businessType} services</li>
-          <li>Case studies from ${pageData.location} clients</li>
-          <li>Community involvement updates</li>
-      </ul>
-      `;
-  }
-
-  generateReviewContent(pageData) {
-      return `
-      <p>Online reviews significantly impact customer acquisition for ${pageData.location} ${pageData.businessType}. The vast majority of customers read reviews before choosing a provider.</p>
-      <h3>Review Strategy</h3>
-      <ul>
-          <li><strong>Generation:</strong> Systematically request reviews from happy clients</li>
-          <li><strong>Response:</strong> Professional responses to all reviews within 24 hours</li>
-          <li><strong>Monitoring:</strong> Continuous tracking across all platforms</li>
-      </ul>
-      `;
-  }
-
-  generateResultsContent(pageData) {
-      return `
-      <p>Measuring the success of your local SEO efforts is essential to refining your strategy in ${pageData.location}.</p>
-      <h3>Key Metrics for ${pageData.businessType}</h3>
-      <ul>
-          <li><strong>Map Rankings:</strong> Visibility in the Local Pack for key terms</li>
-          <li><strong>Organic Traffic:</strong> Visitors to your website from search engines</li>
-          <li><strong>Conversions:</strong> Phone calls, form fills, and direction requests</li>
-          <li><strong>Review Growth:</strong> Velocity and sentiment of new reviews</li>
-      </ul>
-      `;
-  }
-
-  generateBenefits(pageData, benefitOrder) {
-    let html = '<div class="benefits-section">';
-    html += `<h2>Why ${pageData.businessType} in ${pageData.location} Need Local SEO</h2>`;
-    html += '<ul>';
-    
-    for (const benefitType of benefitOrder) {
-      const templates = this.config.copyBlockTemplates.benefit_sections[benefitType];
-      if (templates && templates.length > 0) {
-        // Pick one random template from the list to avoid repetition
-        const template = templates[this.simpleHash(pageData.location + benefitType) % templates.length];
-        const content = this.interpolateTemplate(template, {
-          location: pageData.location,
-          business_type: pageData.businessType,
-          percentage: this.getRandomPercentage(20, 50),
-          target_audience: pageData.industryCategory === 'healthcare' ? 'patients' : 'customers'
-        });
-        html += `<li>${content}</li>`;
-      }
-    }
-    html += '</ul></div>';
-    return html;
-  }
-
-  generateProofPoints(pageData, proofPoints) {
-    let html = '<div class="proof-points">';
-    html += `<h3>Success Stories: ${pageData.businessType} in ${pageData.location}</h3>`;
-    
-    for (const proofType of proofPoints) {
-      const templates = this.config.copyBlockTemplates.proof_points[proofType];
-      if (templates && templates.length > 0) {
-        const template = templates[this.simpleHash(pageData.businessType + proofType) % templates.length];
-        const content = this.interpolateTemplate(template, {
-          business_name: this.generateBusinessName(pageData),
-          business_type: pageData.businessType,
-          location: pageData.location,
-          percentage: this.getRandomPercentage(100, 300),
-          number: this.getRandomNumber(20, 100),
-          timeframe: this.getRandomTimeframe(),
-          keyword_count: this.getRandomNumber(10, 50),
-          revenue: this.getRandomRevenue(),
-          client_name: this.generateClientName(),
-          target_audience: 'customers',
-          keyword: `${pageData.businessType} in ${pageData.location}`
-        });
-        html += `<div class="proof-item"><blockquote>${content}</blockquote></div>`;
-      }
-    }
-    html += '</div>';
-    return html;
-  }
-
-  generateSchema(pageData) {
-    const schemaTemplate = this.config.schemaTemplates.localBusiness_schema;
-    
-    let schemaString = JSON.stringify(schemaTemplate);
-    
-    // Handle complex objects by replacing the quoted placeholder with the raw JSON string
-    // This allows the resulting JSON to have actual Arrays/Objects instead of strings containing them
-    const serviceListJSON = this.generateServiceList(pageData);
-    const reviewSchemaJSON = this.generateReviewSchema(pageData);
-    const socialMediaJSON = '["https://facebook.com/nsmprime", "https://twitter.com/nsmprime"]';
-    
-    schemaString = schemaString.replace(/"{{service_list}}"/g, serviceListJSON);
-    schemaString = schemaString.replace(/"{{review_schema_array}}"/g, reviewSchemaJSON);
-    schemaString = schemaString.replace(/"{{social_media_profiles}}"/g, socialMediaJSON);
-
-    const populatedString = this.interpolateTemplate(schemaString, {
-      business_name: this.generateBusinessName(pageData),
-      service_category: pageData.industryCategory,
-      location: pageData.location,
-      competitive_modifier: this.getCompetitiveModifier(pageData),
-      business_type: pageData.businessType,
-      value_proposition: this.generateValueProposition(pageData),
-      page_url: `https://nsmprime.com${this.generateURL(pageData)}`,
-      street_address: `${this.getRandomNumber(100, 9999)} Local Blvd`,
-      zip_code: "89101",
-      latitude: this.getLatitude(pageData.location),
-      longitude: this.getLongitude(pageData.location),
-      phone_number: "(702) 555-0123",
-      email: "noam@nsmprime.com",
-      opening_hours: "Mo-Fr 09:00-17:00",
-      price_range: "$$",
-      rating_value: "4.8",
-      review_count: "124"
-    });
-    
-    try {
-        return JSON.parse(populatedString);
-    } catch (e) {
-        console.error("Schema generation error", e);
-        return {};
-    }
-  }
-
-  generateInternalLinks(pageData) {
-    // Generate navigation structure for the page
-    const links = [];
-    
-    // Add pillar link
-    links.push({
-      url: "/local-seo-las-vegas-guide",
-      text: "Comprehensive Las Vegas SEO Guide",
-      rel: "parent"
-    });
-    
-    // Add service link
-    links.push({
-      url: "/services/seo/",
-      text: "Professional SEO Services",
-      rel: "related"
-    });
-    
-    return links;
-  }
-
-  generateConclusion(pageData) {
-    return `
-      <div class="conclusion-section">
-        <h2>Dominate the ${pageData.location} Market Today</h2>
-        <p>Your ${pageData.businessType} practice deserves to be found by local customers in ${pageData.location}. 
-        Don't let competitors capture the market share that should be yours.</p>
-        <p><strong>Ready to increase your local visibility?</strong> Contact NSM Prime today for a free local SEO audit specifically for your ${pageData.location} business.</p>
-      </div>
-    `;
-  }
-
-  // Helpers
-  generateValueProposition(pageData) {
-      return `Top-rated ${pageData.businessType} services`;
-  }
-  
-  generateServiceList(pageData) {
-      return JSON.stringify([{ "@type": "Offer", "name": `${pageData.businessType} Service` }]);
-  }
-  
-  generateReviewSchema(pageData) {
-       return JSON.stringify([]);
-  }
-
-  getLatitude(location) { return "36.1699"; }
-  getLongitude(location) { return "-115.1398"; }
-
-  getCompetitorCount(location, businessType) { return this.getRandomNumber(10, 50); }
-  getPopulationData(location) { 
-    const map = {
-        'Henderson': '320,000+',
-        'Summerlin': '120,000+',
-        'North Las Vegas': '275,000+',
-        'Paradise': '231,000+',
-        'Spring Valley': '215,000+',
-        'Sunrise Manor': '190,000+',
-        'Enterprise': '220,000+',
-        'Centennial Hills': '50,000+',
-        'Green Valley': '45,000+'
-    };
-    return map[location] || '100,000+'; 
-  }
-  
-  getTouristData(location) { return "42 million"; }
-  
-  getIndustryCategory(businessType) {
-      if (['dentists', 'medical practices'].includes(businessType)) return 'healthcare';
-      if (['lawyers'].includes(businessType)) return 'legal';
-      if (['plumbers', 'hvac contractors', 'electricians'].includes(businessType)) return 'home services';
-      return 'professional services';
-  }
-  
-  // Utility functions for data generation
-  calculateVariationIndex(pageData) {
-    return parseInt(pageData.pageId.split('').map(c => c.charCodeAt(0)).join('')) % 1000;
-  }
-
-  shuffleBenefits(pageData) {
-    const benefits = ['gmb_benefits', 'citation_benefits', 'content_benefits'];
-    const hash = this.simpleHash(pageData.location + pageData.businessType);
-    return this.shuffleArray(benefits, hash);
-  }
-
-  selectProofPoints(pageData) {
-    const allTypes = ['case_studies', 'statistics', 'testimonials'];
-    const industryFactor = pageData.industryCategory === 'healthcare' ? 0 : 1;
-    const locationFactor = pageData.location.includes('Las Vegas') ? 0 : 1;
-    
-    return allTypes.slice(0, 2 + (industryFactor + locationFactor) % 2);
-  }
-
-  determineSectionOrder(businessType) {
-    const defaultOrder = ['local_market_analysis', 'gmb_optimization', 'local_citation_strategy', 'content_marketing', 'review_management', 'results_measurement'];
-    
-    if (businessType.includes('medical') || businessType.includes('healthcare')) {
-      return ['gmb_optimization', 'review_management', 'local_market_analysis', 'local_citation_strategy', 'content_marketing', 'results_measurement'];
-    }
-    
-    return defaultOrder;
-  }
-
-  // Template interpolation
-  interpolateTemplate(template, variables) {
-    let result = template;
-    for (const [key, value] of Object.entries(variables)) {
-      const regex = new RegExp(`{{${key}}}`, 'g');
-      result = result.replace(regex, value);
-    }
+    this.assertComplete(result);
     return result;
   }
 
-  // Helper functions for generating realistic data
-  getCompetitiveModifier(pageData) {
-    const modifiers = this.config.variableTokens.competitive_modifiers;
-    const index = this.simpleHash(pageData.location + pageData.businessType) % modifiers.length;
-    return modifiers[index];
-  }
-
-  getRandomPercentage(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  getRandomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-
-  getRandomTimeframe() {
-    const timeframes = ['3', '6', '9', '12'];
-    return timeframes[Math.floor(Math.random() * timeframes.length)];
-  }
-
-  getRandomRevenue() {
-    const revenues = ['50,000', '75,000', '100,000', '150,000', '200,000'];
-    return revenues[Math.floor(Math.random() * revenues.length)];
-  }
-
-  generateBusinessName(pageData) {
-    const prefixes = ['Elite', 'Premier', 'Professional', 'Expert', 'Trusted'];
-    const prefix = prefixes[this.simpleHash(pageData.location) % prefixes.length];
-    return `${prefix} ${pageData.businessType}`;
-  }
-
-  generateClientName() {
-    const names = ['Sarah Johnson', 'Mike Rodriguez', 'Lisa Chen', 'David Thompson', 'Maria Garcia'];
-    return names[Math.floor(Math.random() * names.length)];
-  }
-
-  createSlug(text) {
-    return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
-  simpleHash(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      const char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
-    }
-    return Math.abs(hash);
-  }
-
-  shuffleArray(array, seed) {
-    const shuffled = [...array];
-    let currentIndex = shuffled.length;
-    
-    while (currentIndex !== 0) {
-      const randomIndex = (seed + currentIndex) % currentIndex;
-      currentIndex--;
-      [shuffled[currentIndex], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[currentIndex]];
-    }
-    
-    return shuffled;
-  }
-
-  // Batch generation for scaling
-  generateBatch(locations, businessTypes) {
-    const pages = [];
-    
-    for (const location of locations) {
-      for (const businessType of businessTypes) {
-        const industryCategory = this.getIndustryCategory(businessType);
-        const page = this.generatePage(location, businessType, industryCategory);
-        
-        // Quality control check
-        if (this.passesQualityControl(page)) {
-          pages.push(page);
-          this.generatedPages.add(page.url);
+  generateContent(pageData) {
+    const { location, businessType, businessTypeLower, locationProfile: place, industryProfile: industry } = pageData;
+    return {
+      introHook: `${location} is ${place.context}. For ${businessTypeLower}, visibility depends on more than repeating a city name: customers need accurate service information, credible proof, and an easy next step. This guide outlines a practical local search plan shaped around ${industry.priorities.join(', ')} and the way people evaluate a ${industry.singular}.`,
+      mainSections: [
+        {
+          id: 'local-market-analysis',
+          h2: `How Local Search Works for ${businessType} in ${location}`,
+          content: `<p>${place.angle}</p><p>A useful service-area strategy should explain where the business works, what it offers, and whether the customer is a good fit. For this market, that means clearly covering ${place.areas}. Those references should appear only where they are accurate and helpful—not as a list of place names added for search engines.</p><p>For ${businessTypeLower}, the highest-value searches commonly center on ${industry.priorities.join(', ')}. Separate, substantive service information can answer those needs while this page provides the local overview.</p>`
+        },
+        {
+          id: 'business-profile',
+          h2: `Google Business Profile Priorities for ${location} ${businessType}`,
+          content: `<p>The business name, primary category, address or legitimate service area, phone number, and opening hours should match the real-world business and its website. Never create a location, suite number, or phone number solely for a landing page.</p><p>A strong profile for a ${industry.singular} should make ${industry.priorities.join(', ')} easy to understand. Add original photos, keep holiday hours current, link to the most relevant page, and use updates when there is genuinely new information for ${location} customers.</p>`
+        },
+        {
+          id: 'local-authority',
+          h2: `Building Accurate Local Authority in ${location}`,
+          content: `<p>Directory listings help when they confirm real business information. Prioritize major map platforms, relevant ${industry.category} directories, local business organizations, and partners that customers actually use. The same name, contact details, hours, and website URL should appear everywhere.</p><p>Local authority also comes from real relationships. Sponsorships, community work, professional memberships, and locally relevant resources can earn mentions naturally. Avoid bulk directory submissions, invented offices, paid review schemes, and city pages that offer no information beyond swapped keywords.</p>`
+        },
+        {
+          id: 'content-plan',
+          h2: `A Useful Content Plan for ${location} ${businessType}`,
+          content: `<p>Content should resolve the questions a customer has before contacting the business. Strong starting topics include ${industry.content.join('; ')}. Each resource should reflect the business's actual services, policies, expertise, and examples.</p><p>Local detail belongs where it changes the answer. Information about travel range, seasonal demand, neighborhood access, local regulations, or service availability can make a page genuinely useful. For ${location}, explain coverage across ${place.areas} only when the business truly serves those areas.</p>`
+        },
+        {
+          id: 'reviews-and-trust',
+          h2: `Reviews and Trust Signals for ${businessType}`,
+          content: `<p>${this.capitalize(industry.customers)} look for ${industry.trust}. Publish only claims that can be verified. Ratings and testimonials should come from real customers, remain attributable where appropriate, and match the source platform.</p><p>Ask for feedback after a completed service or visit without offering incentives for positive sentiment. Respond professionally, protect private information, and use recurring feedback to improve both operations and website answers. Do not reuse a rating or review count across unrelated pages.</p>`
+        },
+        {
+          id: 'measurement',
+          h2: `Measuring Local SEO Results in ${location}`,
+          content: `<p>Track outcomes tied to the business rather than rankings alone. For this page, useful conversions include ${industry.conversions}. Measure organic landing-page visits, business-profile actions, qualified leads, booked work, and the search queries that led to those outcomes.</p><p>Review performance by service and geography. If a page attracts visits but no qualified inquiries, improve its offer, proof, service detail, or call to action. If the business cannot provide distinct value for a location, consolidate the page instead of keeping thin content online.</p>`
         }
-      }
-    }
-    
-    return pages;
+      ],
+      benefits: `<div class="benefits-section"><h2>What a Strong ${location} Strategy Should Deliver</h2><ul><li>Clear visibility for ${industry.priorities[0]} and other services the business genuinely provides</li><li>Accurate coverage information for customers in ${place.areas}</li><li>More qualified ${industry.conversions} supported by honest, measurable trust signals</li></ul></div>`,
+      conclusion: `<div class="conclusion-section"><h2>Plan Your ${location} Local SEO Campaign</h2><p>A durable campaign for ${businessTypeLower} combines accurate business data, useful service content, authentic reputation signals, and conversion measurement. NSM Prime can audit the current search presence, identify gaps, and prioritize work based on the services and areas that matter to the business.</p></div>`
+    };
   }
 
-  // Quality control validation
-  passesQualityControl(page) {
-    const wordCount = page.content.introHook.split(' ').length + 
-                     page.content.mainSections.reduce((acc, section) => acc + section.content.split(' ').length, 0);
-    
-    if (wordCount < this.config.pageGenerationRules.quality_controls.minimum_word_count) {
-      return false;
-    }
-    
-    // Check for uniqueness
-    const contentFingerprint = this.generateContentFingerprint(page.content);
-    if (this.contentFingerprints.has(contentFingerprint)) {
-      return false;
-    }
-    
-    this.contentFingerprints.set(contentFingerprint, page.url);
-    return true;
+  generateSchema(pageData) {
+    const title = `Local SEO for ${pageData.businessType} in ${pageData.location}`;
+    const description = `Local SEO strategy for ${pageData.businessTypeLower} in ${pageData.location}, Nevada. Improve local visibility with accurate listings, useful content, reviews, and conversion tracking.`;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      name: title,
+      description,
+      url: `https://nsmprime.com${pageData.url}`,
+      serviceType: 'Local search engine optimization',
+      provider: { '@type': 'Organization', name: 'NSM Prime Media Group', url: 'https://nsmprime.com/' },
+      areaServed: { '@type': 'Place', name: `${pageData.location}, Nevada` },
+      audience: { '@type': 'BusinessAudience', audienceType: pageData.businessType }
+    };
   }
 
-  generateContentFingerprint(content) {
-    const text = JSON.stringify(content);
-    return this.simpleHash(text).toString();
+  generateInternalLinks() {
+    return [
+      { url: '/local-seo-las-vegas-guide.html', text: 'Las Vegas Local SEO Guide', rel: 'parent' },
+      { url: '/seo-services-las-vegas.html', text: 'SEO Services', rel: 'related' }
+    ];
+  }
+
+  assertComplete(page) {
+    const rendered = JSON.stringify(page);
+    if (/{{[^}]+}}|\bundefined\b|null/i.test(rendered)) throw new Error(`Incomplete generated output for ${page.url}`);
+  }
+
+  titleCase(value) {
+    const acronyms = new Set(['hvac', 'seo', 'gmb', 'ppc']);
+    return String(value).split(' ').map(word => acronyms.has(word.toLowerCase())
+      ? word.toUpperCase()
+      : word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  }
+
+  capitalize(value) {
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  createSlug(value) {
+    return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  }
+
+  generateBatch(locations, businessTypes) {
+    return locations.flatMap(location => businessTypes.map(businessType =>
+      this.generatePage(location, businessType, INDUSTRY_PROFILES[businessType]?.category)
+    ));
   }
 }
 
-// Export for use
 module.exports = ProgrammaticSEOGenerator;
-
-// Usage example:
-/*
-const templateConfig = require('./programmatic-seo-template.json');
-const generator = new ProgrammaticSEOGenerator(templateConfig);
-
-// Generate single page
-const page = generator.generatePage('Henderson', 'dentists', 'healthcare');
-
-// Generate batch
-const locations = ['Las Vegas', 'Henderson', 'Summerlin'];
-const businessTypes = ['dentists', 'restaurants', 'HVAC contractors'];
-const pages = generator.generateBatch(locations, businessTypes);
-
-console.log(`Generated ${pages.length} unique pages`);
-*/

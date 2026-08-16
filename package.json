@@ -12,6 +12,7 @@
     "test:blog-seo": "node blog-seo-validator.js",
     "test:blog-seo:json": "node blog-seo-validator.js --reporter=json",
     "test:blog-seo:critical": "node blog-seo-validator.js --critical-only",
+    "test:local-seo": "node validate-local-pages.js",
     "validate-post": "node -e \"const validator = require('./blog-seo-validator.js'); const v = new validator(process.argv[1]); v.runAllTests({primaryKeyword: process.argv[2], semanticKeywords: process.argv[3]?.split(',') || []}).then(r => console.log(v.generateReport(r)));\"",
     "install-deps": "npm install jsdom axios",
     "blog:generate": "node blog-generator.js generate",
