@@ -311,8 +311,12 @@ function generateIndexPage(generatedFiles) {
 </body>
 </html>`;
 
-    fs.writeFileSync('local-service-areas.html', html);
-    console.log('✅ Generated index: local-service-areas.html');
+    // NOTE: local-service-areas.html is a hand-styled hub page and must NOT be
+    // overwritten by the generator. We write the raw auto-generated index to a
+    // separate file instead. Run rebuild-service-areas.py to refresh the styled
+    // hub with any newly generated links.
+    fs.writeFileSync('local-service-areas-generated.html', html);
+    console.log('✅ Generated raw index: local-service-areas-generated.html (styled hub left untouched)');
 }
 
 generateIndexPage(generatedFilesList);
