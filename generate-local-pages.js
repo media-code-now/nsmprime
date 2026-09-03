@@ -82,6 +82,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
         <ul>
             ${data.content.mainSections.map(section => `<li><a href="#${section.id}">${section.h2}</a></li>`).join('\n')}
             <li><a href="#benefits">Why Choose Us</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
         </ul>
     </div>
@@ -95,6 +96,15 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
 
     <section id="benefits">
         ${data.content.benefits}
+    </section>
+
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        ${data.content.faq.map(item => `
+        <div class="faq-item" style="background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:22px 24px;margin-bottom:16px;">
+            <h3 style="margin-top:0;font-size:1.25rem;color:#2d3748;">${item.q}</h3>
+            <p style="margin-bottom:0;">${item.a}</p>
+        </div>`).join('\n')}
     </section>
 
     <section id="conclusion">
