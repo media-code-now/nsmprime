@@ -53,6 +53,13 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
        li { margin-bottom: 0.5rem; font-size: 1.05rem; color: #4a5568; }
        .cta-button { display: inline-block; background: #667eea; color: white; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 20px; transition: all 0.3s; }
        .cta-button:hover { background: #5a67d8; text-decoration: none; color: white; transform: translateY(-2px); }
+       .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+       .related-col h3 { font-size: 1.15rem; color: #2d3748; margin-bottom: 12px; }
+       .related-col ul { list-style: none; padding: 0; }
+       .related-col li { margin-bottom: 10px; font-size: 1rem; }
+       .related-col a { color: #667eea; text-decoration: none; font-weight: 600; }
+       .related-col a:hover { text-decoration: underline; }
+       @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -83,6 +90,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
             ${data.content.mainSections.map(section => `<li><a href="#${section.id}">${section.h2}</a></li>`).join('\n')}
             <li><a href="#benefits">Why Choose Us</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#related">Related Local SEO Resources</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
         </ul>
     </div>
@@ -105,6 +113,30 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
             <h3 style="margin-top:0;font-size:1.25rem;color:#2d3748;">${item.q}</h3>
             <p style="margin-bottom:0;">${item.a}</p>
         </div>`).join('\n')}
+    </section>
+
+    <section id="related">
+        <h2>Related Local SEO Resources</h2>
+        <div class="related-grid">
+            <div class="related-col">
+                <h3>Other Industries in ${data.location}</h3>
+                <ul>
+                    ${data.relatedLinks.sameLocation.map(l => `<li><a href="${l.url}">${l.text}</a></li>`).join('\n')}
+                </ul>
+            </div>
+            <div class="related-col">
+                <h3>${data.businessType} SEO Across the Valley</h3>
+                <ul>
+                    ${data.relatedLinks.sameIndustry.map(l => `<li><a href="${l.url}">${l.text}</a></li>`).join('\n')}
+                </ul>
+            </div>
+            <div class="related-col">
+                <h3>Services &amp; Guides</h3>
+                <ul>
+                    ${data.relatedLinks.money.map(l => `<li><a href="${l.url}">${l.text}</a></li>`).join('\n')}
+                </ul>
+            </div>
+        </div>
     </section>
 
     <section id="conclusion">

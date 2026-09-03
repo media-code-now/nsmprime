@@ -215,7 +215,8 @@ class ProgrammaticSEOGenerator {
       metaDescription: `Local SEO strategy for ${businessType} in ${location}, Nevada. Improve local visibility with accurate listings, useful content, reviews, and conversion tracking.`,
       content: this.generateContent(pageData),
       schema: this.generateSchema(pageData),
-      internalLinks: this.generateInternalLinks()
+      internalLinks: this.generateInternalLinks(),
+      relatedLinks: this.generateRelatedLinks(location, businessType)
     };
     this.assertComplete(result);
     return result;
@@ -223,13 +224,15 @@ class ProgrammaticSEOGenerator {
 
   generateContent(pageData) {
     const { location, businessType, businessTypeLower, locationProfile: place, industryProfile: industry } = pageData;
+    const otherLocations = Object.keys(LOCATION_PROFILES).filter(l => l !== location);
+    const allLocationsText = `${otherLocations.slice(0, 3).join(', ')}, and the rest of the Las Vegas valley`;
     return {
       introHook: `${location} is ${place.context}. For ${businessTypeLower}, visibility depends on more than repeating a city name: customers need accurate service information, credible proof, and an easy next step. This guide outlines a practical local search plan shaped around ${industry.priorities.join(', ')} and the way people evaluate a ${industry.singular}.`,
       mainSections: [
         {
           id: 'local-snapshot',
           h2: `The ${location} Market for ${businessType}`,
-          content: `<p>${location} is ${place.demographic}. For a ${industry.singular} serving this area, that profile shapes who searches, what they expect, and how they choose. Nearby reference points such as ${place.landmarks} help both customers and search engines confirm that a business genuinely operates here rather than somewhere else in the valley.</p><p>Demand in this category is shaped by a local reality: ${industry.seasonal}. A ${industry.singular} that plans its content, hours, and profile around that pattern captures more of the ${industry.customers} who are actively searching. Coverage typically spans ${place.areas}, reachable via ${place.access}, across ZIP codes like ${place.zips}.</p><p>The main obstacle in this market is ${industry.challenge}. The sections below explain how to overcome it with accurate listings, useful content, and honest proof—no fabricated locations, reviews, or ratings.</p>`
+          content: `<p>${location} is ${place.demographic}. For a ${industry.singular} serving this area, that profile shapes who searches, what they expect, and how they choose. Nearby reference points such as ${place.landmarks} help both customers and search engines confirm that a business genuinely operates here rather than somewhere else in the valley.</p><p>Demand in this category is shaped by a local reality: ${industry.seasonal}. A ${industry.singular} that plans its content, hours, and profile around that pattern captures more of the ${industry.customers} who are actively searching. Coverage typically spans ${place.areas}, reachable via ${place.access}, across ZIP codes like ${place.zips}.</p><p>The main obstacle in this market is ${industry.challenge}. The sections below explain how to overcome it with accurate listings, useful content, and honest proof—no fabricated locations, reviews, or ratings. If you serve other parts of the valley too, our <a href="/local-service-areas.html">local service areas</a> and <a href="/seo-services-las-vegas.html">Las Vegas SEO services</a> pages show how the same approach scales across ${allLocationsText}.</p>`
         },
 
         {
@@ -321,6 +324,45 @@ class ProgrammaticSEOGenerator {
       { url: '/local-seo-las-vegas-guide.html', text: 'Las Vegas Local SEO Guide', rel: 'parent' },
       { url: '/seo-services-las-vegas.html', text: 'SEO Services', rel: 'related' }
     ];
+  }
+
+  // Builds a contextual internal-linking block for each page:
+  //  - money/service pages (conversion + authority flow)
+  //  - same-location sibling industries (topical hub for the neighborhood)
+  //  - same-industry pages in other locations (topical hub for the industry)
+  generateRelatedLinks(location, businessType) {
+    const slugFor = (loc, biz) => `/local-seo-${this.createSlug(loc)}-${this.createSlug(biz)}.html`;
+    const allLocations = Object.keys(LOCATION_PROFILES);
+    const allIndustries = Object.keys(INDUSTRY_PROFILES);
+    const rotate = (arr, seed) => arr.slice(seed % arr.length).concat(arr.slice(0, seed % arr.length));
+    const locIndex = allLocations.indexOf(location);
+    const bizIndex = allIndustries.indexOf(businessType);
+
+    // Same location, other industries (deterministic but varied by location).
+    const sameLocation = rotate(allIndustries.filter(b => b !== businessType), locIndex)
+      .slice(0, 4)
+      .map(biz => ({
+        url: slugFor(location, biz),
+        text: `Local SEO for ${this.titleCase(biz)} in ${location}`
+      }));
+
+    // Same industry, other locations (deterministic but varied by industry).
+    const sameIndustry = rotate(allLocations.filter(l => l !== location), bizIndex)
+      .slice(0, 4)
+      .map(loc => ({
+        url: slugFor(loc, businessType),
+        text: `${this.titleCase(businessType)} SEO in ${loc}`
+      }));
+
+    const money = [
+      { url: '/seo-services-las-vegas.html', text: 'Las Vegas SEO Services' },
+      { url: '/local-service-areas.html', text: 'All Local Service Areas' },
+      { url: '/local-seo-las-vegas-guide.html', text: 'Complete Las Vegas Local SEO Guide' },
+      { url: '/services.html', text: 'Our Full Range of Services' },
+      { url: '/contacts.html', text: 'Request a Free Consultation' }
+    ];
+
+    return { money, sameLocation, sameIndustry };
   }
 
   assertComplete(page) {
