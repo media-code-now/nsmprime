@@ -34,10 +34,23 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     ${JSON.stringify(data.schema, null, 2)}
     </script>
     
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/fonts.css">
     <style>
+       /* Self-contained styles - no render-blocking external CSS (fast Core Web Vitals) */
+       *, *::before, *::after { box-sizing: border-box; }
+       body { margin: 0; font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #4a5568; background: #fff; -webkit-font-smoothing: antialiased; }
+       a { color: #667eea; }
+       /* Minimal utility classes (replacing Bootstrap for these pages) */
+       .container { width: 100%; max-width: 1170px; margin: 0 auto; padding: 0 15px; }
+       .d-flex { display: flex; }
+       .justify-content-between { justify-content: space-between; }
+       .align-items-center { align-items: center; }
+       .text-center { text-align: center; }
+       .mt-4 { margin-top: 1.5rem; }
+       .p-4 { padding: 1.5rem; }
+       .rounded { border-radius: 0.25rem; }
+       .bg-light { background-color: #f8f9fa; }
+       .small { font-size: 0.875em; }
+       .text-muted { color: #6c757d; }
        .local-seo-page { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
        .intro-hook { font-size: 1.25rem; line-height: 1.8; margin-bottom: 3rem; color: #555; border-left: 4px solid #667eea; padding-left: 20px; }
        .quick-answer { background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 20px 24px; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.75; color: #3730a3; }
@@ -46,7 +59,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
        .table-of-contents li { margin-bottom: 10px; }
        .table-of-contents a { color: #667eea; font-weight: 600; text-decoration: none; }
        section { margin-bottom: 4rem; }
-       h1 { font-weight: 800; margin-bottom: 2rem; color: #1a202c; }
+       h1 { font-weight: 800; margin-bottom: 2rem; color: #1a202c; font-size: 2.2rem; line-height: 1.2; }
        h2 { font-weight: 700; color: #2d3748; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f1f1; padding-bottom: 10px; }
        h3 { font-size: 1.5rem; font-weight: 600; color: #4a5568; margin-top: 1.5rem; margin-bottom: 1rem; }
        p { font-size: 1.1rem; line-height: 1.8; color: #4a5568; margin-bottom: 1.5rem; }
@@ -60,7 +73,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
        .related-col li { margin-bottom: 10px; font-size: 1rem; }
        .related-col a { color: #667eea; text-decoration: none; font-weight: 600; }
        .related-col a:hover { text-decoration: underline; }
-       @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+       @media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } h1 { font-size: 1.8rem; } }
     </style>
 </head>
 <body>
