@@ -40,6 +40,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     <style>
        .local-seo-page { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
        .intro-hook { font-size: 1.25rem; line-height: 1.8; margin-bottom: 3rem; color: #555; border-left: 4px solid #667eea; padding-left: 20px; }
+       .quick-answer { background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 20px 24px; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.75; color: #3730a3; }
        .table-of-contents { background: #f8f9fa; padding: 30px; border-radius: 8px; margin-bottom: 3rem; border: 1px solid #e9ecef; }
        .table-of-contents ul { list-style: none; padding: 0; }
        .table-of-contents li { margin-bottom: 10px; }
@@ -81,6 +82,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
 <article class="local-seo-page">
     <header>
         <h1>${data.title}</h1>
+        <div class="quick-answer">${data.content.quickAnswer}</div>
         <div class="intro-hook">${data.content.introHook}</div>
     </header>
 

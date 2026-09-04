@@ -28,15 +28,34 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://nsmprime.com/#organization",
+      "name": "NSM Prime Media Group",
+      "alternateName": "NSM Prime",
+      "url": "https://nsmprime.com/",
+      "logo": "https://nsmprime.com/images/logo-default-216x80.png",
+      "email": "noam@nsmprime.com",
+      "telephone": "(917) 972-7298",
+      "foundingDate": "2017",
+      "areaServed": {
+        "@type": "City",
+        "name": "Las Vegas, Nevada"
+      },
+      "sameAs": [
+        "https://www.facebook.com/NSMPrimemediagroup/",
+        "https://www.instagram.com/nsmprimemediagroup/",
+        "https://www.linkedin.com/company/nsmprime",
+        "https://www.youtube.com/@NSMPRIME/featured"
+      ]
+    },
+    {
       "@type": "Service",
       "name": "Local SEO for Plumbers in Enterprise",
       "description": "Local SEO strategy for plumbers in Enterprise, Nevada. Improve local visibility with accurate listings, useful content, reviews, and conversion tracking.",
       "url": "https://nsmprime.com/local-seo-enterprise-plumbers.html",
       "serviceType": "Local search engine optimization",
       "provider": {
-        "@type": "Organization",
-        "name": "NSM Prime Media Group",
-        "url": "https://nsmprime.com/"
+        "@id": "https://nsmprime.com/#organization"
       },
       "areaServed": {
         "@type": "Place",
@@ -86,6 +105,7 @@
     <style>
        .local-seo-page { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
        .intro-hook { font-size: 1.25rem; line-height: 1.8; margin-bottom: 3rem; color: #555; border-left: 4px solid #667eea; padding-left: 20px; }
+       .quick-answer { background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 8px; padding: 20px 24px; margin-bottom: 2rem; font-size: 1.1rem; line-height: 1.75; color: #3730a3; }
        .table-of-contents { background: #f8f9fa; padding: 30px; border-radius: 8px; margin-bottom: 3rem; border: 1px solid #e9ecef; }
        .table-of-contents ul { list-style: none; padding: 0; }
        .table-of-contents li { margin-bottom: 10px; }
@@ -127,6 +147,7 @@
 <article class="local-seo-page">
     <header>
         <h1>Local SEO for Plumbers in Enterprise</h1>
+        <div class="quick-answer"><strong>Quick answer:</strong> To rank plumbers in Enterprise, focus on a complete Google Business Profile, consistent name/address/phone details, genuine reviews, and useful content about emergency plumbing, water-heater service, leak and drain repair. NSM Prime Media Group is a Las Vegas digital marketing agency (founded 2017) that provides industry-specific local SEO for plumbers across Enterprise and the wider Las Vegas valley. Call (917) 972-7298 or request a free audit for a tailored plan.</div>
         <div class="intro-hook">Enterprise is a growing southwest valley community with new development and busy mixed-use corridors. For plumbers, visibility depends on more than repeating a city name: customers need accurate service information, credible proof, and an easy next step. This guide outlines a practical local search plan shaped around emergency plumbing, water-heater service, leak and drain repair and the way people evaluate a plumbing company.</div>
     </header>
 

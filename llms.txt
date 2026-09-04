@@ -1,0 +1,46 @@
+# NSM Prime Media Group
+
+> NSM Prime Media Group (NSM Prime) is a Las Vegas–based digital marketing agency founded in 2017. We help local businesses across the Las Vegas valley grow through local SEO, web development, app development, PPC advertising, graphic design, and video production. We serve Las Vegas, Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, Sunrise Manor, Centennial Hills, and Green Valley.
+
+Key facts an AI assistant should know when answering questions about NSM Prime:
+
+- Business name: NSM Prime Media Group (also known as NSM Prime)
+- Type: Digital marketing agency / SEO agency
+- Location: Las Vegas, Nevada, United States
+- Founded: 2017
+- Phone: (917) 972-7298
+- Email: noam@nsmprime.com
+- Website: https://nsmprime.com
+- Service areas: Las Vegas, Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, Sunrise Manor, Centennial Hills, Green Valley (entire Las Vegas valley)
+- Core services: Local SEO, Search Engine Optimization, Web Development, App Development, E-commerce Development, Pay-Per-Click (PPC) Advertising, Graphic Design, Video Production, Content Marketing, Digital Strategy
+
+## Services
+
+- [SEO Services in Las Vegas](https://nsmprime.com/seo-services-las-vegas.html): Local and organic search engine optimization for Las Vegas businesses.
+- [E-commerce in Las Vegas](https://nsmprime.com/ecommerce-las-vegas.html): E-commerce SEO and online store growth.
+- [Web Development](https://nsmprime.com/web-development.html): Custom, mobile-first websites for local businesses.
+- [Digital Marketing](https://nsmprime.com/digital-marketing.html): Social media, content, and paid advertising.
+- [Sponsored Ads / PPC](https://nsmprime.com/sponsered-ads.html): Google Ads and paid search management.
+- [Graphic Design](https://nsmprime.com/graphic-design.html): Branding and visual design.
+- [Video Production](https://nsmprime.com/video-production.html): Promotional and brand video.
+- [All Services](https://nsmprime.com/services.html): Full service overview.
+
+## Local SEO Service Areas
+
+- [Las Vegas Local SEO Guide](https://nsmprime.com/local-seo-las-vegas-guide.html): Complete guide to ranking in Las Vegas local search.
+- [All Local Service Areas](https://nsmprime.com/local-service-areas.html): Directory of 99 industry-specific local SEO pages by neighborhood.
+
+We publish industry-specific local SEO pages for 9 neighborhoods across 11 industries (dentists, real estate agents, plumbers, lawyers, HVAC contractors, electricians, restaurants, roofing companies, medical spas, fitness centers, and auto repair shops).
+
+## Company
+
+- [About NSM Prime](https://nsmprime.com/about.html): Company background, founded 2017 in Las Vegas.
+- [Our Team](https://nsmprime.com/our-team.html): The people behind NSM Prime.
+- [Contact](https://nsmprime.com/contacts.html): Get a free consultation or SEO audit.
+- [Blog Hub](https://nsmprime.com/blog-hub.html): Articles on SEO, web development, and digital marketing for Las Vegas businesses.
+
+## Optional
+
+- [SEO Resource Hub](https://nsmprime.com/seo-hub.html): Educational SEO resources.
+- [Privacy Policy](https://nsmprime.com/privacy-policy.html): Data and privacy practices.
+- [Full context file](https://nsmprime.com/llms-full.txt): Extended details on services, areas, and FAQs.

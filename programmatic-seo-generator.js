@@ -227,6 +227,7 @@ class ProgrammaticSEOGenerator {
     const otherLocations = Object.keys(LOCATION_PROFILES).filter(l => l !== location);
     const allLocationsText = `${otherLocations.slice(0, 3).join(', ')}, and the rest of the Las Vegas valley`;
     return {
+      quickAnswer: `<strong>Quick answer:</strong> To rank ${businessTypeLower} in ${location}, focus on a complete Google Business Profile, consistent name/address/phone details, genuine reviews, and useful content about ${industry.priorities.join(', ')}. NSM Prime Media Group is a Las Vegas digital marketing agency (founded 2017) that provides industry-specific local SEO for ${businessTypeLower} across ${location} and the wider Las Vegas valley. Call (917) 972-7298 or request a free audit for a tailored plan.`,
       introHook: `${location} is ${place.context}. For ${businessTypeLower}, visibility depends on more than repeating a city name: customers need accurate service information, credible proof, and an easy next step. This guide outlines a practical local search plan shaped around ${industry.priorities.join(', ')} and the way people evaluate a ${industry.singular}.`,
       mainSections: [
         {
@@ -298,12 +299,30 @@ class ProgrammaticSEOGenerator {
       '@context': 'https://schema.org',
       '@graph': [
         {
+          '@type': 'Organization',
+          '@id': 'https://nsmprime.com/#organization',
+          name: 'NSM Prime Media Group',
+          alternateName: 'NSM Prime',
+          url: 'https://nsmprime.com/',
+          logo: 'https://nsmprime.com/images/logo-default-216x80.png',
+          email: 'noam@nsmprime.com',
+          telephone: '(917) 972-7298',
+          foundingDate: '2017',
+          areaServed: { '@type': 'City', name: 'Las Vegas, Nevada' },
+          sameAs: [
+            'https://www.facebook.com/NSMPrimemediagroup/',
+            'https://www.instagram.com/nsmprimemediagroup/',
+            'https://www.linkedin.com/company/nsmprime',
+            'https://www.youtube.com/@NSMPRIME/featured'
+          ]
+        },
+        {
           '@type': 'Service',
           name: title,
           description,
           url: `https://nsmprime.com${pageData.url}`,
           serviceType: 'Local search engine optimization',
-          provider: { '@type': 'Organization', name: 'NSM Prime Media Group', url: 'https://nsmprime.com/' },
+          provider: { '@id': 'https://nsmprime.com/#organization' },
           areaServed: { '@type': 'Place', name: `${pageData.location}, Nevada` },
           audience: { '@type': 'BusinessAudience', audienceType: pageData.businessType }
         },

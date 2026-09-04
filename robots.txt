@@ -36,3 +36,49 @@ Allow: /
 
 User-agent: LinkedInBot
 Allow: /
+
+# AI answer engines & LLM crawlers - explicitly allowed for AI search visibility
+# (ChatGPT, OpenAI search, Perplexity, Claude, Google AI, Apple Intelligence, Common Crawl)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+user-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# AI context files for LLMs
+# https://nsmprime.com/llms.txt
+# https://nsmprime.com/llms-full.txt
+

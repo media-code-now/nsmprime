@@ -23,7 +23,7 @@
     "blog:auto:status": "node blog-automation-scheduler.js status",
     "blog:auto:config": "node blog-automation-scheduler.js config",
     "sitemap:generate": "node sitemap-generator.js all",
-    "blog:deploy": "npm run blog:generate && npm run sitemap:generate && npm run build && cp *.html out/ && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/ && cp -r bat out/ && cp sitemap.xml out/ && cp robots.txt out/"
+    "blog:deploy": "npm run blog:generate && npm run sitemap:generate && npm run build && cp *.html out/ && cp -r css out/ && cp -r js out/ && cp -r images out/ && cp -r fonts out/ && cp -r audio out/ && cp -r video out/ && cp -r bat out/ && cp sitemap.xml out/ && cp robots.txt out/ && cp llms.txt out/ && cp llms-full.txt out/"
   },
   "dependencies": {
     "axios": "^1.5.0",
