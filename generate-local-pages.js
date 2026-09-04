@@ -80,6 +80,13 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
 </header>
 
 <article class="local-seo-page">
+    <nav aria-label="Breadcrumb" style="font-size:0.9rem;margin-bottom:20px;color:#718096;">
+        <a href="index.html" style="color:#667eea;text-decoration:none;">Home</a>
+        <span style="margin:0 8px;">&rsaquo;</span>
+        <a href="local-service-areas.html" style="color:#667eea;text-decoration:none;">Local Service Areas</a>
+        <span style="margin:0 8px;">&rsaquo;</span>
+        <span>${data.title}</span>
+    </nav>
     <header>
         <h1>${data.title}</h1>
         <div class="quick-answer">${data.content.quickAnswer}</div>

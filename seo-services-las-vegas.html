@@ -116,6 +116,41 @@
       ]
     }
     </script>
+
+    <!-- Organization Entity + Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://nsmprime.com/#organization",
+          "name": "NSM Prime Media Group",
+          "alternateName": "NSM Prime",
+          "url": "https://nsmprime.com/",
+          "logo": "https://nsmprime.com/images/logo-default-216x80.png",
+          "email": "noam@nsmprime.com",
+          "telephone": "(917) 972-7298",
+          "foundingDate": "2017",
+          "areaServed": { "@type": "City", "name": "Las Vegas, Nevada" },
+          "sameAs": [
+            "https://www.facebook.com/NSMPrimemediagroup/",
+            "https://www.instagram.com/nsmprimemediagroup/",
+            "https://www.linkedin.com/company/nsmprime",
+            "https://www.youtube.com/@NSMPRIME/featured"
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nsmprime.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://nsmprime.com/services.html" },
+            { "@type": "ListItem", "position": 3, "name": "SEO Services Las Vegas", "item": "https://nsmprime.com/seo-services-las-vegas.html" }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
@@ -254,6 +289,9 @@
                 <p class="lead text-center text-lg-left">
                   Boost your Las Vegas business to the top of Google search results with our proven SEO strategies. We specialize in local SEO that drives real customers to your door.
                 </p>
+                <div style="background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:18px 22px;margin-top:24px;color:#3730a3;line-height:1.7;">
+                  <strong>Quick answer:</strong> NSM Prime Media Group is a Las Vegas digital marketing agency (founded 2017) offering local and organic SEO for businesses across the entire Las Vegas valley &mdash; Henderson, Summerlin, North Las Vegas, Paradise, Spring Valley, Enterprise, Sunrise Manor, Centennial Hills, and Green Valley. Services include Google Business Profile optimization, local citations, on-page and technical SEO, content, and link building. Call (917) 972-7298 or request a free SEO audit for a tailored plan.
+                </div>
                 <div class="group-sm group-middle justify-content-center justify-content-lg-start d-flex align-items-center" style="margin-top: 30px;">
                   <a class="button button-primary" href="contacts.html">Get Free SEO Audit</a>
                 </div>

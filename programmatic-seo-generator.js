@@ -333,6 +333,14 @@ class ProgrammaticSEOGenerator {
             name: item.q,
             acceptedAnswer: { '@type': 'Answer', text: item.a }
           }))
+        },
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nsmprime.com/' },
+            { '@type': 'ListItem', position: 2, name: 'Local Service Areas', item: 'https://nsmprime.com/local-service-areas.html' },
+            { '@type': 'ListItem', position: 3, name: title, item: `https://nsmprime.com${pageData.url}` }
+          ]
         }
       ]
     };

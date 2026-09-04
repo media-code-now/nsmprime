@@ -31,20 +31,43 @@ export default function EcommercePage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "NSM Prime - E-Commerce Development",
-            "description": "Professional e-commerce development in Las Vegas",
-            "url": "https://nsmprime.com/ecommerce-las-vegas",
-            "telephone": "(917) 972-7298",
-            "email": "noam@nsmprime.com",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Las Vegas",
-              "addressRegion": "NV",
-              "addressCountry": "US"
-            },
-            "serviceType": "E-Commerce Development",
-            "areaServed": "Las Vegas"
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://nsmprime.com/#organization",
+                "name": "NSM Prime Media Group",
+                "alternateName": "NSM Prime",
+                "url": "https://nsmprime.com/",
+                "logo": "https://nsmprime.com/images/logo-default-216x80.png",
+                "email": "noam@nsmprime.com",
+                "telephone": "(917) 972-7298",
+                "foundingDate": "2017",
+                "areaServed": { "@type": "City", "name": "Las Vegas, Nevada" },
+                "sameAs": [
+                  "https://www.facebook.com/NSMPrimemediagroup/",
+                  "https://www.instagram.com/nsmprimemediagroup/",
+                  "https://www.linkedin.com/company/nsmprime",
+                  "https://www.youtube.com/@NSMPRIME/featured"
+                ]
+              },
+              {
+                "@type": "Service",
+                "name": "E-Commerce Development Las Vegas",
+                "description": "Professional e-commerce development in Las Vegas. Custom Shopify, WooCommerce, and BigCommerce online stores with e-commerce SEO.",
+                "url": "https://nsmprime.com/ecommerce-las-vegas",
+                "serviceType": "E-Commerce Development",
+                "provider": { "@id": "https://nsmprime.com/#organization" },
+                "areaServed": { "@type": "Place", "name": "Las Vegas, Nevada" }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nsmprime.com/" },
+                  { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://nsmprime.com/services.html" },
+                  { "@type": "ListItem", "position": 3, "name": "E-Commerce Las Vegas", "item": "https://nsmprime.com/ecommerce-las-vegas" }
+                ]
+              }
+            ]
           })
         }}
       />
@@ -74,6 +97,10 @@ export default function EcommercePage() {
             <p className="text-xl md:text-2xl mb-8 leading-relaxed" style={{color: '#e0e0e0'}}>
               Launch a high-converting online store. Custom e-commerce development that increases sales, improves customer experience, and scales with your business.
             </p>
+
+            <div style={{background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(128,222,234,0.5)', borderRadius: '8px', padding: '18px 22px', marginBottom: '32px', lineHeight: 1.7, color: '#f0f0f0', maxWidth: '760px'}}>
+              <strong style={{color: PRIMARY}}>Quick answer:</strong> NSM Prime Media Group is a Las Vegas digital marketing agency (founded 2017) that builds custom e-commerce websites on Shopify, WooCommerce, and BigCommerce for businesses across the Las Vegas valley. We combine store development with e-commerce SEO so your products rank and sell 24/7. Call (917) 972-7298 or request a free consultation.
+            </div>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <a
