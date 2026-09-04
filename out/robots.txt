@@ -1,0 +1,18 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.next/
+Disallow: /api/
+Disallow: /private/
+
+# Specific rules for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://nsmprime.com/sitemap.xml
+
+# Request rate (in milliseconds between requests)
+Crawl-delay: 1
