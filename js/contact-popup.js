@@ -135,12 +135,12 @@ class ContactPopup {
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="contact-phone">Phone Number</label>
-                                <input type="tel" id="contact-phone" name="phone" placeholder="Enter your phone number">
+                                <label for="contact-phone">Phone Number *</label>
+                                <input type="tel" id="contact-phone" name="phone" required placeholder="Enter your phone number">
                             </div>
                             <div class="form-group">
-                                <label for="contact-service">Service Interested In</label>
-                                <select id="contact-service" name="service">
+                                <label for="contact-service">Service Interested In *</label>
+                                <select id="contact-service" name="service" required>
                                     <option value="">Select a service</option>
                                     <option value="web-development">Web Development</option>
                                     <option value="seo">SEO Services</option>
@@ -379,9 +379,11 @@ class ContactPopup {
         const name = formData.get('name').trim();
         const email = formData.get('email').trim();
         const subject = formData.get('subject').trim();
-        
-        if (!name || !email || !subject) {
-            this.showFormError('Please fill in all required fields.');
+        const phone = (formData.get('phone') || '').trim();
+        const service = (formData.get('service') || '').trim();
+
+        if (!name || !email || !phone || !service || !subject) {
+            this.showFormError('Please fill in all required fields, including phone and service.');
             return;
         }
         

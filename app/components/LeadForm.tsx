@@ -95,6 +95,21 @@ export default function LeadForm({
           required
         />
 
+        <select name="service" className={inputClasses} defaultValue="" required>
+          <option value="" disabled>
+            Service You Need
+          </option>
+          <option value="Web Development">Web Development</option>
+          <option value="SEO">SEO Services</option>
+          <option value="Digital Marketing">Digital Marketing</option>
+          <option value="App Development">App Development</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="E-commerce Development">E-commerce Development</option>
+          <option value="Video Production">Video Production</option>
+          <option value="PPC Advertising">PPC Advertising</option>
+          <option value="Other">Other</option>
+        </select>
+
         {showWebsite && (
           <input
             type="url"

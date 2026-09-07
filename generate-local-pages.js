@@ -180,6 +180,18 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
                 </div>
                 <input type="email" name="email" placeholder="Email Address" required style="width:100%;padding:12px;border:1px solid #cbd5e0;border-radius:5px;margin-bottom:12px;">
                 <input type="url" name="website" placeholder="Your Website (optional)" style="width:100%;padding:12px;border:1px solid #cbd5e0;border-radius:5px;margin-bottom:12px;">
+                <select name="service" required style="width:100%;padding:12px;border:1px solid #cbd5e0;border-radius:5px;margin-bottom:12px;background:#fff;">
+                    <option value="">Select Service *</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="SEO">SEO Services</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="App Development">App Development</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="E-commerce Development">E-commerce Development</option>
+                    <option value="Video Production">Video Production</option>
+                    <option value="PPC Advertising">PPC Advertising</option>
+                    <option value="Other">Other</option>
+                </select>
                 <button type="submit" class="cta-button" style="width:100%;border:none;cursor:pointer;">Get My Free Local SEO Audit</button>
             </form>
        </div>
