@@ -29,7 +29,9 @@ const CONFIG = {
     { url: '/grid-blog.html', changefreq: 'daily', priority: '0.8' },
     { url: '/contacts.html', changefreq: 'monthly', priority: '0.7' },
     { url: '/local-service-areas.html', changefreq: 'weekly', priority: '0.8' },
-    { url: '/privacy-policy.html', changefreq: 'yearly', priority: '0.3' }
+    { url: '/app-development.html', changefreq: 'monthly', priority: '0.7' },
+    { url: '/privacy-policy.html', changefreq: 'yearly', priority: '0.3' },
+    { url: '/terms-of-service.html', changefreq: 'yearly', priority: '0.3' }
   ]
 };
 
