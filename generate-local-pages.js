@@ -4,6 +4,12 @@ const path = require('path');
 const ProgrammaticSEOGenerator = require('./programmatic-seo-generator');
 const templateConfig = require('./programmatic-seo-template.json');
 
+// Only a curated set of local pages is indexable; the rest are noindex,follow
+// (near-duplicate programmatic pages dilute quality). Keep in sync with sitemap-generator.js.
+const KEEP_CITIES = ['henderson', 'summerlin', 'north-las-vegas'];
+const KEEP_INDUSTRIES = ['dentists', 'lawyers', 'plumbers', 'hvac-contractors', 'roofing-companies'];
+const isIndexable = (url) => KEEP_CITIES.some(c => KEEP_INDUSTRIES.some(i => url === `/local-seo-${c}-${i}.html`));
+
 // HTML Skeleton Template
 const htmlTemplate = (data) => `<!DOCTYPE html>
 <html lang="en">
@@ -13,7 +19,7 @@ const htmlTemplate = (data) => `<!DOCTYPE html>
     <link rel="canonical" href="https://nsmprime.com${data.url}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow"> 
+    <meta name="robots" content="${isIndexable(data.url) ? 'index, follow' : 'noindex, follow'}">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">

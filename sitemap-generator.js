@@ -43,6 +43,8 @@ function findLocalSEOFiles() {
     const files = fs.readdirSync(__dirname);
     return files
       .filter(file => file.startsWith('local-seo-') && file.endsWith('.html'))
+      // skip pages marked noindex (curated indexable set only)
+      .filter(file => !/name="robots"[^>]*noindex/i.test(fs.readFileSync(path.join(__dirname, file), 'utf8')))
       .sort()
       .map(file => ({
         url: `/${file}`,
