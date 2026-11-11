@@ -31,6 +31,7 @@ const CONFIG = {
     { url: '/local-service-areas.html', changefreq: 'weekly', priority: '0.8' },
     { url: '/summerlin-seo.html', changefreq: 'monthly', priority: '0.8' },
     { url: '/roofing-seo-las-vegas.html', changefreq: 'monthly', priority: '0.8' },
+    { url: '/google-core-update-november-2026.html', changefreq: 'weekly', priority: '0.6' },
     { url: '/app-development.html', changefreq: 'monthly', priority: '0.7' },
     { url: '/privacy-policy.html', changefreq: 'yearly', priority: '0.3' },
     { url: '/terms-of-service.html', changefreq: 'yearly', priority: '0.3' }
