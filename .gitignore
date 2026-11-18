@@ -43,3 +43,5 @@ logs
 # Temporary files
 *.tmp
 *.temp
+# Next.js static export output (Netlify rebuilds this)
+out/

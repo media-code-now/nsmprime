@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: {
     default: 'NSM Prime Media Group - Digital Marketing Blog',
-    template: '%s | NSM Prime Media Group'
+    template: '%s | NSM Prime'
   },
   description: 'Expert digital marketing insights, SEO strategies, web development trends, and business growth tips from Las Vegas industry leaders.',
   keywords: ['digital marketing', 'SEO', 'web development', 'Las Vegas', 'marketing agency', 'app development', 'PPC', 'content marketing'],
@@ -17,9 +17,6 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://nsmprime.com'),
-  alternates: {
-    canonical: '/',
-  },
   verification: {
     google: 'v9SyE8Pr3XukCvGI24RZzG9qth6P_qMvdK8m8Sp_d_s',
   },

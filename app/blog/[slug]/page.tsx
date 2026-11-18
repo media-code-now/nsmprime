@@ -82,7 +82,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   return {
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
+    alternates: { canonical: `/blog/${params.slug}/` },
     openGraph: {
+      url: `https://nsmprime.com/blog/${params.slug}/`,
       title: post.title,
       description: post.excerpt,
       type: 'article',

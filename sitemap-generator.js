@@ -11,7 +11,8 @@ const path = require('path');
 // Configuration
 const CONFIG = {
   baseUrl: 'https://nsmprime.com',
-  dataPath: path.join(__dirname, 'data/posts.json'),
+  // Use the same file Next.js renders from, so every listed post has a real page
+  dataPath: path.join(__dirname, 'public/data/posts.json'),
   sitemapPath: path.join(__dirname, 'sitemap.xml'),
   staticPages: [
     { url: '/', changefreq: 'weekly', priority: '1.0' },
@@ -26,7 +27,10 @@ const CONFIG = {
     { url: '/seo-hub.html', changefreq: 'weekly', priority: '0.9' },
     { url: '/seo-services-las-vegas.html', changefreq: 'weekly', priority: '0.9' },
     { url: '/blog-hub.html', changefreq: 'daily', priority: '0.9' },
-    { url: '/grid-blog.html', changefreq: 'daily', priority: '0.8' },
+    { url: '/seo-agency-las-vegas/', changefreq: 'weekly', priority: '0.9' },
+    { url: '/ecommerce-las-vegas/', changefreq: 'monthly', priority: '0.8' },
+    { url: '/blog/', changefreq: 'weekly', priority: '0.8' },
+    { url: '/blog/ultimate-guide-local-seo-las-vegas-2026/', changefreq: 'monthly', priority: '0.7' },
     { url: '/contacts.html', changefreq: 'monthly', priority: '0.7' },
     { url: '/local-service-areas.html', changefreq: 'weekly', priority: '0.8' },
     { url: '/summerlin-seo.html', changefreq: 'monthly', priority: '0.8' },
@@ -82,6 +86,21 @@ function loadBlogPosts() {
 }
 
 /**
+ * Return the canonical URL declared inside a static .html page, falling back
+ * to baseUrl + path. Keeps sitemap URLs identical to on-page canonicals.
+ */
+function canonicalFor(urlPath) {
+  if (urlPath.endsWith('.html')) {
+    try {
+      const html = fs.readFileSync(path.join(__dirname, urlPath.replace(/^\//, '')), 'utf8');
+      const m = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/i);
+      if (m && m[1].startsWith(CONFIG.baseUrl)) return m[1];
+    } catch (e) { /* fall through */ }
+  }
+  return `${CONFIG.baseUrl}${urlPath}`;
+}
+
+/**
  * Format date for sitemap
  */
 function formatDate(dateString) {
@@ -121,10 +140,10 @@ function generateSitemap() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 `;
 
-  // Add static pages
+  // Add static pages (prefer the page's own canonical so sitemap === canonical)
   CONFIG.staticPages.forEach(page => {
     sitemap += `  <url>
-    <loc>${CONFIG.baseUrl}${page.url}</loc>
+    <loc>${canonicalFor(page.url)}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
@@ -135,7 +154,7 @@ function generateSitemap() {
   // Add generated local SEO pages
   localSEOPages.forEach(page => {
     sitemap += `  <url>
-    <loc>${CONFIG.baseUrl}${page.url}</loc>
+    <loc>${canonicalFor(page.url)}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
@@ -147,7 +166,7 @@ function generateSitemap() {
   uniquePosts.forEach(post => {
     const postDate = formatDate(post.modifiedDate || post.publishDate);
     sitemap += `  <url>
-    <loc>${CONFIG.baseUrl}/blog/?slug=${post.slug}</loc>
+    <loc>${CONFIG.baseUrl}/blog/${post.slug}/</loc>
     <lastmod>${postDate}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -247,8 +266,8 @@ function main() {
       break;
       
     case 'all':
+      // robots.txt is hand-maintained (AI crawler rules) — do not overwrite it here.
       generateSitemap();
-      generateRobotsTxt();
       break;
       
     case 'help':

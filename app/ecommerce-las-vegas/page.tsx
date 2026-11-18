@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Professional e-commerce development in Las Vegas. Custom Shopify, WooCommerce, and BigCommerce stores. Increase online sales. Free consultation for Las Vegas businesses.',
   keywords: ['e-commerce Las Vegas', 'online store development', 'Shopify store Las Vegas', 'WooCommerce development', 'online sales'],
   alternates: {
-    canonical: 'https://nsmprime.com/ecommerce-las-vegas',
+    canonical: 'https://nsmprime.com/ecommerce-las-vegas/',
   },
   openGraph: {
     title: 'E-Commerce Website Development in Las Vegas | NSM Prime',

@@ -4,8 +4,9 @@ import fs from 'fs';
 import path from 'path';
 
 export const metadata: Metadata = {
-  title: 'Digital Marketing Blog | NSM Prime',
-  description: 'Expert insights, actionable strategies, and industry trends to help your business thrive in the digital landscape.',
+  title: 'Las Vegas SEO & Digital Marketing Blog',
+  description: 'Practical guides for Las Vegas businesses: SEO costs, Google Business Profile, reviews, Google Ads vs SEO, AI search and site speed. Written by NSM Prime.',
+  alternates: { canonical: '/blog/' },
   openGraph: {
     title: 'Digital Marketing Insights & Strategies | NSM Prime Blog',
     description: 'Expert insights, actionable strategies, and industry trends to help your business thrive in the digital landscape.',

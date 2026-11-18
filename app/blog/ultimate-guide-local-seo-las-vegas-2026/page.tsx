@@ -3,7 +3,8 @@ import Image from 'next/image';
 import LeadForm from '../../components/LeadForm';
 
 export const metadata = {
-  title: 'The Ultimate Guide to Local SEO for Las Vegas Businesses in 2026 | NSM Prime',
+  title: 'Local SEO Las Vegas: The 2026 Guide for Local Businesses',
+  alternates: { canonical: '/blog/ultimate-guide-local-seo-las-vegas-2026/' },
   description: 'Learn how Las Vegas businesses can dominate local search in 2026. A complete guide to Local SEO, GBP optimization, and local content strategy by NSM Prime.',
 };
 

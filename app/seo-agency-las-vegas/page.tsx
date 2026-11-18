@@ -3,8 +3,9 @@ import Image from 'next/image';
 import LeadForm from '../components/LeadForm';
 
 export const metadata = {
-  title: 'SEO Agency Las Vegas | Get More Customers From Google in 90 Days',
-  description: 'Stop losing customers to competitors. Our proven SEO system gets Las Vegas businesses ranking #1 on Google. Free SEO audit. No long-term contracts.',
+  title: 'SEO Agency Las Vegas | More Customers From Google',
+  description: 'Las Vegas SEO agency focused on calls and booked jobs, not vanity rankings. Free SEO audit, clear monthly reporting, no long-term contracts. Call (917) 972-7298.',
+  alternates: { canonical: '/seo-agency-las-vegas/' },
 };
 
 // NSM Prime Brand Colors
